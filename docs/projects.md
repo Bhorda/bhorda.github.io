@@ -6,7 +6,7 @@ permalink: /projects
 
 # Current projects
 
-[**Amulet Social Journalling**](/projects/amulet)\
+[**Amulet Social Journalling**](https://www.noblank.space/work/amulet)\
 *App for supporting community-centric personal energy management*
 
 [**Void Knowledge Management** (Figma)](https://www.figma.com/file/uvdFSgSNeqAohRrif95Bh2/Void-App?type=design&node-id=108%3A1835&mode=design&t=855WqlKT1VofLXYR-1)\
