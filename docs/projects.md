@@ -14,6 +14,9 @@ I'm currently working on speculative tools for knowledge representation, well-be
 [**Void Knowledge Management** (Figma)](https://www.figma.com/file/uvdFSgSNeqAohRrif95Bh2/Void-App?type=design&node-id=108%3A1835&mode=design&t=855WqlKT1VofLXYR-1)\
 *Explorative study on intentionally imperfect note-taking.*
 
+
+<div style="margin-bottom: 80px;"></div>
+
 ### Archived projects
 
 [**Soulbloom: towards physicalisation of personal data for well-being and communication**](https://searle.hu/assets/Soulbloom.pdf) - *2023*\

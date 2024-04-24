@@ -37,8 +37,14 @@ a {
     font-size: 17px;
     line-height: 1.2em;
     color: #1c1c1c;
-    text-decoration:underline;
+    text-decoration:none;
+    font-weight: 500;
     line-height: 1em;
+}
+
+a i {
+    vertical-align: middle;
+    margin-top: 1px;
 }
 
 .works {

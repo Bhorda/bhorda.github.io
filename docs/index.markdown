@@ -68,7 +68,7 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph ph-palette"></i>
   </div>
   <div class="work">
-    <p>MSc Human-Computer Interaction, UCL</p>
+    <p>MSc HCI, UCL</p>
     <hr>
     <i class="ph ph-microscope"></i>
     <i class="ph ph-palette"></i>
@@ -83,7 +83,7 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph ph-pen-nib"></i>
   </div>
   <div class="work">
-    <p>MA Computer Science, University of Cambridge</p>
+    <p>MA CS, University of Cambridge</p>
     <hr>
     <i class="ph ph-microscope"></i>
     <i class="ph ph-code"></i>
