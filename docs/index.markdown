@@ -5,23 +5,101 @@ layout: default
 <div style="display: flex; align-items: center; justify-content: space-around;">
   <div style="flex: 1; padding-right: 20px;">
     <h1>Hi, I'm Ben.</h1>
-    <p>My research focuses on human-centred design and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
+    <p>I'm an incoming PhD student at UCL Computer Science. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
   </div>
   <div style="width: 140px;"> <!-- Adjust width as needed -->
    <!--change to assets/pfp.png when working locally smh-->
-    <img src="/assets/pfp.png" alt="Profile Picture" style="width: 130px; transform: rotate(3deg); box-shadow: 0px 1px 4px rgba(0,0,0,0.5);">
+    <img src="/assets/pfp.png" alt="Profile Picture" style="width: 130px; border-radius: 4px; transform: rotate(3deg); box-shadow: 4px 4px 0px rgba(0,0,0,0.2);">
   </div>
   
 </div>
 
-I'm currently working on speculative tools for knowledge representation, well-being support, and communication. My main projects are [**Void**](/projects), an app challenging the note-taking trends by focusing on capture over recall; and [**Amulet**](/projects/amulet), an app for social journalling through analogies and metaphors of energy to nurture support networks. 
+Most of my time at the moment goes to <a href="www.noblank.space/projects/amulet" style="font-weight: bold; text-decoration: none;">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="searle.hu" style="font-weight: bold; text-decoration: none;">StoryPath</a>, a platform for immersive mixed reality city-wide storytelling.
 
-I share my writings here that cover topics such as design research, case studies, and software development. I adapt some of these writings into videos on [**Youtube**](https://www.youtube.com/@Benjibo) to promote accessibility and community for my research.
+My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>Product</b></span>, <span style="white-space: nowrap;"><i class="ph ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>Research</b></span>, <span style="white-space: nowrap;"><i class="ph ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>Design</b></span>, <span style="white-space: nowrap;"><i class="ph ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>Development</b></span>, and <span style="white-space: nowrap;"><i class="ph ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>Content</b></span>.
 
-I'm currently designing products with startups at [**NoBlankSpace**](https://noblank.space). Previously, I was a product manager at Techwolf. I studied human-computer interaction at University College London and computer science at the University of Cambridge.
+<div style="display: flex; justify-content: space-between; padding: 0px; font-weight: bold;">
+    <span>Currently:</span>
+    <span>Role:</span>
+</div>
 
-If you want to get in touch, it's easiest to reach me through Twitter as *@benjaminsearle_* or through my email *ben (at) searle (dot) hu*. Alternatively, you can send a direct message through *noblank.space*.
+<div class="works">
+  <div class="work">
+    <p>UCL Interaction Centre</p>
+    <hr>
+    <i class="ph ph-microscope"></i>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-code"></i>
+    <i class="ph ph-pen-nib"></i>
+  </div>
+  <div class="work">
+    <p>No Blank Space</p>
+    <hr>
+    <i class="ph ph-package"></i>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-code"></i>
+  </div>
+  <div class="work">
+    <p>StoryPath</p>
+    <hr>
+    <i class="ph ph-package"></i>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-code"></i>
+  </div>
+  <div class="work">
+    <p>Battersea Design Lab</p>
+    <hr>
+    <i class="ph ph-microscope"></i>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-pen-nib"></i>
+  </div>
+</div>
 
-<div class ="socials">
+<div style="display: flex; justify-content: space-between; padding-bottom: 0px; font-weight: bold;">
+    <span>Previously:</span>
+    <span>Role:</span>
+</div>
+<div class="works">
+ <div class="work">
+    <p>Workduck</p>
+    <hr>
+    <i class="ph ph-package"></i>
+    <i class="ph ph-microscope"></i>
+    <i class="ph ph-palette"></i>
+  </div>
+  <div class="work">
+    <p>MSc Human-Computer Interaction, UCL</p>
+    <hr>
+    <i class="ph ph-microscope"></i>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-pen-nib"></i>
+  </div>
+  <div class="work">
+    <p>Techwolf</p>
+    <hr>
+    <i class="ph ph-package"></i>
+    <i class="ph ph-microscope"></i>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-pen-nib"></i>
+  </div>
+  <div class="work">
+    <p>MA Computer Science, University of Cambridge</p>
+    <hr>
+    <i class="ph ph-microscope"></i>
+    <i class="ph ph-code"></i>
+    <i class="ph ph-pen-nib"></i>
+  </div>
+    <div class="work">
+    <p>Tata Consultancy Services</p>
+    <hr>
+    <i class="ph ph-palette"></i>
+    <i class="ph ph-code"></i>
+  </div>
+</div>
+
+**Want to get in touch?** <br>
+Find me on Twitter *@benjaminsearle_* or send an email *ben (at) searle (dot) hu*.
+
+<div class="socials">
   {% include socials-mobile.html %}
 </div>

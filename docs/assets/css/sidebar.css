@@ -31,6 +31,7 @@
     display: block;
     justify-content: space-between;
     margin-bottom: 32px;
+    vertical-align: middle;
 }
 
 .external-links a.youtube {
@@ -38,11 +39,13 @@
     color: white; /* White text */
     display: flex;
     gap: 4px;
+    border-radius: 16px;
 }
 
 .external-links a.noblankspace {
     border: 2px solid black; /* 2px black border */
     letter-spacing: -0.7px;
+    border-radius: 16px;
 }
 
 .external-links a {
@@ -65,7 +68,7 @@
     padding-left: 10px;
     padding-right: 10px;
     color: #000; /* Button text color */
-    border-bottom: 1px solid #000; /* Vertical line */
+    border-bottom: 1px solid #00000024; /* Vertical line */
     font-size: 18px;
     letter-spacing: -0.2px;
     line-height: 1.2em;
