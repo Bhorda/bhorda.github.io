@@ -9,12 +9,12 @@ layout: default
   </div>
   <div style="width: 140px;"> <!-- Adjust width as needed -->
    <!--change to assets/pfp.png when working locally smh-->
-    <img src="/assets/pfp.png" alt="Profile Picture" style="width: 130px; border-radius: 4px; transform: rotate(3deg); box-shadow: 4px 4px 0px rgba(0,0,0,0.2);">
+    <img src="/assets/pfp.png" alt="Profile Picture" style="width: 130px; border-radius: 4px; transform: rotate(3deg); box-shadow: 4px 4px 0px #1c1c1c24;">
   </div>
   
 </div>
 
-Most of my time at the moment goes to <a href="www.noblank.space/projects/amulet" style="font-weight: bold; text-decoration: none;">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="searle.hu" style="font-weight: bold; text-decoration: none;">StoryPath</a>, a platform for immersive mixed reality city-wide storytelling.
+Most of my time at the moment goes to <a href="www.noblank.space/projects/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="searle.hu">StoryPath</a>, a platform for immersive mixed reality city-wide storytelling.
 
 My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>Product</b></span>, <span style="white-space: nowrap;"><i class="ph ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>Research</b></span>, <span style="white-space: nowrap;"><i class="ph ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>Design</b></span>, <span style="white-space: nowrap;"><i class="ph ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>Development</b></span>, and <span style="white-space: nowrap;"><i class="ph ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>Content</b></span>.
 
