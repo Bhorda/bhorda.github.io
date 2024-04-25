@@ -68,13 +68,6 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph ph-palette"></i>
   </div>
   <div class="work">
-    <p>MSc HCI, UCL</p>
-    <hr>
-    <i class="ph ph-microscope"></i>
-    <i class="ph ph-palette"></i>
-    <i class="ph ph-pen-nib"></i>
-  </div>
-  <div class="work">
     <p>Techwolf</p>
     <hr>
     <i class="ph ph-package"></i>
@@ -83,17 +76,31 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph ph-pen-nib"></i>
   </div>
   <div class="work">
-    <p>MA CS, University of Cambridge</p>
-    <hr>
-    <i class="ph ph-microscope"></i>
-    <i class="ph ph-code"></i>
-    <i class="ph ph-pen-nib"></i>
-  </div>
-    <div class="work">
     <p>Tata Consultancy Services</p>
     <hr>
     <i class="ph ph-palette"></i>
     <i class="ph ph-code"></i>
+  </div>
+</div>
+
+<div style="display: flex; justify-content: space-between; padding: 0px; font-weight: bold;">
+    <span>Education:</span>
+</div>
+<div class="works">
+  <div class="work">
+    <p>Incoming: Computer Science, PhD</p>
+    <hr>
+    <p>UCL</p>
+  </div>
+  <div class="work">
+    <p>Human-Computer Interaction, MSc</p>
+    <hr>
+    <p>UCL</p>
+  </div>
+  <div class="work">
+    <p>Computer Science, MA</p>
+    <hr>
+    <p>University of Cambridge</p>
   </div>
 </div>
 

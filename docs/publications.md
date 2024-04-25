@@ -6,7 +6,7 @@ permalink: /publications
 
 # Publications
 
-My research focuses on human-centred design and emotional ergonomics supported by intelligent systems. I'm currently working on personal energy management technologies.
+My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I'm currently working on personal energy management technologies and self-tracking.
 
 **Personal Energy Design**\
 *Preprint*\
