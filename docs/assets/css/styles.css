@@ -78,6 +78,22 @@ i {
     font-size: 20px;
 }
 
+
+.work-container {
+    width: 100%; /* Ensure it takes full width */
+  }
+  
+.work-content {
+    display: none; /* Initially hidden */
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    max-height: 0;  /* Collapse initially */
+    margin-left: 2px;
+    padding-left: 12px;
+    border-left: 1px solid #1c1c1c34
+}
+
+
 /* Responsive Design for Mobile Screens */
 @media (max-width: 600px) {
     .container {
