@@ -88,17 +88,17 @@ My roles usually include some combination of: <br><span style="white-space: nowr
 </div>
 <div class="works">
   <div class="work">
-    <p>Incoming: Computer Science, PhD</p>
+    <p>Incoming: PhD CS</p>
     <hr>
     <p>UCL</p>
   </div>
   <div class="work">
-    <p>Human-Computer Interaction, MSc</p>
+    <p>MSc HCI</p>
     <hr>
     <p>UCL</p>
   </div>
   <div class="work">
-    <p>Computer Science, MA</p>
+    <p>MA CS</p>
     <hr>
     <p>University of Cambridge</p>
   </div>
