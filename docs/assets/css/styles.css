@@ -79,19 +79,19 @@ i {
 }
 
 
-.work-container {
-    width: 100%; /* Ensure it takes full width */
+/* .work-container {
+    width: 100%;
   }
   
 .work-content {
-    display: none; /* Initially hidden */
+    display: none;
     transition: max-height 0.3s ease-out;
     overflow: hidden;
-    max-height: 0;  /* Collapse initially */
+    max-height: 0;
     margin-left: 2px;
     padding-left: 12px;
     border-left: 1px solid #1c1c1c34
-}
+} */
 
 
 /* Responsive Design for Mobile Screens */

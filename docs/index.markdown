@@ -46,7 +46,6 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph ph-palette"></i>
     <i class="ph ph-code"></i>
   </div>
-  <div class="work-container">
     <div class="work">
       <p class="work-title">Battersea Design Lab</p>
       <hr>
@@ -54,15 +53,6 @@ My roles usually include some combination of: <br><span style="white-space: nowr
       <i class="ph ph-palette"></i>
       <i class="ph ph-pen-nib"></i>
     </div>
-  <!-- This is now outside the flex container -->
-    <div class="work-content" style="display: none;">
-      <div style="display: flex; justify-content: space-between; padding: 0px; font-weight: 500;">
-        <span>Founding Partner</span>
-        <span>2024-Present</span>
-      </div>
-        A design collective of 7 incredibly talented and creative UX and HCI specialists. We focus on UX for future technologies (such as AR and robotics) and experimental UX research methodologies to push the field further. 
-    </div>
-  </div>
 </div>
 
 <div style="display: flex; justify-content: space-between; padding-bottom: 0px; font-weight: bold;">
