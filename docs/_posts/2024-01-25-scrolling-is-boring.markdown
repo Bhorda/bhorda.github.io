@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Spatial software - trend or antitrend?"
+title:  "Scrolling is boring"
 date:   2024-01-25
 ---
 

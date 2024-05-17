@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Human-centred design: Not all technologies need a 'problem'"
+title:  "Not all technologies need a 'problem'"
 date:   2023-12-15
 ---
 

@@ -2,6 +2,7 @@
 layout: default
 ---
 
+
 <div style="display: flex; align-items: center; justify-content: space-around;">
   <div style="flex: 1; padding-right: 20px;">
     <h1>Hi, I'm Ben.</h1>
@@ -14,7 +15,7 @@ layout: default
   
 </div>
 
-Most of my time at the moment goes to <a href="www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="www.searle.hu">StoryPath</a>, a platform for immersive mixed reality city-wide storytelling.
+Most of my time at the moment goes to <a href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="/">StoryPath</a>, a platform for immersive mixed reality city-wide storytelling.
 
 My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>Product</b></span>, <span style="white-space: nowrap;"><i class="ph ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>Research</b></span>, <span style="white-space: nowrap;"><i class="ph ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>Design</b></span>, <span style="white-space: nowrap;"><i class="ph ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>Development</b></span>, and <span style="white-space: nowrap;"><i class="ph ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>Content</b></span>.
 

@@ -12,6 +12,10 @@ I use this space to send links to people, so I hope you find something interesti
 
 {% for post in site.posts %}
   <div style="padding-bottom:10px">
-    <span>{{ post.date | date: "%Y.%m.%d" }}</span> <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
   </div>
 {% endfor %}
+
+
+
+<!-- <span>{{ post.date | date: "%Y.%m.%d" }}</span>  -->
