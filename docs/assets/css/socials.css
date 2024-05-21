@@ -1,9 +1,9 @@
 .social-icons {
     /* existing sidebar styles */
-    display: block;
-    /* justify-content: space-between;  */
-    padding-left: 10px;
-    padding-right: 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    padding: 10px;  
 }
 
 .social-icons a {
@@ -11,7 +11,7 @@
     font-size:21px;
     text-decoration: none;
     color: #1c1c1c;
-    padding-right: 2px;
+    padding-right: 0px;
 }
 
 .social-icons-mobile {
@@ -31,7 +31,7 @@
     padding-right: 12px;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 20000px) {
     .social-icons {
         display: none;
     }
@@ -39,11 +39,11 @@
     .social-icons-mobile {
         display: block;
     }
-}
+} */
 
-@media (min-width: 601px) {
+@media (min-width: 600px) {
     .social-icons {
-        display: block;
+        display:flex;
     }
 
     .social-icons-mobile {

@@ -78,13 +78,14 @@
     border-bottom: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 20000px) {
     .sidebar {
         /* existing sidebar styles */
         width: 100%;
         display: flex;
         position: relative;
         top: 0;
+        margin-top: 6px;
         margin-bottom: 0px;
         padding: 0px;
     }
@@ -127,6 +128,8 @@
         padding-left: 8px;
         padding-right: 0px;
         color: #000; /* Button text color */
+        text-decoration:underline;
+        text-decoration-color: #1c1c1c34;
         border-bottom: 0px solid #000; /* Vertical line */
         font-size: 18px;
         letter-spacing: -0.2px;
@@ -145,7 +148,7 @@
     }
 }
 
-@media (min-width: 601px) {
+@media (min-width: 600px) {
     .profile .desktop-name {
         display: block;
     }

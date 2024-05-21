@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications
 ---
 
-# Publications
+# publications
 
 My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I'm currently working on personal energy management technologies and self-tracking.
 

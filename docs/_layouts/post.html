@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/assets/bls32px.png' | relative_url }}" type="image/png">
+    <link rel="icon" href="{{ '/assets/bls32px.png' | relative_url }}" type="image/png">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Add any additional head elements here -->
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sticky sidebar menu -->
+        <!-- <div class="sidebar"> -->
+          <!-- {% include rightsidebar.html %} -->
+        <!-- </div> -->
+
+        <!-- Sticky sidebar menu -->
+        <div class="sidebar">
+          {% include sidebar.html %}
+        </div>
+
+        <div style="text-align: center; text-transform:lowercase; font-size: 24px; font-weight: 700; padding-top: 36px; padding-bottom: 12px;">
+            {{ page.title }}
+            <div style="font-size: 16px; text-transform:lowercase; padding-top: 6px; font-weight: 300;">
+            Last updated: {{ page.date | date: "%Y.%m.%d" }}
+            </div>
+        </div>
+
+        <!-- Main content area -->
+        <div class="content">
+            {{ content }}
+        </div>
+        
+    </div>
+</body>
+</html>

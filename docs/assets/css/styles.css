@@ -3,21 +3,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 .container {
-    display: flex;
+    display:flex;
     justify-content: space-between;
-    margin: auto;
     flex-wrap: wrap;
-    max-width: 900px;
+    max-width: 700px;
     padding: 50px; /* Add padding */
     margin: auto; /* Center the container */
     box-sizing: border-box; /* Include padding in the width */
     gap: 50px;
+    align-items: center;
 }
 
 .content {
-    flex: 1;
+    /* flex: 1; */
+    /* margin: auto; */
     min-width: 280px; /* Adjust minimum width as needed */
-    max-width: 600px;
+    max-width: 700px;
 }
 
 body {
@@ -95,7 +96,7 @@ i {
 
 
 /* Responsive Design for Mobile Screens */
-@media (max-width: 600px) {
+@media (max-width: 20000px) {
     .container {
         flex-direction: column;
         padding: 4px;

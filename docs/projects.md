@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects
 ---
 
-# Projects
+# projects
 
 I'm currently working on speculative tools for knowledge representation, well-being support, and communication. My main projects are <a href="www.noblank.space/work/amulet">Amulet</a>, an app for social journalling through analogies and metaphors of energy to nurture support networks, and <a href="www.searle.hu">StoryPath</a>, a platform for immersive mixed reality city-wide adventures and stories. 
 
@@ -17,7 +17,8 @@ I'm currently working on speculative tools for knowledge representation, well-be
 
 <div style="margin-bottom: 80px;"></div>
 
-### Archived projects
+
+### archived projects
 
 <a href="https://searle.hu/assets/Soulbloom.pdf">Soulbloom: towards physicalisation of personal data for well-being and communication</a> - *2023*\
 Soulbloom is a speculative tangible interface that promotes self-awareness and mental health by mirroring one’s physical and mental state through symbolic interactions. The project aims to imagine a future where AI and robotics can be perceived as empathetic extensions of oneself, furthering our understanding of human-technology relationships and how they are formed.

@@ -47,15 +47,21 @@
 
 <body>
     <div class="container">
+        <!-- Sticky sidebar menu -->
+        <!-- <div class="sidebar"> -->
+          <!-- {% include rightsidebar.html %} -->
+        <!-- </div> -->
+
+        <!-- Sticky sidebar menu -->
+        <div class="sidebar">
+          {% include sidebar.html %}
+        </div>
+
         <!-- Main content area -->
         <div class="content">
             {{ content }}
         </div>
-
-        <!-- Sticky sidebar menu -->
-        <div class="sidebar">
-            {% include sidebar.html %}
-        </div>
+        
     </div>
 </body>
 </html>
