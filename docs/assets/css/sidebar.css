@@ -78,7 +78,7 @@
     border-bottom: none;
 }
 
-@media (max-width: 20000px) {
+/* @media (max-width: 20000px) { */
     .sidebar {
         /* existing sidebar styles */
         width: 100%;
@@ -146,7 +146,7 @@
     .profile .mobile-name {
         display: inline; /* or block, depending on your layout */
     }
-}
+/* } */
 
 @media (min-width: 600px) {
     .profile .desktop-name {

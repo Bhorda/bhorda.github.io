@@ -96,7 +96,7 @@ i {
 
 
 /* Responsive Design for Mobile Screens */
-@media (max-width: 20000px) {
+/* @media (max-width: 20000px) { */
     .container {
         flex-direction: column;
         padding: 4px;
@@ -112,4 +112,4 @@ i {
     .content {
         width: 100%; /* Ensures content takes full width on mobile */
     }
-}
+/* } */
