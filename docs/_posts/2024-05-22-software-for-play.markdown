@@ -8,7 +8,7 @@ In a simplified world, all software interactions fall into one of two categories
 
 **Work** is anything that intends to leave a mark on the real world - interactions that are part of our jobs are obvious examples, such as updating the slides for the next presentation, writing code to fix a bug, and messaging our colleagues to ask them to review the slides and the code. Outside our jobs we might consider booking flights, ordering new socks, or responding to messages from 3 weeks ago. 
 
-**Play** is anything that doesn't intend to leave a mark - play is ethereal. Play ends when it ends and its as if it never happened. Not literally of course, but the fact that it happens in a bubble is critical. As soon as the bubble bursts (and there's a real world effect), play is over - like when your friend fell over when playing tag. Play happens for its own sake. 
+**Play** is anything that doesn't intend to leave a mark - play is ephemeral. Play ends when it ends and its as if it never happened. Not literally of course, but the fact that it happens in a bubble is critical. As soon as the bubble bursts (and there's a real world effect), play is over - like when your friend fell over when playing tag. Play happens for its own sake. 
 
 **Software for Work** comprises almost entirely of **tools**. Tools are things that help or enable you to do a particular activity. Email clients help you send emails, IDEs help you write code, browsers enable you to scroll Twitter. Conveniently, there's barely anything that would constitute a work interaction that isn't satisfied by a tool - its a complete set. 
 
@@ -16,6 +16,7 @@ In a simplified world, all software interactions fall into one of two categories
 - **Rules:** Only post images; interactions can be likes, comments, or shares.
 - **Progression:** Number of likes, comments, follows. 
 - **Win-lose condition:** Hopefully none, but Instagram isn't innocent of causing any drama.
+
 But there's something very distinctly missing from play that isn't fully satisfied by games. What is play without rules and progression and winning? 
 
 <div style="align-items: center; text-align: center; padding: 12px; color: #a1a1a1">
@@ -42,11 +43,11 @@ To me, this type of software is distinctly missing: software for play that is no
 
 Seeing how so many playful activities have been turned into games when 'porting' them to software saddens me - even though its inevitable given the way computers require rules and constraints. In particular, I would like to talk about my favourite toy: pen and paper. 
 
-Perhaps the only toy I still own as an adult, I always have pen and paper in my bag or desk. I use it for sketching, coding, remembering, and importantly, for journalling. I prefer my processes to start with play before they become work - it creates more opportunities and I can go a little more crazy with the ideas and plans before applying the real world constraints to them. 
+Perhaps the only toy I still own as an adult, I always have pen and paper in my bag or desk. I use it for sketching, coding, remembering, and importantly, for journalling. I prefer my processes to start with play before they become work - it creates more opportunities and I can go a little crazier with the ideas and plans before applying the real world constraints to them. 
 
 Looking at the digital alternatives for each of these scenarios, I feel that they frequently resort to toolifying or gamifying the entire stack. I can't really 'play around' in VSCode easily, nor does taking notes in Notion feel particularly playful. However, to demonstrate my message I started with **journalling**. 
 
-<a href="https://noblank.space/work/amulet">Amulet</a> is a journal I am working in through <a href="https://noblank.space">No Blank Space</a> designed to be *like* a toy. Instead of asking a series of questions on a series of screens like "Name 3 things you are grateful for today" to "Rate your day on a scale of sad face to happy face" there are no direct questions in the main interface. There is an abstract shape which I call the 'Amulet' which has various tuneable parameters that users can play with. This visual represents the users' mood / energy / day - it doesn't matter! There are no rules, there is no progression or evaluation, no "completeness" or streaks. 
+<a href="https://noblank.space/work/amulet">Amulet</a> is a journal I am developing through <a href="https://noblank.space">No Blank Space</a> designed to be *like* a toy. Instead of asking a series of questions on a series of screens like "Name 3 things you are grateful for today" to "Rate your day on a scale of sad face to happy face" there are no direct questions in the main interface. There is an abstract shape which I call the 'Amulet' which has various tuneable parameters that users can play with. This visual represents the users' mood / energy / day - it doesn't matter! There are no rules, there is no progression or evaluation, no "completeness" or streaks. 
 
 The idea is that its a journal you play around with. The story comes from asking yourself various different questions: 
 - Why does it feel like a blue day? 
