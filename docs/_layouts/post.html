@@ -9,10 +9,29 @@
     <link rel="icon" href="{{ '/assets/bls32px.png' | relative_url }}" type="image/png">
 
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        window.CustomSubstackWidget = {
+            substackUrl: "benjibo.substack.com",
+            placeholder: "example@searle.hu",
+            buttonText: "Subscribe",
+            theme: "custom",
+            colors: {
+            primary: "#000000",
+            input: "#FFFFFF",
+            email: "#000000",
+            text: "#FFFFFF",
+            },
+            // Go to substackapi.com to unlock custom redirect
+
+        };
+        </script>
+        <script src="https://substackapi.com/widget.js" async></script>
     <!-- Add any additional head elements here -->
 </head>
 
 <body>
+    
     <div class="container">
         <!-- Sticky sidebar menu -->
         <!-- <div class="sidebar"> -->
@@ -35,7 +54,16 @@
         <div class="content">
             {{ content }}
         </div>
-        
+
+
+        <div style="width: 100%; padding: 12px; margin-top: 40px; margin-bottom: 80px; border: 2px solid #00000024; border-radius: 6px; align-items: center;">
+        Thanks for reading this! I don't write on a schedule, but if you want to be notified when something new does appear there's a signup below!
+        <div style="width: 100%; text-align: end;">
+        <div id="custom-substack-embed"></div>
+            
+            
+        </div>
+    </div>
     </div>
 </body>
 </html>

@@ -3,8 +3,8 @@ layout: default
 ---
 
 
-<div style="display: flex; align-items: center; justify-content: space-around;">
-  <div style="flex: 1; padding-right: 20px;">
+<div style="display: flex; flex-wrap: reverse; align-items: center; justify-content: space-around;">
+  <div style="flex: 1; adding-right: 20px;">
     <h1>Hi, I'm Ben.</h1>
     <p>I'm an incoming PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
   </div>
