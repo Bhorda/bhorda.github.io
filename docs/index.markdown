@@ -4,13 +4,13 @@ layout: default
 
 
 <div style="display: flex; flex-wrap: reverse; align-items: center; justify-content: space-around;">
-  <div style="flex: 1; adding-right: 20px;">
+  <div style="flex: 1;">
     <h1>Hi, I'm Ben.</h1>
-    <p>I'm an incoming PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
+    <p >I'm an incoming PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
   </div>
-  <div style="display: flex; width: 130px; padding: 24px; corner-radius 12px;"> <!-- Adjust width as needed -->
+  <div style="display: flex; max-width: 130px; padding: 24px; corner-radius 12px;"> <!-- Adjust width as needed -->
    <!--change to assets/pfp.png when working locally smh-->
-    <img src="/assets/pfp.png" alt="Profile Picture" style="width: 130px; border-radius: 12px; box-shadow: 4px 4px 8px #1c1c1c24;">
+    <img src="/assets/images/pfp.png" alt="Profile Picture" style="width: 130px; margin-top: 0px; border-radius: 12px; box-shadow: 4px 4px 8px #1c1c1c24;">
     {% include socials.html %}
   </div>
   

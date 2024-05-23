@@ -1,0 +1,15 @@
+img {
+    /* width: fit-content; */
+    width: 100%;
+    margin-top: 40px;
+}
+
+img+em {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    color: #a1a1a1;
+    margin-bottom: 40px;
+}
