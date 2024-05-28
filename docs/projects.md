@@ -6,7 +6,7 @@ permalink: /projects
 
 # projects
 
-I'm currently working on speculative tools for knowledge representation, well-being support, and communication. My main projects are <a href="www.noblank.space/work/amulet">Amulet</a>, an app for social journalling through analogies and metaphors of energy to nurture support networks, and <a href="www.searle.hu">StoryPath</a>, a platform for immersive mixed reality city-wide adventures and stories. 
+I'm currently working on speculative tools for knowledge representation, well-being support, and communication. My main projects are <a href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling through analogies and metaphors of energy to nurture support networks, and <a href="https://mesm.world">Mesm</a>, a platform for immersive mixed reality city-wide adventures and stories. 
 
 <a href="https://www.noblank.space/work/amulet">Amulet Social Journalling</a>\
 *App for supporting community-centric personal energy management*

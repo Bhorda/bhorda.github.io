@@ -18,7 +18,7 @@ layout: default
 
 <hr>
 
-Most of my time at the moment goes to <a href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="/">StoryPath</a>, a platform for immersive mixed reality city-wide storytelling.
+Most of my time at the moment goes to <a href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="https://mesm.world">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.
 
 My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>product</b></span>, <span style="white-space: nowrap;"><i class="ph ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>research</b></span>, <span style="white-space: nowrap;"><i class="ph ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>design</b></span>, <span style="white-space: nowrap;"><i class="ph ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>development</b></span>, and <span style="white-space: nowrap;"><i class="ph ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>content</b></span>.
 
@@ -44,7 +44,7 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph ph-code"></i>
   </div>
   <div class="work">
-    <p>StoryPath</p>
+    <p>Mesm</p>
     <hr>
     <i class="ph ph-package"></i>
     <i class="ph ph-palette"></i>
