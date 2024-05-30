@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="shortcut icon" href="{{ '/assets/bls32px.png' | relative_url }}" type="image/png">
+    <link rel="icon" href="{{ '/assets/bls32px.png' | relative_url }}" type="image/png">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- Add any additional head elements here -->
+
+    <script>
+      window.CustomSubstackWidget = {
+          substackUrl: "benjibo.substack.com",
+          placeholder: "example@searle.hu",
+          buttonText: "Subscribe",
+          theme: "custom",
+          colors: {
+          primary: "#00000024",
+          input: "#FFFFFF",
+          email: "#000000",
+          text: "#000000",
+          },
+  
+  };
+  </script>
+  <script src="https://substackapi.com/widget.js" async></script>
+</head>
+
+<!-- <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const works = document.querySelectorAll('.work');
+      const contents = document.querySelectorAll('.work-content');
+    
+      // Function to toggle visibility of content
+      function toggleContent(event) {
+        // First, close all content paragraphs
+        contents.forEach(content => {
+          content.style.display = 'none';
+          content.style.maxHeight = '0';
+        });
+    
+        // Now open the content for the clicked work only if it was previously closed
+        const workContainer = event.currentTarget.parentNode;
+        const workContent = workContainer.querySelector('.work-content');
+        if (workContent.style.display === 'none' || !workContent.style.maxHeight) {
+          workContent.style.display = 'block';
+          workContent.style.maxHeight = workContent.scrollHeight + 'px';
+        } else {
+          workContent.style.display = 'none';
+          workContent.style.maxHeight = '0';
+        }
+      }
+    
+      // Attach the toggle function to all elements with class 'work'
+      works.forEach(work => {
+        work.addEventListener('click', toggleContent);
+      });
+    });
+    </script> -->
+    
+
+<body>
+    <div class="container">
+        <!-- Sticky sidebar menu -->
+        <!-- <div class="sidebar"> -->
+          <!-- {% include rightsidebar.html %} -->
+        <!-- </div> -->
+
+        <!-- Sticky sidebar menu -->
+        <div class="sidebar">
+          {% include sidebar.html %}
+        </div>
+
+        <!-- Main content area -->
+        <div class="content">
+            {{ content }}
+        </div>
+
+        <div style="width: 90%; margin-top: 40px; margin-bottom: 80px; border: 2px solid #00000024; border-radius: 6px; align-items: center;">
+          <p style="padding-left: 12px; padding-right: 12px;">I don't write on a schedule, but if you want to be notified when something new does appear there's a signup below!</p>
+          <div style=" text-align: end;">
+          <!-- <div id="custom-substack-embed"></div> -->
+          <div style="display: block; width: 100%; align-items: end;">
+              <iframe src="https://benjibo.substack.com/embed" width="480" height="140" style="display: block; margin: auto; background:white;" frameborder="0" scrolling="no"></iframe>
+          </div>
+      </div>
+        
+    </div>
+</body>
+</html>
