@@ -106,12 +106,14 @@ i {
     flex-direction: column;
     max-width: 130px;
     padding-right: 0px;
+    padding-left: 4px;
 }
 
 @media (min-width: 600px) {
     .pfp {
         flex-direction: row;
         padding: 24px;
+        gap: 0px;
     }
 }
 
