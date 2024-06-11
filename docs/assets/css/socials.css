@@ -1,7 +1,9 @@
+@import 'theme.css';
+
 .social-icons {
     /* existing sidebar styles */
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between; 
     margin: 10px;  
 }
@@ -10,7 +12,7 @@
     /* existing sidebar styles */
     font-size:21px;
     text-decoration: none;
-    color: #1c1c1c;
+    color: var(--primary-color);
     padding-right: 0px;
 }
 
@@ -27,7 +29,7 @@
     /* existing sidebar styles */
     font-size:28px;
     text-decoration: none;
-    color: #1c1c1c;
+    color: var(--primary-color);
     padding-right: 12px;
 }
 
@@ -43,7 +45,7 @@
 
 @media (min-width: 600px) {
     .social-icons {
-        display:flex;
+        flex-direction: column;
     }
 
     .social-icons-mobile {

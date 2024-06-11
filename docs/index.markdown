@@ -8,9 +8,9 @@ layout: default
     <h1>Hi, I'm Ben.</h1>
     <p >I'm an incoming PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
   </div>
-  <div style="display: flex; max-width: 130px; padding: 24px; corner-radius 12px;"> <!-- Adjust width as needed -->
+  <div class="pfp"> <!-- Adjust width as needed -->
    <!--change to assets/pfp.png when working locally smh-->
-    <img src="/assets/images/pfp.png" alt="Profile Picture" style="width: 130px; margin-top: 0px; border-radius: 12px; box-shadow: 4px 4px 8px #1c1c1c24;">
+    <img src="/assets/images/pfp.png" alt="Profile Picture" style="width: 130px; margin-top: 0px; border-radius: 12px; box-shadow: 0px 0px 8px var(--secondary-color);">
     {% include socials.html %}
   </div>
   
@@ -20,7 +20,7 @@ layout: default
 
 Most of my time at the moment goes to <a href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a href="https://mesm.world">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.
 
-My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>product</b></span>, <span style="white-space: nowrap;"><i class="ph ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>research</b></span>, <span style="white-space: nowrap;"><i class="ph ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>design</b></span>, <span style="white-space: nowrap;"><i class="ph ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>development</b></span>, and <span style="white-space: nowrap;"><i class="ph ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>content</b></span>.
+My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph-duotone ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>product</b></span>, <span style="white-space: nowrap;"><i class="ph-duotone ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>research</b></span>, <span style="white-space: nowrap;"><i class="ph-duotone ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>design</b></span>, <span style="white-space: nowrap;"><i class="ph-duotone ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>development</b></span>, and <span style="white-space: nowrap;"><i class="ph-duotone ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>content</b></span>.
 
 <div style="display: flex; justify-content: space-between; padding: 0px; font-weight: bold;">
     <span>Currently:</span>
@@ -31,31 +31,31 @@ My roles usually include some combination of: <br><span style="white-space: nowr
   <div class="work">
     <p>UCL Interaction Centre</p>
     <hr>
-    <i class="ph ph-microscope"></i>
-    <i class="ph ph-palette"></i>
-    <i class="ph ph-code"></i>
-    <i class="ph ph-pen-nib"></i>
+    <i class="ph-duotone ph-microscope"></i>
+    <i class="ph-duotone ph-palette"></i>
+    <i class="ph-duotone ph-code"></i>
+    <i class="ph-duotone ph-pen-nib"></i>
   </div>
   <div class="work">
     <p>No Blank Space</p>
     <hr>
-    <i class="ph ph-package"></i>
-    <i class="ph ph-palette"></i>
-    <i class="ph ph-code"></i>
+    <i class="ph-duotone ph-package"></i>
+    <i class="ph-duotone ph-palette"></i>
+    <i class="ph-duotone ph-code"></i>
   </div>
   <div class="work">
     <p>Mesm</p>
     <hr>
-    <i class="ph ph-package"></i>
-    <i class="ph ph-palette"></i>
-    <i class="ph ph-code"></i>
+    <i class="ph-duotone ph-package"></i>
+    <i class="ph-duotone ph-palette"></i>
+    <i class="ph-duotone ph-code"></i>
   </div>
     <div class="work">
       <p class="work-title">Battersea Design Lab</p>
       <hr>
-      <i class="ph ph-microscope"></i>
-      <i class="ph ph-palette"></i>
-      <i class="ph ph-pen-nib"></i>
+      <i class="ph-duotone ph-microscope"></i>
+      <i class="ph-duotone ph-palette"></i>
+      <i class="ph-duotone ph-pen-nib"></i>
     </div>
 </div>
 
@@ -67,23 +67,23 @@ My roles usually include some combination of: <br><span style="white-space: nowr
  <div class="work">
     <p>Workduck</p>
     <hr>
-    <i class="ph ph-package"></i>
-    <i class="ph ph-microscope"></i>
-    <i class="ph ph-palette"></i>
+    <i class="ph-duotone ph-package"></i>
+    <i class="ph-duotone ph-microscope"></i>
+    <i class="ph-duotone ph-palette"></i>
   </div>
   <div class="work">
     <p>Techwolf</p>
     <hr>
-    <i class="ph ph-package"></i>
-    <i class="ph ph-microscope"></i>
-    <i class="ph ph-palette"></i>
-    <i class="ph ph-pen-nib"></i>
+    <i class="ph-duotone ph-package"></i>
+    <i class="ph-duotone ph-microscope"></i>
+    <i class="ph-duotone ph-palette"></i>
+    <i class="ph-duotone ph-pen-nib"></i>
   </div>
   <div class="work">
     <p>Tata Consultancy Services</p>
     <hr>
-    <i class="ph ph-palette"></i>
-    <i class="ph ph-code"></i>
+    <i class="ph-duotone ph-palette"></i>
+    <i class="ph-duotone ph-code"></i>
   </div>
 </div>
 

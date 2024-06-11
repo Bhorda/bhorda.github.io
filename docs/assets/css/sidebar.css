@@ -16,7 +16,7 @@
 .profile a {
     display: block;
     font-size: 18px;
-    color: #000; /* Button text color */
+    color: var(--primary-color); /* Button text color */
     letter-spacing: -0.2px;
     font-weight: bold; 
     text-decoration: none;
@@ -34,32 +34,6 @@
     vertical-align: middle;
 }
 
-.external-links a.youtube {
-    background-color: red; /* Red background for YouTube link */
-    color: white; /* White text */
-    display: flex;
-    gap: 4px;
-    border-radius: 16px;
-}
-
-.external-links a.noblankspace {
-    border: 2px solid black; /* 2px black border */
-    letter-spacing: -0.7px;
-    border-radius: 16px;
-}
-
-.external-links a {
-    display: block;
-    text-decoration: none;
-    color: #000;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 18px;
-    letter-spacing: -0.2px;
-}
-
 .button-group a {
     display: block;
     text-decoration: none;
@@ -67,7 +41,7 @@
     padding-bottom: 5px;
     padding-left: 10px;
     padding-right: 10px;
-    color: #000; /* Button text color */
+    color: var(--primary-color); /* Button text color */
     border-bottom: 1px solid #00000024; /* Vertical line */
     font-size: 18px;
     letter-spacing: -0.2px;
@@ -99,7 +73,7 @@
     .profile a {
         display: flex;
         font-size: 18px;
-        color: #000; /* Button text color */
+        color: var(--primary-color); /* Button text color */
         letter-spacing: -0.2px;
         font-weight: bold; 
         text-decoration: none;
@@ -127,9 +101,9 @@
         padding-bottom: 0px;
         padding-left: 8px;
         padding-right: 0px;
-        color: #000; /* Button text color */
+        color: var(--primary-color); /* Button text color */
         text-decoration:underline;
-        text-decoration-color: #1c1c1c34;
+        text-decoration-color: var(--secondary-color);
         border-bottom: 0px solid #000; /* Vertical line */
         font-size: 18px;
         letter-spacing: -0.2px;
@@ -150,7 +124,7 @@
 
 @media (min-width: 600px) {
     .profile .desktop-name {
-        display: block;
+        display: inline;
     }
     .profile .mobile-name {
         display: none;
