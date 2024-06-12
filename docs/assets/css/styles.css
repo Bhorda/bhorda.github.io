@@ -38,13 +38,11 @@ h1 {
 }
 
 a {
-    font-size: 17px;
-    line-height: 1.2em;
+    font-size: 16px;
     color: var(--primary-color);
     text-decoration:underline;
     text-decoration-color: var(--secondary-color);
     font-weight: 500;
-    line-height: 1em;
 }
 
 strong {
@@ -60,6 +58,7 @@ a i {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 4px;
     padding-bottom: 16px;
     width: 100%;
 }
@@ -72,6 +71,17 @@ a i {
     align-items: center;
     gap: 6px;
     line-height: 0px;
+    height: 1.675rem;
+}
+
+.work p {
+    padding: 0px;
+}
+
+.role {
+    font-weight: 300;
+    text-decoration: none;
+    line-height: 1.6rem;
 }
 
 hr {
@@ -85,21 +95,6 @@ hr {
 i {
     font-size: 20px;
 }
-
-
-/* .work-container {
-    width: 100%;
-  }
-  
-.work-content {
-    display: none;
-    transition: max-height 0.3s ease-out;
-    overflow: hidden;
-    max-height: 0;
-    margin-left: 2px;
-    padding-left: 12px;
-    border-left: 1px solid #1c1c1c34
-} */
 
 .pfp {
     display: flex;

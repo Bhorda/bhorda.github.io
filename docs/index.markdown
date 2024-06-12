@@ -29,7 +29,7 @@ My roles usually include some combination of: <br><span style="white-space: nowr
 
 <div class="works">
   <div class="work">
-    <p>UCL Interaction Centre</p>
+    <a class="role" href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>
     <hr>
     <i class="ph-duotone ph-microscope"></i>
     <i class="ph-duotone ph-palette"></i>
@@ -37,26 +37,26 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph-duotone ph-pen-nib"></i>
   </div>
   <div class="work">
-    <p>No Blank Space</p>
+    <a class="role" href="https://noblank.space">No Blank Space</a>
     <hr>
     <i class="ph-duotone ph-package"></i>
     <i class="ph-duotone ph-palette"></i>
     <i class="ph-duotone ph-code"></i>
   </div>
   <div class="work">
-    <p>Mesm</p>
+    <a class="role" href="https://mesm.world">Mesm</a>
     <hr>
     <i class="ph-duotone ph-package"></i>
     <i class="ph-duotone ph-palette"></i>
     <i class="ph-duotone ph-code"></i>
   </div>
-    <div class="work">
-      <p class="work-title">Battersea Design Lab</p>
-      <hr>
-      <i class="ph-duotone ph-microscope"></i>
-      <i class="ph-duotone ph-palette"></i>
-      <i class="ph-duotone ph-pen-nib"></i>
-    </div>
+  <div class="work">
+    <a class="role" href="https://batterseadesignlab.com">Battersea Design Lab</a>
+    <hr>
+    <i class="ph-duotone ph-microscope"></i>
+    <i class="ph-duotone ph-palette"></i>
+    <i class="ph-duotone ph-pen-nib"></i>
+  </div>
 </div>
 
 <div style="display: flex; justify-content: space-between; padding-bottom: 0px; font-weight: bold;">
@@ -65,14 +65,14 @@ My roles usually include some combination of: <br><span style="white-space: nowr
 </div>
 <div class="works">
  <div class="work">
-    <p>Workduck</p>
+    <a class="role" href="https://www.crunchbase.com/organization/workduck">Workduck</a>
     <hr>
     <i class="ph-duotone ph-package"></i>
     <i class="ph-duotone ph-microscope"></i>
     <i class="ph-duotone ph-palette"></i>
   </div>
   <div class="work">
-    <p>Techwolf</p>
+    <a class="role" href="https://techwolf.ai">Techwolf</a>
     <hr>
     <i class="ph-duotone ph-package"></i>
     <i class="ph-duotone ph-microscope"></i>
@@ -80,7 +80,7 @@ My roles usually include some combination of: <br><span style="white-space: nowr
     <i class="ph-duotone ph-pen-nib"></i>
   </div>
   <div class="work">
-    <p>Tata Consultancy Services</p>
+    <a class="role" href="https://tcs.com">Tata Consultancy Services</a>
     <hr>
     <i class="ph-duotone ph-palette"></i>
     <i class="ph-duotone ph-code"></i>
