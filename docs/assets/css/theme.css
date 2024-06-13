@@ -2,6 +2,7 @@
     --primary-color: #1c1c1c;
     --secondary-color: #1c1c1c34;
     --background-color: #FFF;
+    --shadow-color: #1c1c1c34;
     --opacity: 100%;
 }
 
@@ -10,6 +11,7 @@
         --primary-color: #FFFFFF;
         --secondary-color: #818181;
         --background-color: #212124;
+        --shadow-color: #161618AA;
         --opacity: 90%;
         /* --primary-color: #1c1c1c;
         --secondary-color: #1c1c1c34;

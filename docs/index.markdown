@@ -10,7 +10,7 @@ layout: default
   </div>
   <div class="pfp"> <!-- Adjust width as needed -->
    <!--change to assets/pfp.png when working locally smh-->
-    <img src="/assets/images/pfp.png" alt="Profile Picture" style="width: 130px; margin-top: 0px; border-radius: 12px; box-shadow: 0px 0px 8px var(--secondary-color);">
+    <img src="/assets/images/pfp.png" alt="Profile Picture" style="width: 130px; margin-top: 0px; border-radius: 12px; box-shadow: 0px 2px 8px var(--shadow-color);">
     {% include socials.html %}
   </div>
   
