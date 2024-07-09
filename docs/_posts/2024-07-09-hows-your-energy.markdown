@@ -77,6 +77,8 @@ Most people have some semblance of a model of what energy is. Even if its not th
 
 That intuition comes from borrowing a mental model from *user space* and not academia or *system space*. And that intuition is unreasonable powerful if we can find a way to scaffold for it. 
 
+Combined properly with a system-space (hardware/software) 'objective' understanding of energy, working with these 'subjective' models may offer a holistic language of well-being between users and their devices. Garmin's Body Battery and various other wearables' 'readiness' scores already attempt to address the resource perspective by inferring one's energy based on physiological signals. I believe a system that could map out those physical properties *alongside* journal-style qualitative reflections could be a holy grail for health and productivity software alike. 
+
 I invite all designers to think of energy in these terms:
 1. **Everyone has a sense of what energy is.**
 2. Energy management can revolve around one or many 'types' of energy,
