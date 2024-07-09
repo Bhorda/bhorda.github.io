@@ -10,7 +10,7 @@ I share my writings here that cover topics such as design research, case studies
 
 
 
-I use this space to send links to people, so I hope you find something interesting. If you do - and have any comments, questions, chat intentions - please do reach out at *ben (at) searle (dot) hu* ! Or sign up for an <a href="https:/benjibo.substack.com">off-schedule newsletter</a> for updates...
+I use this space to send links to people, so I hope you find something interesting. If you do - and have any comments, questions, chat intentions - please do reach out at *ben (at) searle (dot) hu* ! Or sign up for an <a href="https://benjibo.substack.com">off-schedule newsletter</a> for updates...
 
 <!-- <div style="display: flex; flex-wrap: wrap;"> -->
 {% for post in site.posts %}
