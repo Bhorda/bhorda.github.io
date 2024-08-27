@@ -36,13 +36,13 @@
 
 html {
 	font-family: 'Outfit', sans-serif;
-
 	background: var(--layer-2);
 	/* come back to this idea later */
 	background: linear-gradient(0deg, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
 }
 
 html, body {
+	font-family: 'Outfit', sans-serif;
 	margin: 0;
 	padding: 0;
 	height: 100%;
