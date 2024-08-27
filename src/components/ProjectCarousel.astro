@@ -1,12 +1,16 @@
 ---
 // Astro component script area, if needed
+import { Image } from 'astro:assets';
+import TabsIcon from '../assets/tabslogo.svg';
+
 ---
 <div class="tile-small">
 <div class="carousel-container">
     <div class="carousel-track">
       <!-- Project 1 -->
       <div class="carousel-slide">
-        <div class="project-card">
+        <div class="project-card" style="background-color: #6382F1">
+        	<Image src={TabsIcon} alt="Tabs Icon" width="30" height="30" />
           <h2>Tabs</h2>
           <p>A less overwhelming todo app. Designed for people with ADHD, perfected for everyone.</p>
           <a href="#" class="download-link">Download</a>
@@ -78,7 +82,6 @@
 
 	/* Project card styling */
 	.project-card {
-	  background-color: #282828;
 	  color: white;
 	  /* border-radius: 20px; */
 	  padding: 20px;
@@ -87,7 +90,7 @@
 	  justify-content: center; /* Center vertically */
 	  align-items: center; /* Center horizontally */
 	  text-align: center; /* Center text */
-	  height: 100%;
+	  height: 275px;
 	}
 
 	/* Heading styling */
