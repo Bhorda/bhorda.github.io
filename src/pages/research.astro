@@ -222,6 +222,10 @@ import "../styles/theme.css";
 		}
 
 		@media (max-width: 700px) {
+			.narrow {
+				display: block;
+			}
+
 			.narrowest {
 				display: none;
 			}
@@ -230,9 +234,18 @@ import "../styles/theme.css";
 				width: 100%;
 			}
 
+			.project-property-keywords {
+					width: 100%;
+			}
+
+			.project-property-venue {
+					width: 100%;
+			}
+
 			.project-properties {
 				flex-direction: column;
 				padding: 4px;
+				gap: 4px;
 			}
 
 			.table-header {
@@ -241,8 +254,9 @@ import "../styles/theme.css";
 			}
 
 			.category-header {
-				margin-left: 4px;
-				margin-right: 4px;
+				margin-left: 8px;
+				margin-right: 8px;
+
 			}
 
 			.projects-container {

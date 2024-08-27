@@ -8,14 +8,14 @@ import { getCollection } from 'astro:content';
 // );
 
 import { Image } from 'astro:assets';
-import SubstackLogo from '../assets/substacklogo.svg'
+import SubstackLogo from '../assets/substacklogo.svg';
 
 import "../styles/theme.css";
 
 // Fetch the blog posts
 const allPosts = await getCollection('notes');
 const posts = allPosts
-  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
 ---
 
 <!DOCTYPE html>
