@@ -1,16 +1,12 @@
 ---
+import "../styles/theme.css";
+
 import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 
-// const posts = (await getCollection('posts')).sort(
-// 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-// );
-
 import { Image } from 'astro:assets';
 import SubstackLogo from '../assets/substacklogo.svg';
-
-import "../styles/theme.css";
 
 // Fetch the blog posts
 const allPosts = await getCollection('notes');
