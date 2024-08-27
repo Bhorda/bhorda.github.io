@@ -38,7 +38,6 @@ html {
 	background: var(--layer-2);
 	/* come back to this idea later */
 	background: linear-gradient(0deg, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
-
 	font-family: 'Outfit', sans-serif;
 }
 
