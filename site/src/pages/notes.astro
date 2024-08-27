@@ -1,0 +1,262 @@
+---
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+// const posts = (await getCollection('posts')).sort(
+// 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+// );
+
+import { Image } from 'astro:assets';
+import SubstackLogo from '../assets/substacklogo.svg'
+
+// Fetch the blog posts
+const allPosts = await getCollection('notes');
+const posts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#3B3B3D"> <!-- This should match the top of the gradient -->
+		<title>Benjamin Lucas Searle</title>
+		<link rel="stylesheet" href="/src/styles/theme.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap">
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	  </head>
+  <body>
+	<div class="site-container">
+		<Header />
+		<div class="app-container">
+      <div class="sidebar">
+				<div class="posts-container">
+					<a href={`/notes`} >
+						<p style="padding-left: 12px; font-weight: 500; font-size: 20px;"> Notes </p>
+					</a>
+					{posts.map(post => (
+						<a href={`/${post.slug}`} class="post-item" key={post.slug}>
+							<div class="post-text-block">
+								<div class="post-title">{post.data.title}</div>
+								<div class="post-subtitle">{post.data.description}</div>
+							</div>
+						</a>
+					  ))}
+				</div>
+      </div>
+      <div class="post-content-container">
+				<div class="post-content-toolbar">
+					<p class="date">Last updated: 2024/08/19</p>
+					<div class="substack-button">
+						<a href="https://benjibo.substack.com">
+							<p>Read on Substack</p>
+							<svg xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 0 448 511.471"><path d="M0 0h448v62.804H0V0zm0 229.083h448v282.388L223.954 385.808 0 511.471V229.083zm0-114.542h448v62.804H0v-62.804z"></path></svg>
+						</a>
+					</div>
+				</div>
+				<div class="post-content">
+					<h1>Welcome to my notes</h1>
+					<p>
+						I share my writings here that cover topics such as design research, case studies, and software development - with the occasional miscellaneous. I adapt some of these into <a href="https://youtube.com/@benjibo">Youtube</a> videos to promote accessibility and community.
+					</p>
+					<p>
+						I use this space to send links to people, so I hope you find something interesting. If you do - and have any comments, questions, chat 	intentions - please do reach out at ben (at) searle (dot) hu ! Or sign up for an <a href="https://benjibo.substack.com">off-schedule newsletter</a> for updates...
+					</p>
+					<div style="width: 100%; margin-top: 40px; margin-bottom: 80px; border: 1px solid var(--layer-3-trim); background: var(--layer-3); border-radius: 20px; align-items: center;">
+						<p style="padding-left: 12px; padding-right: 12px; color: #FFF; text-align: center">I don't write on a schedule, but if you want to be notified when something new does appear there's a signup below!</p>
+						<div style=" text-align: end;">
+						<!-- <div id="custom-substack-embed"></div> -->
+							<div style="display: block; width: 100%; align-items: end;">
+								<iframe src="https://benjibo.substack.com/embed" height="140" style="border-radius: 20px; width: 100%; display: flex; text-align: center;" frameborder="0" scrolling="no"></iframe>
+							</div>
+					  </div>
+					</div>
+				</div>
+      </div>
+		</div>
+	</div>
+  </body>
+</html>
+
+<style>
+	a {
+		font-weight: 500;
+		text-decoration: none;
+		color: #FFF;
+	}
+
+	.site-container {
+		min-height: 100%; /* Allows the container to grow with content */
+		width: 100vw;
+		background-color: var(--layer-1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center; /* Centers tile-grid horizontally */
+		align-items: center; /* Centers tile-grid vertically */
+	}
+
+	.app-container {
+		display: flex;
+		flex-direction: row;
+		flex-grow: 1;
+		width: 100vw;
+		height: calc(100vh - 40px); /* Adjust height to account for the header */
+		border-top: 1px solid var(--layer-3);
+	}
+
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+		flex-shrink: 0;
+        border-right: 1px solid var(--layer-3);
+		overflow-y: auto;
+		max-height: 100%;
+    }
+
+	.posts-container {
+  /* background-color: #3B3B3B; */
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+	gap: 0px;
+}
+
+.post-content-container {
+	padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+	gap: 4px;
+	flex-grow:1;
+}
+
+.post-content-toolbar {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	align-content: center;
+}
+
+	.date {
+		color: var(--text-tertiary);
+	}
+
+.substack-button {
+	display: flex;
+	flex-direction: row;
+	font-size: 16px;
+}
+.substack-button p {
+	padding: 0px;
+	margin: 0px;
+}
+	.substack-button a {
+		fill: var(--text-secondary);
+		padding: 12px 16px;
+		border-radius: 100px;
+		background: var(--layer-2);
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 8px;
+		font-size: 14px;
+	}
+
+	.substack-button a:hover {
+		fill: #FF681A;
+		background: var(--layer-3)
+	}
+
+.post-content {
+	max-width: 800px;
+	padding-left: 24px;
+	padding-right: 24px;
+	line-height: 1.6rem;
+	letter-spacing: 0.32px;
+}
+
+.post-content a {
+    color: var(--text-primary);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--text-tertiary);
+}
+.post-content a:hover {
+    color: var(--text-secondary);
+}
+
+.post-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0;
+}
+
+.post-item {
+    display: flex;
+    padding: 10px 12px;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #00000000;
+}
+
+.post-item:hover {
+  background-color: var(--layer-3);
+  border: 1px solid var(--layer-3-trim);
+  box-shadow: 0px 1px 8px 0px var(--layer-3-shadow);
+}
+
+.post-title {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.post-subtitle {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 200;
+    color: var(--text-secondary);
+}
+
+.star-icon {
+  margin-right: 8px;
+  color: yellow;
+}
+
+@media (max-width: 800px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+.sidebar {
+    width: 100%;
+}
+    .post-content-container {
+        display: none;
+    }
+
+    .post-content {
+        padding-left: 0;
+    }
+
+    .post-content-nav {
+        display: flex;
+       	flex-direction: row;
+        font-size: 16px;
+    }
+}
+</style>

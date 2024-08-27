@@ -1,0 +1,59 @@
+/*
+  The CSS in this style tag is based off of Bear Blog's default CSS.
+  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
+  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+ */
+
+:root {
+	--layer-1: #1f1f21;
+
+	--layer-2: #3b3b3d;
+	--layer-2-shadow: rgba(0, 0, 0, 0.15);
+	--layer-2-project: #2a2a2c;
+
+	--layer-3: #5d5d5f;
+	--layer-3-trim: #767678;
+	--layer-3-shadow: rgba(0, 0, 0, 0.25);
+
+	--text-primary: #FFFFFF;
+	--text-secondary: #FFFFFFCC;
+	--text-tertiary: #FFFFFF88;
+
+	--notes-accent: #FFB800;
+	--notes-accent-secondary: #FFB8008A;
+	--notes-accent-tertiary: #FFB800BB;
+
+	--publications-accent: #4BEF96;
+	--publications-accent-secondary: #4BEF967A;
+	--publications-accent-tertiary: #4BEF96BB;
+
+	--about-accent: #FF7878;
+	--about-accent-secondary: #FF78787A;
+	--about-accent-tertiary: #FF7878BB;
+}
+
+html {
+	background: var(--layer-2);
+	/* come back to this idea later */
+	background: linear-gradient(0deg, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+body {
+	color: var(--text-primary);
+	font-family: 'Outfit', sans-serif;
+	font-weight: 200;
+}
+
+p {
+	font-weight: 200;
+}
+
+p strong, p b {
+	  font-weight: 500;
+}

@@ -1,0 +1,97 @@
+---
+import Header from '../components/Header.astro';
+const sections = [
+	{ name: 'General', id: 'education' },
+	{ name: 'Now', id: 'education' },
+  	{ name: 'Education', id: 'education' },
+  	{ name: 'Work', id: 'professional-experience' },
+  	{ name: 'Skills', id: 'skills' },
+  	{ name: 'Interests', id: 'interests' }
+];
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#3B3B3D"> <!-- This should match the top of the gradient -->
+		<title>Benjamin Lucas Searle</title>
+		<link rel="stylesheet" href="/src/styles/theme.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap">
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	</head>
+	<body>
+		<div class="site-container">
+			<Header />
+			<div class="app-container">
+				<div class="container">
+					<h1>Research </h1>
+					<p>
+						My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I'm currently working on personal energy management technologies and self-tracking.
+					</p>
+
+					<div class="publication">
+						<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4907272#paper-references-widget">How People Use Personal Energy as a Proxy to Self-Manage Health and Wellbeing with Self-Tracking Technologies</a>
+						<i>In review</i>
+						<p>
+							Managing personal energy is essential for day-to-day life and engaging with people, tasks, and hobbies. However, energy is also ambiguous and personal, which makes understanding and supporting the vital  process of energy management challenging.
+						</p>
+					</div>
+
+					<div class="publication">
+						<a href="https://dl.acm.org/doi/10.1145/3447526.3472061">Anticipatory detection of compulsive body-focused repetitive behaviors with wearables</a>
+						<p>
+							<i>ACM MobileHCI</i> - <i>2021</i> - <a href="https://github.com/Bhorda/BFRBAnticipationDataset" style="font-weight: 300">Code & Dataset</a>
+						</p>
+						<p>
+							Conducted feasibility study for smartwatch application for use in mental health tracking of compulsive behaviour (BFRBs). Motion data gathered from experiments with human participants used to develop such an application for smartwatches.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	a {
+		font-weight: 500;
+		text-decoration: none;
+		color: var(--text-primary);
+	}
+	a:hover {
+		color: var(--text-secondary);
+	}
+
+	.site-container {
+		min-height: 100%; /* Allows the container to grow with content */
+		width: 100vw;
+		background-color: var(--layer-1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center; /* Centers tile-grid horizontally */
+		align-items: center; /* Centers tile-grid vertically */
+	}
+
+	.app-container {
+		display: flex;
+		flex-direction: row;
+		flex-grow: 1;
+		width: 100vw;
+		height: calc(100vh - 40px); /* Adjust height to account for the header */
+		border-top: 1px solid var(--layer-3);
+	}
+
+	.publication {
+		max-width: 600px;
+		display: flex;
+		gap: 2px;
+		flex-direction: column;
+		margin-bottom: 16px;
+	}
+	.publication p {
+		margin: 0px;
+	}
+</style>

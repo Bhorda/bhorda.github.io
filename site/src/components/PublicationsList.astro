@@ -1,0 +1,104 @@
+---
+import { getCollection } from 'astro:content';
+
+// Fetch the blog posts
+const allPosts = await getCollection('notes');
+const publications = [
+  { name: 'How people use energy as a proxy to self-manage health and wellbeing with self tracking technologies', keywords: ['Wellbeing', 'Self tracking', 'Self management', 'Personal energy'], venue: 'In review', year: '2024', link: 'https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4907272#paper-references-widget'},
+  { name: 'Anticipatory detection of compulsive body-focused repetitive behaviors with wearables', keywords: ['Wearables', 'Machine Learning', 'Anticipatory detection', 'BFRBs'], venue: 'MobileHCI', year: '2021', link: 'https://dl.acm.org/doi/10.1145/3447526.3472061'},
+];
+---
+
+<div class="posts-container">
+    {publications.map(publication => (
+        <a href={publication.link}} class="post-item">
+                <div class="post-text-block">
+                    <div class="post-title">{publication.name}</div>
+                    {/* {publications.keywords.map(keyword => (
+                        {keyword}
+                    ))} */}
+                    <div class="post-subtitle">Keywords: {publication.keywords.join(', ')}</div>
+                </div>
+                <div class="post-meta-block">
+                    <div class="post-venue-and-year">{publication.year}</div>
+                    <div class="post-venue-and-year">{publication.venue}</div>
+                </div>
+        </a>
+      ))}
+</div>
+
+<style>
+.posts-container {
+  /* background-color: #3B3B3B; */
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.post-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
+    flex: 1 0 0;
+}
+
+.post-item {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    padding: 10px 12px;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 10px;
+    text-decoration: none;
+    border: 1px solid #00000000;
+    letter-spacing: 0.32px;
+}
+
+.post-meta-block {
+    width: 100px;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 200;
+    font-size: 14px;
+}
+
+/* .post-venue-and-year {
+    width: 100px;
+    text-align: end;
+    text-decoration: none;
+    color: #999;
+    font-weight: 200;
+} */
+
+.post-item:hover {
+  background-color: var(--layer-3);
+  border: 1px solid var(--layer-3-trim);
+  box-shadow: 0px 1px 8px 0px var(--layer-3-shadow);
+}
+
+.post-title {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.post-subtitle {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 200;
+    color: var(--text-secondary);
+}
+
+.star-icon {
+  margin-right: 8px;
+  color: yellow;
+}
+</style>

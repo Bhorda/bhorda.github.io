@@ -1,0 +1,231 @@
+---
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+import { Image } from 'astro:assets';
+import TabsIcon from '../assets/tabslogo.svg'
+import ProjectsIcon from '../assets/projectsicon.svg'
+import AmuletIcon from '../assets/amuletlogo.svg'
+import SoulbloomIcon from '../assets/soulbloomicon.png'
+import VoicedesignerIcon from '../assets/voicedesignericon.png'
+import VoidIcon from '../assets/voidicon.png'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="theme-color" content="#3B3B3D"> <!-- This should match the top of the gradient -->
+				<title>Benjamin Lucas Searle</title>
+				<link rel="stylesheet" href="/src/styles/theme.css">
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap">
+				<script src="https://unpkg.com/@phosphor-icons/web"></script>
+		</head>
+		<body>
+				<div class="site-container">
+						<Header />
+						<div class="app-container">
+							<div class="projects-header">
+							  <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 256 256"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,208H48V48H80Zm96-56H112a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H112a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Z"></path></svg>
+									<h1> Publications </h1>
+							</div>
+							<div class="table-header">
+								<div class="narrow" style="width: 38px;"></div>
+								<div class="project-properties">
+									<p class="project-property-title" style="font-weight: 200; ">Title</p>
+									<p class="project-property-venue" style="font-weight: 200; ">Venue</p>
+									<p class="project-property-keywords narrow" style="font-weight: 200; ">Keywords</p>
+								</div>
+							</div>
+
+							<div class="category-header">
+								<h2>2024</h2>
+								<p>1 item</p>
+							</div>
+
+								<div class="projects-container">
+										<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4907272#paper-references-widget" class="project" >
+															<div class="narrow"  style="width: 30px;"></div>
+														<div class="project-properties" style="width: 100%;">
+																<p class="project-property-title" style="margin: 0;">How People Use Personal Energy as a Proxy to Self-Manage Health and Wellbeing with Self-Tracking Technologies</p>
+																<p class="project-property-venue" style="margin: 0;">In review</p>
+																<p class="project-property-keywords narrow" style="margin: 0;">Wellbeing, Self tracking, Self management, Personal energy</p>
+														</div>
+										</a>
+								</div>
+
+								<div class="category-header">
+									<h2>2021</h2>
+									<p>1 item</p>
+								</div>
+								<div class="projects-container">
+								<a href="https://dl.acm.org/doi/10.1145/3447526.3472061" class="project" >
+													<div class="narrow" style="width: 30px;"></div>
+												<div class="project-properties" style="width: 100%;">
+														<p class="project-property-title" style="font-weight: 200; margin: 0;">Anticipatory detection of compulsive body-focused repetitive behaviors with wearables</p>
+														<p class="project-property-venue" style="font-weight: 200; margin: 0;">MobileHCI</p>
+														<p class="project-property-keywords narrow" style="font-weight: 200; margin: 0;">Wearables, Machine Learning, Anticipatory detection, BFRBs</p>
+												</div>
+								</a>
+								</div>
+						</div>
+				</div>
+		</body>
+</html>
+
+<style>
+		a {
+				font-weight: 500;
+				text-decoration: none;
+				color: #FFF;
+		}
+
+		.site-container {
+				min-height: 100%; /* Allows the container to grow with content */
+				width: 100vw;
+				background-color: var(--layer-1);
+				display: flex;
+				flex-direction: column;
+				justify-content: center; /* Centers tile-grid horizontally */
+				align-items: center; /* Centers tile-grid vertically */
+		}
+
+		.app-container {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				width: 100vw;
+				height: calc(100vh - 40px); /* Adjust height to account for the header */
+				border-top: 1px solid var(--layer-3);
+		}
+
+		.projects-header {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 8px;
+				fill: var(--text-tertiary);
+				margin-left: 24px;
+				margin-right: 24px;
+				margin-top: 24px;
+		}
+
+		.projects-header h1 {
+			font-weight: 500;
+			font-size: 24px;
+		}
+
+		.table-header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-wrap: wrap;
+			height: 41px;
+			border-bottom: 1px solid var(--layer-3);
+			margin-left: 24px;
+			margin-right: 24px;
+			color: var(--text-tertiary);
+			padding: 2px;
+			font-size: 16px;
+		}
+
+		.category-header  {
+				display: flex;
+				flex-direction: row;
+				align-items: baseline;
+				margin-left: 24px;
+				margin-right: 24px;
+				gap: 8px;
+		}
+
+		.category-header h2 {
+				font-weight: 500;
+				font-size: 20px;
+		}
+
+		.category-header p {
+				font-weight: 200;
+				font-size: 16px;
+				color: var(--text-tertiary);
+		}
+
+		.project {
+				display: flex;
+				flex-direction: row;
+				gap: 8px;
+				padding: 4px;
+				font-size: 16px;
+				border-radius: 12px;
+		}
+
+		.project:hover {
+			background-color: var(--layer-3);
+		}
+
+		.projects-container {
+				display: flex;
+				margin-left: 24px;
+				margin-right: 24px;
+				flex-direction: column;
+		}
+
+		.project-properties {
+				display: flex;
+				flex-direction: row;
+				align-items: top;
+				flex-wrap: wrap;
+				flex-grow: 1;
+
+		}
+
+		.project-property {
+				width: calc(20% - 18.4px);
+		}
+
+		.project-property-title {
+				width: calc(40% - 18.4px);
+				font-weight: 200;
+				line-height: 24px;
+				padding-right: 40px;
+		}
+
+		.project-property-keywords {
+				width: calc(20% - 18.4px);
+				color: var(--text-tertiary);
+		}
+		.project-property-venue {
+				width: calc(10% - 18.4px);
+				color: var(--text-tertiary);
+		}
+
+		@media (max-width: 1300px) {
+
+			.project-property-title {
+					width: calc(40% - 18.4px);
+			}
+
+			.project-property-keywords {
+					width: calc(30% - 18.4px);
+			}
+			.project-property-venue {
+					width: calc(20% - 18.4px);
+			}
+
+		}
+
+		@media (max-width: 1000px) {
+			.narrow {
+				display: none;
+			}
+
+			.project-property-title {
+					width: calc(70% - 18.4px);
+			}
+
+			.project-property-venue {
+					width: calc(20% - 18.4px);
+			}
+		}
+</style>

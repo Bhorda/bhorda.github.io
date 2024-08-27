@@ -1,0 +1,56 @@
+---
+import HomeButton from '../components/HomeButton.astro'
+---
+
+<div class="titlebar">
+    <HomeButton />
+    <div class="navbar">
+        <a href="about" class="icon-link">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M132,24A100.11,100.11,0,0,0,32,124v84a16,16,0,0,0,16,16h84a100,100,0,0,0,0-200Zm32,128H96a8,8,0,0,1,0-16h68a8,8,0,0,1,0,16Zm0-32H96a8,8,0,0,1,0-16h68a8,8,0,0,1,0,16Z"></path></svg>
+        </a>
+        <a href="/notes" class="icon-link">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M243.31,81.36,174.63,12.68a16,16,0,0,0-22.63,0L123.56,41.12l-58,21.76A16,16,0,0,0,55.36,75.23L34.59,199.83a4,4,0,0,0,6.77,3.49l57-57a23.85,23.85,0,0,1-2.29-12.08,24,24,0,1,1,13.6,23.4l-57,57a4,4,0,0,0,3.49,6.77l124.61-20.77a16,16,0,0,0,12.35-10.16l21.77-58.07L243.31,104a16,16,0,0,0,0-22.63ZM208,116.68,139.32,48l24-24L232,92.68Z"></path></svg>
+        </a>
+        <a href="/projects" class="icon-link">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M120,56v48a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40h48A16,16,0,0,1,120,56Zm80-16H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-96,96H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm96,0H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Z"></path></svg>
+        </a>
+        <a href="/research" class="icon-link">
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,208H48V48H80Zm96-56H112a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H112a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Z"></path></svg>
+        </a>
+    </div>
+</div>
+
+<style>
+    	.titlebar {
+		display: flex;
+		flex-direction: row;
+		width: 100vw;
+		background: var(--layer-2);
+		padding: 1px;
+		justify-content: space-between;
+		align-items: center;
+		height: 40px;
+	}
+
+	.navbar {
+		display: flex;
+		gap: 20px;
+		margin-right: 24px;
+	}
+
+	.navbar a {
+		fill: var(--text-tertiary);
+	}
+
+	.navbar a:hover {
+		fill: var(--text-primary);
+	}
+
+	@media (max-width: 690px) {
+		/* .titlebar {
+			position: fixed;
+			bottom: 0;
+			z-index: 10;
+		} */
+	}
+</style>

@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BlogPost from '../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('notes');
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'notes'>;
+
+const post = Astro.props;
+const { Content } = await post.render();
+---
+
+<BlogPost {...post.data}>
+	<Content />
+</BlogPost>
+
+<style>
+	.post-content img {
+    max-width: 80px; /* Ensure the image doesn't exceed its container width */
+    margin-top: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 2px 8px var(--shadow-color, rgba(0, 0, 0, 0.3));
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-content img + em {
+    display: block;
+    text-align: center;
+    color: #a1a1a1;
+    margin-top: 10px;
+    margin-bottom: 40px;
+	bottom: 40px;
+}
+</style>

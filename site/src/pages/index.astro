@@ -1,0 +1,314 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import ProjectCarousel from '../components/ProjectCarousel.astro';
+import ProfileTile from '../components/ProfileTile.astro';
+import PostList from '../components/PostList.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+import Header from '../components/Header.astro';
+import PublicationsList from '../components/PublicationsList.astro';
+
+import { Image } from 'astro:assets';
+import UCLIC from '../assets/uclic.png'
+import NBS from '../assets/nbslogo.svg'
+
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="theme-color" content="#3B3B3D"> <!-- This should match the top of the gradient -->
+    <title>Benjamin Lucas Searle</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="/src/styles/theme.css">
+	<link rel="icon" href="/src/assets/blssitelogo.png" type="image/png">
+	<script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+	<div class="site-container">
+		<Header />
+
+		<div class="app-container">
+		<div class="tile-grid">
+			<!-- <div class="tile-small profile-tile"> -->
+				<ProfileTile />
+			<!-- </div> -->
+			<div class="tile-large">
+				<div class="tile-titlebar">
+					<svg xmlns="http://www.w3.org/2000/svg" height="20" fill="var(--about-accent)" viewBox="0 0 256 256"><path d="M132,24A100.11,100.11,0,0,0,32,124v84a16,16,0,0,0,16,16h84a100,100,0,0,0,0-200Zm32,128H96a8,8,0,0,1,0-16h68a8,8,0,0,1,0,16Zm0-32H96a8,8,0,0,1,0-16h68a8,8,0,0,1,0,16Z"></path></svg>
+					<p style="flex-grow: 1;">About</p>
+					<a href="about">
+						<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M156,128a28,28,0,1,1-28-28A28,28,0,0,1,156,128ZM48,100a28,28,0,1,0,28,28A28,28,0,0,0,48,100Zm160,0a28,28,0,1,0,28,28A28,28,0,0,0,208,100Z"></path></svg>
+					</a>
+				</div>
+				<div class="about-content">
+					<div class="about-text">
+						<p>I'm a PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
+						<p>I run <a  href="https://www.noblank.space">No Blank Space</a>, building <a  href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a  href="https://www.noblank.space/work/tabs">Tabs</a>, an overwhelm-friendly task manager. I’m also a founder of <a  href="">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.</p>
+					</div>
+					<div class="vertical-line hide-on-mobile"></div>
+					<div class="image-content hide-on-mobile">
+						<Image src={UCLIC} alt="descriptive text" width="300" style="width: 130px;"/>
+						<Image src={NBS} alt="descriptive text" width="300" style="width: 90px; fill: #FFF;"/>
+					</div>
+				</div>
+			</div>
+			<div class="tile-large">
+				<div class="tile-titlebar">
+					<svg xmlns="http://www.w3.org/2000/svg" height="20" fill="var(--notes-accent)" viewBox="0 0 256 256"><path d="M243.31,81.36,174.63,12.68a16,16,0,0,0-22.63,0L123.56,41.12l-58,21.76A16,16,0,0,0,55.36,75.23L34.59,199.83a4,4,0,0,0,6.77,3.49l57-57a23.85,23.85,0,0,1-2.29-12.08,24,24,0,1,1,13.6,23.4l-57,57a4,4,0,0,0,3.49,6.77l124.61-20.77a16,16,0,0,0,12.35-10.16l21.77-58.07L243.31,104a16,16,0,0,0,0-22.63ZM208,116.68,139.32,48l24-24L232,92.68Z"></path></svg>
+					<p style="flex-grow: 1;"> Recent notes </p>
+					<a href="/notes">
+						<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M156,128a28,28,0,1,1-28-28A28,28,0,0,1,156,128ZM48,100a28,28,0,1,0,28,28A28,28,0,0,0,48,100Zm160,0a28,28,0,1,0,28,28A28,28,0,0,0,208,100Z"></path></svg>
+					</a>
+				</div>
+				<PostList />
+			</div>
+			<div class="tile-small">
+				<ProjectCarousel />
+			</div>
+			<div class="tile-projects">
+				<ProjectsGrid />
+			</div>
+			<div class="tile-large">
+				<div class="tile-titlebar">
+					<svg xmlns="http://www.w3.org/2000/svg" height="20" fill="var(--publications-accent)" viewBox="0 0 256 256"><path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM80,208H48V48H80Zm96-56H112a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Zm0-32H112a8,8,0,0,1,0-16h64a8,8,0,0,1,0,16Z"></path></svg>
+					<p style="flex-grow: 1;"> Publications </p>
+					<a href="/research">
+						<svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 256 256"><path d="M156,128a28,28,0,1,1-28-28A28,28,0,0,1,156,128ZM48,100a28,28,0,1,0,28,28A28,28,0,0,0,48,100Zm160,0a28,28,0,1,0,28,28A28,28,0,0,0,208,100Z"></path></svg>
+					</a>
+				</div>
+				<PublicationsList />
+			</div>
+		</div>
+		</div>
+	</div>
+  </body>
+</html>
+
+<style>
+	.site-container {
+		min-height: 100%; /* Allows the container to grow with content */
+		width: 100vw;
+		background-color: var(--layer-1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center; /* Centers tile-grid horizontally */
+		align-items: center; /* Centers tile-grid vertically */
+	}
+
+	.app-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center; /* Centers tile-grid horizontally */
+		width: 100vw;
+		border-top: 1px solid var(--layer-2);
+	}
+
+	.tile-grid {
+		display: flex;
+		max-width: 1035px;
+		padding: 30px 30px;
+		align-items: flex-start;
+		align-content: flex-start;
+		gap: 30px;
+		flex-shrink: 0;
+		flex-wrap: wrap;
+		justify-content: center; /* Optional: Ensures content inside is centered */
+	}
+
+	.tile-small {
+		width: 315px;
+		height: 315px;
+		background-color: var(--layer-2);
+		border-radius: 16px;
+		box-shadow: 0px 4px 8px var(--layer-2-shadow);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.tile-large {
+		display: block;
+		width: 660px;
+		height: 315px;
+		background-color: var(--layer-2);
+		border-radius: 16px;
+		box-shadow: 0px 4px 8px var(--layer-2-shadow);
+	}
+
+	.tile-about {
+		width: 660px;
+		min-height: 315px;
+		display: flex;
+		flex-direction: column;
+		background-color: var(--layer-2);
+		border-radius: 16px;
+		box-shadow: 0px 4px 8px var(--layer-2-shadow);
+	}
+
+	.tile-projects {
+		width: 315px;
+		height: 315px;
+		background-color: var(--layer-2-project);
+		border-radius: 16px;
+		/* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.35); */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.tile-titlebar{
+		border-bottom: 1px solid var(--layer-3-trim);
+		background: var(--layer-3);
+		box-shadow: 0px 1px 8px 0px var(--layer-3-shadow);
+		display: flex;
+		height: 50px;
+		padding-left: 24px;
+		padding-right: 24px;
+		border-radius: 16px 16px 0px 0px;
+		align-items: center;
+		gap: 8px;
+	}
+	.tile-titlebar p {
+		font-weight: 500;
+		font-size: 18px;
+	}
+
+	.tile-titlebar a {
+		fill: var(--text-secondary);
+	}
+
+	.tile-titlebar a:hover {
+		fill: var(--text-primary);
+	}
+
+	.about-content {
+		display: flex;
+		/* height: 265px; */
+		padding: 24px;
+		justify-content: center;
+		align-items: flex-start;
+		gap: 16px;
+
+	}
+
+
+	/* Text content styles */
+	.about-text {
+		flex: 1; /* Takes up as much space as possible */
+		font-size: 15px;
+		font-weight: 200;
+		gap: 8px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start; /* Align items to the top */
+		letter-spacing: 0.32px;
+	}
+
+	.about-text a {
+		color: var(--text-primary);
+		font-weight: 500;
+		text-decoration: none;
+	}
+	.about-text a:hover {
+		color: var(--text-secondary);
+	}
+
+	/* Vertical line styling */
+	.vertical-line {
+		width: 2px;
+		background-color: var(--layer-3);
+		/* height: 90%; */
+		align-self: stretch;
+	}
+
+	/* Image content styles */
+	.image-content {
+	display: flex;
+	flex-direction: column;
+	height: 180px;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px; /* Space between the images */
+	}
+
+	/* Image styling */
+	.image-content img {
+	width: 80px; /* Set your desired width */
+	height: auto; /* Maintain aspect ratio */
+	}
+
+	/* Ensure paragraphs have appropriate spacing */
+	.about-text p {
+		margin-bottom: 0rem;
+		margin-top: 0rem;
+		font-weight: 200;
+		color: var(--text-secondary)
+	}
+
+
+	.tile-small {
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both size and shadow */
+		backface-visibility: hidden; /* Prevent flickering and layout shifts */
+		will-change: transform, box-shadow; /* Tell the browser to optimize for these changes */
+	}
+
+	.tile-small:hover {
+		transform: scale(1.018); /* Slightly grow the tile */
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+	}
+
+	.tile-large {
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both size and shadow */
+		backface-visibility: hidden; /* Prevent flickering and layout shifts */
+		will-change: transform, box-shadow; /* Tell the browser to optimize for these changes */
+	}
+
+	.tile-large:hover {
+		transform: scale(1.015); /* Slightly grow the tile */
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+	}
+
+	.tile-about {
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both size and shadow */
+		backface-visibility: hidden; /* Prevent flickering and layout shifts */
+		will-change: transform, box-shadow; /* Tell the browser to optimize for these changes */
+	}
+
+	.tile-about:hover {
+		transform: scale(1.015); /* Slightly grow the tile */
+		box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
+	}
+
+	@media (max-width: 1035px) {
+		.tile-grid {
+			max-width: 100%;
+			padding: 30px 30px;
+		}
+
+		.tile-about {
+			width: 315px;
+		}
+	}
+
+	@media (max-width: 690px) {
+		.tile-grid {
+			padding: 0px;
+			margin-top: 16px;
+			margin-bottom: 16px;
+			gap: 16px;
+		}
+
+		.tile-large {
+			flex-grow: 1;
+			margin-left: 16px;
+			margin-right: 16px;
+		}
+
+		.hide-on-mobile {
+			display: none;
+		}
+	}
+</style>

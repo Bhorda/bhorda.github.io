@@ -1,0 +1,110 @@
+---
+const projects = [
+  { name: 'Mesm', icon: '../assets/profile.png', url: '' },
+  { name: 'Tabs', icon: '../assets/tabslogo.svg', url: 'https://noblank.space/work/tabs' },
+  { name: 'Amulet', icon: '../assets/tabslogo.svg', url: 'https://noblank.space/work/amulet' },
+  { name: 'Void', icon: '../assets/tabslogo.svg', url: 'https://www.figma.com/file/uvdFSgSNeqAohRrif95Bh2/Void-App?type=design&node-id=108%3A1835&mode=design&t=855WqlKT1VofLXYR-1' },
+  { name: 'Soulbloom', icon: '../assets/tabslogo.svg', url: 'https://searle.hu/assets/Soulbloom.pdf' },
+  { name: 'VoiceDesigner', icon: '../assets/tabslogo.svg', url: 'https://docs.google.com/document/u/1/d/1M2XZepdWIJRz9iM7gxdkttrHa92YvMOTCeMWu9qYSJw/mobilebasic' },
+];
+
+import { Image } from 'astro:assets';
+import TabsLogo from '../assets/tabslogo.svg'
+import ProjectsIcon from '../assets/projectsicon.svg'
+import AmuletIcon from '../assets/amuletlogo.svg'
+import SoulbloomIcon from '../assets/soulbloomicon.png'
+import VoicedesignerIcon from '../assets/voicedesignericon.png'
+import VoidIcon from '../assets/voidicon.png'
+---
+
+  <div class="projects-grid">
+    <!-- {projects.map(project => (
+      <div class="project-item" key={project.name}>
+        <a href={project.url}>
+          <Image src={TabsLogo} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+          <div class="project-name">{project.name}</div>
+        </a>
+      </div>
+    ))} -->
+    <div class="project-item">
+      <a href="https://noblank.space/work/tabs">
+        <Image src={AmuletIcon} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+        <div class="project-name">Amulet</div>
+      </a>
+    </div>
+    <div class="project-item">
+      <a href="https://noblank.space/work/tabs">
+        <Image src={TabsLogo} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+        <div class="project-name">Tabs</div>
+      </a>
+    </div>
+    <div class="project-item">
+      <a href="https://www.figma.com/file/uvdFSgSNeqAohRrif95Bh2/Void-App?type=design&node-id=108%3A1835&mode=design&t=855WqlKT1VofLXYR-1">
+        <Image src={VoidIcon} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+        <div class="project-name">Void</div>
+      </a>
+    </div>
+    <div class="project-item">
+      <a href="https://searle.hu/assets/Soulbloom.pdf">
+        <Image src={SoulbloomIcon} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+        <div class="project-name">Soulbloom</div>
+      </a>
+    </div>
+    <div class="project-item">
+      <a href="https://www.youtube.com/watch?v=r5SzmjzVo3k">
+        <Image src={VoicedesignerIcon} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+        <div class="project-name">VoiceDesigner</div>
+      </a>
+    </div>
+    <div class="project-item">
+      <a href="/projects">
+        <Image src={ProjectsIcon} alt="descriptive text" width="300" style="width: 60px; height: 60px;"/>
+        <div class="project-name">Projects</div>
+      </a>
+    </div>
+  </div>
+
+<style>
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 columns of equal width */
+    grid-template-rows: repeat(3, 1fr);
+    
+    gap: 12px 30px; /* Space between the items */
+    justify-items: center; /* Center items within their grid cells */
+    justify-content: center;
+}
+
+.project-item {
+    width: 66px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0px;
+}
+
+.project-icon {
+  width: 50px; /* Adjust size as needed */
+  height: 50px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.project-name {
+  margin-top: 0px;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.project-item {
+		transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for both size and shadow */
+		backface-visibility: hidden; /* Prevent flickering and layout shifts */
+		will-change: transform, box-shadow; /* Tell the browser to optimize for these changes */
+	}
+
+	.project-item:hover {
+		transform: scale(1.08); /* Slightly grow the tile */
+	}
+
+</style>

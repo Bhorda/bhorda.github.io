@@ -1,0 +1,176 @@
+---
+// Astro component script area, if needed
+---
+<div class="tile-small">
+<div class="carousel-container">
+    <div class="carousel-track">
+      <!-- Project 1 -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <h2>Tabs</h2>
+          <p>A less overwhelming todo app. Designed for people with ADHD, perfected for everyone.</p>
+          <a href="#" class="download-link">Download</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <h2>User Therapy</h2>
+          <p>
+          	Tech is having a culture/purpose identity-crisis. User Therapy is a lounge-style casual podcast on refinding that tech-career axis and realigning it with purpose and culture.
+          </p>
+          <a href="#" class="download-link">Download</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="carousel-slide">
+        <div class="project-card">
+          <h2>The Social Innovator</h2>
+          <p>
+          	What is the mark of a truly remarkable entrepreneur? How do we bring wonder and optimism into our future? What social innovations will help us get there?
+          </p>
+          <a href="#" class="download-link">Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel navigation dots -->
+    <div class="carousel-dots">
+      <button class="dot active"></button>
+      <button class="dot"></button>
+      <button class="dot"></button>
+    </div>
+  </div>
+</div>
+
+<style>
+	/* Carousel container styling */
+	.carousel-container {
+	  position: relative;
+	  width: 295px; /* Adjust to fit your design */
+	  height: 295px;
+	  overflow: hidden;
+	  border-radius: 10px;
+	  background-color: #1f1f1f; /* Dark background for contrast */
+	}
+
+	/* Track for sliding content */
+	.carousel-track {
+	  display: flex;
+	  transition: transform 0.5s ease-in-out;
+	}
+
+	/* Individual slides */
+	.carousel-slide {
+	  min-width: 100%;
+	  min-height: 100%;
+	  box-sizing: border-box;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center; /* Center vertically */
+	  align-items: center; /* Center horizontally */
+	  text-align: center; /* Center text */
+	  height: 100%;
+	  flex-grow: 1;
+	}
+
+	/* Project card styling */
+	.project-card {
+	  background-color: #282828;
+	  color: white;
+	  /* border-radius: 20px; */
+	  padding: 20px;
+	  display: flex;
+	  flex-direction: column;
+	  justify-content: center; /* Center vertically */
+	  align-items: center; /* Center horizontally */
+	  text-align: center; /* Center text */
+	  height: 100%;
+	}
+
+	/* Heading styling */
+	.project-card h2 {
+	  margin: 0;
+	  font-size: 24px;
+	}
+
+	/* Paragraph styling */
+	.project-card p {
+	  margin: 10px 0;
+	}
+
+	/* Image styling */
+	.project-card img {
+	  width: 50px;
+	  height: 50px;
+	  margin-bottom: 10px; /* Space between image and text */
+	}
+
+	/* Download link styling */
+	.download-link {
+	  display: inline-flex;
+	  align-items: center;
+	  color: white;
+	  text-decoration: none;
+	  font-weight: bold;
+	  margin-top: 10px;
+	}
+
+	/* Carousel navigation dots */
+	.carousel-dots {
+	  position: absolute;
+	  bottom: 10px;
+	  left: 50%;
+	  transform: translateX(-50%);
+	  display: flex;
+	  gap: 8px; /* Increase spacing between dots */
+	}
+
+	.dot {
+	  width: 12px;
+	  height: 12px;
+	  border-radius: 100%;
+	  background-color: var(--layer-3); /* Neutral color for inactive dots */
+	  border: none;
+	  cursor: pointer;
+	  transition: background-color 0.3s ease;
+	}
+
+	.dot.active {
+	  background-color: var(--text-secondary); /* Neutral color for inactive dots */
+	}
+</style>
+
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function showSlide(index) {
+    const track = document.querySelector('.carousel-track');
+    const slideWidth = slides[0].offsetWidth;
+    track.style.transform = `translateX(-${index * slideWidth}px)`;
+
+    // Update active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+  }
+
+  // Automatically switch slides every 6 seconds
+  setInterval(nextSlide, 6000);
+
+  // Allow manual control with dots
+  dots.forEach((dot, idx) => {
+    dot.addEventListener('click', () => {
+      currentIndex = idx;
+      showSlide(currentIndex);
+    });
+  });
+</script>

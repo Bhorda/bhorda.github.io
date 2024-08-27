@@ -1,0 +1,329 @@
+---
+import Header from '../components/Header.astro';
+---
+
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="theme-color" content="#3B3B3D"> <!-- This should match the top of the gradient -->
+		<title>Benjamin Lucas Searle</title>
+		<link rel="stylesheet" href="/src/styles/theme.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap">
+		<script src="https://unpkg.com/@phosphor-icons/web"></script>
+	  </head>
+  <body>
+	<div class="site-container">
+		<Header />
+		<div class="app-container">
+			<div class="tabs">
+				  <div class="tab-container">
+				    <input type="radio" id="tab-1" name="tab-group" checked>
+				    <label for="tab-1">About me</label>
+				    <div class="tab-content">
+							<div class="narrow-tab-box">
+								<div class="narrow-tab-content">
+						      <h1>Hi, I'm Ben</h1>
+									<p>I'm a PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
+									<p>I run <a  href="https://www.noblank.space">No Blank Space</a>, building <a  href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a  href="https://www.noblank.space/work/tabs">Tabs</a>, an overwhelm-friendly task manager. I’m also a founder of <a  href="">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.</p>
+								</div>
+								<div class="narrow-tab-spacer" />
+							</div>
+				    </div>
+
+				    <input type="radio" id="tab-2" name="tab-group">
+				    <label for="tab-2">Experience</label>
+				    <div class="tab-content">
+				      <h1>Experience</h1>
+				      <p>My roles usually include some combination of: <br><span style="white-space: nowrap;"><i class="ph-duotone ph-package" style="font-size: 20px; vertical-align: middle;"></i> <b>product</b></span>, <span style="white-space: nowrap;"><i class="ph-duotone ph-microscope" style="font-size: 20px; vertical-align: middle;"></i> <b>research</b></span>, <span style="white-space: nowrap;"><i class="ph-duotone ph-palette" style="font-size: 20px; vertical-align: middle;"></i> <b>design</b></span>, <span style="white-space: nowrap;"><i class="ph-duotone ph-code" style="font-size: 20px; vertical-align: middle;"></i> <b>development</b></span>, and <span style="white-space: nowrap;"><i class="ph-duotone ph-pen-nib" style="font-size: 20px; vertical-align: middle;"></i> <b>content</b></span>.</p>
+											<div style="display: flex; justify-content: space-between; padding: 0px; font-weight: bold;">
+												<span>Currently:</span>
+												<span>Role:</span>
+											</div>
+
+											<div class="works">
+											<div class="work">
+												<a class="role" href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>
+												<hr>
+												<i class="ph-duotone ph-microscope"></i>
+												<i class="ph-duotone ph-palette"></i>
+												<i class="ph-duotone ph-code"></i>
+												<i class="ph-duotone ph-pen-nib"></i>
+											</div>
+											<div class="work">
+												<a class="role" href="https://noblank.space">No Blank Space</a>
+												<hr>
+												<i class="ph-duotone ph-package"></i>
+												<i class="ph-duotone ph-palette"></i>
+												<i class="ph-duotone ph-code"></i>
+											</div>
+											<div class="work">
+												<a class="role" href="https://mesm.world">Mesm</a>
+												<hr>
+												<i class="ph-duotone ph-package"></i>
+												<i class="ph-duotone ph-palette"></i>
+												<i class="ph-duotone ph-code"></i>
+											</div>
+											<div class="work">
+												<a class="role" href="https://batterseadesignlab.com">Battersea Design Lab</a>
+												<hr>
+												<i class="ph-duotone ph-microscope"></i>
+												<i class="ph-duotone ph-palette"></i>
+												<i class="ph-duotone ph-pen-nib"></i>
+											</div>
+											</div>
+											<div style="display: flex; justify-content: space-between; padding-bottom: 0px; font-weight: bold;">
+												<span>Previously:</span>
+												<span>Role:</span>
+											</div>
+											<div class="works">
+											 <div class="work">
+												<a class="role" href="https://www.crunchbase.com/organization/workduck">Workduck</a>
+												<hr>
+												<i class="ph-duotone ph-package"></i>
+												<i class="ph-duotone ph-microscope"></i>
+												<i class="ph-duotone ph-palette"></i>
+											  </div>
+											  <div class="work">
+												<a class="role" href="https://techwolf.ai">Techwolf</a>
+												<hr>
+												<i class="ph-duotone ph-package"></i>
+												<i class="ph-duotone ph-microscope"></i>
+												<i class="ph-duotone ph-palette"></i>
+												<i class="ph-duotone ph-pen-nib"></i>
+											  </div>
+											  <div class="work">
+												<a class="role" href="https://tcs.com">Tata Consultancy Services</a>
+												<hr>
+												<i class="ph-duotone ph-palette"></i>
+												<i class="ph-duotone ph-code"></i>
+											  </div>
+											</div>
+											<div style="display: flex; justify-content: space-between; padding: 0px; font-weight: bold;">
+												<span>Education:</span>
+											</div>
+											<div class="works">
+											  <div class="work">
+												<p>Current: PhD CS</p>
+												<hr>
+												<p>UCL</p>
+											  </div>
+											  <div class="work">
+												<p>MSc HCI</p>
+												<hr>
+												<p>UCL</p>
+											  </div>
+											  <div class="work">
+												<p>MA CS</p>
+												<hr>
+												<p>University of Cambridge</p>
+											  </div>
+											</div>
+				    </div>
+
+				    <input type="radio" id="tab-3" name="tab-group">
+				    <label for="tab-3">Fun stuff</label>
+				    <div class="tab-content">
+		      		<div class="narrow-tab-box">
+								<div class="narrow-tab-content">
+						      <h1>Fun stuff</h1>
+									<p>There's a podcast I'm working on with my friend Jenn called <a href="">User Therapy</a>. Its about the identity and culture crisis of the tech industry and its employees, but in a chill lounge-esque vibe. We're both academcs, but work closely with industry.</p>
+									<p>I am a contributor on the newsletter <a href="https://vcseb.substack.com">The Social Innovator</a>, where I write about tech and culture.</p>
+									<p>I'm writing a sci-fi novel actually, which you can read an intro of on a <i>secret page</i>.</p>
+
+								</div>
+								<div class="narrow-tab-spacer" />
+							</div>
+				    </div>
+				  </div>
+				</div>
+				<!-- <div class="tabs">
+
+					<div class="tab">
+						<input type="radio" id="tab-1" name="tab-group-1" checked>
+						<label for="tab-1">About me</label>
+
+						<div class="content">
+							<h1>
+								Hi, I'm Ben
+							</h1>
+							<p>I'm a PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
+							<p>I run <a  href="https://www.noblank.space">No Blank Space</a>, building <a  href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a  href="https://www.noblank.space/work/tabs">Tabs</a>, an overwhelm-friendly task manager. I’m also a founder of <a  href="">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.</p>
+						</div>
+					</div>
+
+					<div class="tab">
+						<input type="radio" id="tab-2" name="tab-group-1">
+						<label for="tab-2">Experience</label>
+
+						<div class="content">
+							<h1>
+								Experience
+							</h1>
+
+						</div>
+					</div>
+
+					<div class="tab">
+						<input type="radio" id="tab-3" name="tab-group-1">
+						<label for="tab-3">Fun stuff</label>
+
+						<div class="content">
+							<h1>
+								Fun stuff
+							</h1>
+							<p>
+							    In case you're finding my website a bit cold, here's some things to prove I'm human:
+
+							    I'm currently writing a sci-fi novel actually, which you can read on a <i>secret page</i> here.
+							</p>
+						</div>
+					</div> -->
+
+		</div>
+	</div>
+  </body>
+</html>
+
+<style>
+	a {
+		font-weight: 500;
+		text-decoration: none;
+		color: var(--text-primary);
+	}
+	a:hover {
+		color: var(--text-secondary);
+	}
+
+	.site-container {
+		min-height: 100%; /* Allows the container to grow with content */
+		width: 100vw;
+		background-color: var(--layer-1);
+		display: flex;
+		flex-direction: column;
+		justify-content: center; /* Centers tile-grid horizontally */
+		align-items: center; /* Centers tile-grid vertically */
+	}
+
+	.app-container {
+		display: flex;
+		flex-direction: row;
+		flex-grow: 1;
+		width: 100vw;
+		height: calc(100vh - 40px); /* Adjust height to account for the header */
+		border-top: 1px solid var(--layer-3);
+	}
+
+
+
+.works {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+	padding-top: 8px;
+    padding-bottom: 16px;
+    width: 100%;
+}
+
+.work {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    line-height: 0px;
+    height: 1.675rem;
+}
+
+.work p {
+    padding: 0px;
+}
+
+.role {
+    font-weight: 200;
+    text-decoration: none;
+    line-height: 1.6rem;
+}
+
+.work hr {
+    flex-grow: 1;
+    border: 0;
+    height: 1px;
+    background-color: var(--layer-2);
+    margin: 0 20px;
+}
+
+.tabs {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.tab-container {
+  position: relative;
+  min-height: 300px; /* Adjust as needed */
+}
+
+.tab-container input[type="radio"] {
+  display: none;
+}
+
+.tab-container label {
+	position: relative;
+  display: inline-block;
+  padding: 10px 4px;
+  margin-right: 20px;
+  cursor: pointer;
+  font-weight: 200;
+  z-index: 2;
+  color: var(--text-secondary);
+}
+
+.tab-content {
+  display: none;
+  position: absolute;
+  top: 40px; /* Adjust based on your label height */
+  left: 0;
+  right: 0;
+  padding: 4px;
+  border-top: 1px solid var(--layer-3);
+}
+
+.narrow-tab-box {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	margin: 0 auto;
+}
+.narrow-tab-content {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	max-width: 600px;
+	margin: 0 auto;
+	gap: 0px;
+	padding: 0px;
+}
+
+.narrow-tab-spacer {
+	display: flex;
+	flex-grow: 1;
+}
+
+/* Show the selected tab content */
+.tab-container input[type="radio"]:checked + label + .tab-content {
+  display: block;
+}
+
+/* Style for the active tab label */
+.tab-container input[type="radio"]:checked + label {
+  border-bottom: 1px solid var(--text-secondary);
+  z-index: 3;
+  color: var(--text-primary);
+}
+</style>

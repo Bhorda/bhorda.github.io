@@ -1,0 +1,272 @@
+---
+import Header from '../components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+import { Image } from 'astro:assets';
+import TabsIcon from '../assets/tabslogo.svg'
+import ProjectsIcon from '../assets/projectsicon.svg'
+import AmuletIcon from '../assets/amuletlogo.svg'
+import SoulbloomIcon from '../assets/soulbloomicon.png'
+import VoicedesignerIcon from '../assets/voicedesignericon.png'
+import VoidIcon from '../assets/voidicon.png'
+---
+
+<!DOCTYPE html>
+<html lang="en">
+		<head>
+				<meta charset="UTF-8">
+				<meta name="viewport" content="width=device-width, initial-scale=1.0">
+				<meta name="theme-color" content="#3B3B3D"> <!-- This should match the top of the gradient -->
+				<title>Benjamin Lucas Searle</title>
+				<link rel="stylesheet" href="/src/styles/theme.css">
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap">
+				<script src="https://unpkg.com/@phosphor-icons/web"></script>
+		</head>
+		<body>
+				<div class="site-container">
+						<Header />
+						<div class="app-container">
+							<div class="projects-header">
+							  <svg xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 256 256"><path d="M120,56v48a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V56A16,16,0,0,1,56,40h48A16,16,0,0,1,120,56Zm80-16H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm-96,96H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm96,0H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Z"></path></svg>
+									<h1> Projects </h1>
+							</div>
+							<div class="table-header">
+								<div style="width: 38px;"></div>
+								<div class="project-properties">
+									<p class="project-property" style="font-weight: 200; ">Name</p>
+									<p class="project-property" style="font-weight: 200; ">Description</p>
+									<p class="project-property narrow" style="font-weight: 200; ">Year</p>
+									<p class="project-property wide" style="font-weight: 200; ">Affiliation</p>
+								</div>
+							</div>
+
+							<div class="category-header">
+								<h2>Current</h2>
+								<p>2 items</p>
+							</div>
+
+								<div class="projects-container">
+										<!-- <a href="https://noblank.space/work/amulet" class="project" >
+												<div>
+														<Image src={AmuletIcon} alt="SVG Image" style="vertical-align: middle; height: 30px;  width: 30px;">
+												</div>
+												<div class="project-properties" style="width: 100%;">
+														<p class="project-property" style="font-weight: 200; margin: 0;">Mesm</p>
+														<p class="project-property" style="font-weight: 200; margin: 0;">City-wide Adventure Games</p>
+														<p class="project-property narrow" style="font-weight: 200; margin: 0;">Ongoing</p>
+														<p class="project-property wide" style="font-weight: 200; margin: 0;">Mesm</p>
+												</div>
+										</a> -->
+
+										<a href="https://noblank.space/work/amulet" class="project" >
+														<div> <!-- Adjust width as needed -->
+																<Image src={AmuletIcon} alt="SVG Image" style="vertical-align: middle; height: 30px;  width: 30px;">
+														</div>
+														<div class="project-properties" style="width: 100%;">
+																<p class="project-property" style="font-weight: 200; margin: 0;">Amulet</p>
+																<p class="project-property" style="font-weight: 200; margin: 0;">Social Journalling</p>
+																<p class="project-property narrow" style="font-weight: 200; margin: 0;">Ongoing</p>
+																<p class="project-property wide" style="font-weight: 200; margin: 0;">No Blank Space</p>
+														</div>
+										</a>
+
+										<a href="https://noblank.space/work/tabs" class="project" >
+														<div> <!-- Adjust width as needed -->
+																<Image src={TabsIcon} alt="SVG Image" style="vertical-align: middle; height: 30px;  width: 30px;">
+														</div>
+														<div class="project-properties" style="width: 100%;">
+																<p class="project-property" style="font-weight: 200; margin: 0;">Tabs</p>
+																<p class="project-property" style="font-weight: 200; margin: 0;">Overwhelm-friendly Todos</p>
+																<p class="project-property narrow" style="font-weight: 200; margin: 0;">Ongoing</p>
+																<p class="project-property wide" style="font-weight: 200; margin: 0;">No Blank Space</p>
+														</div>
+										</a>
+								</div>
+
+								<div class="category-header">
+									<h2>Archived</h2>
+									<p>3 items</p>
+								</div>
+								<div class="projects-container">
+										<a href="https://noblank.space/work/amulet" class="project" >
+														<div> <!-- Adjust width as needed -->
+																<Image src={VoidIcon} alt="SVG Image" style="vertical-align: middle; height: 30px;  width: 30px;">
+														</div>
+														<div class="project-properties" style="width: 100%;">
+																<p class="project-property" style="font-weight: 200; margin: 0;">Void</p>
+																<p class="project-property" style="font-weight: 200; margin: 0;">Imperfect notes</p>
+																<p class="project-property narrow" style="font-weight: 200; margin: 0;">2023</p>
+																<p class="project-property wide" style="font-weight: 200; margin: 0;">Personal</p>
+														</div>
+										</a>
+
+										<a href="https://noblank.space/work/amulet" class="project" >
+														<div> <!-- Adjust width as needed -->
+																<Image src={SoulbloomIcon} alt="SVG Image" style="vertical-align: middle; height: 30px;  width: 30px;">
+														</div>
+														<div class="project-properties" style="width: 100%;">
+																<p class="project-property" style="font-weight: 200; margin: 0;">Soulbloom</p>
+																<p class="project-property" style="font-weight: 200; margin: 0;">Personal Data Physicalisation</p>
+																<p class="project-property narrow" style="font-weight: 200; margin: 0;">2023</p>
+																<p class="project-property wide" style="font-weight: 200; margin: 0;">UCL</p>
+														</div>
+										</a>
+
+										<a href="https://noblank.space/work/amulet" class="project" >
+														<div> <!-- Adjust width as needed -->
+																<Image src={VoicedesignerIcon} alt="SVG Image" style="vertical-align: middle; height: 30px;  width: 30px;">
+														</div>
+														<div class="project-properties" style="width: 100%;">
+																<p class="project-property" style="font-weight: 200; margin: 0;">VoiceDesigner</p>
+																<p class="project-property" style="font-weight: 200; margin: 0;">Emotional Prosody for AAC</p>
+																<p class="project-property narrow" style="font-weight: 200; margin: 0;">2023</p>
+																<p class="project-property wide" style="font-weight: 200; margin: 0;">UCL</p>
+														</div>
+										</a>
+								</div>
+						</div>
+				</div>
+		</body>
+</html>
+
+<style>
+		a {
+				font-weight: 500;
+				text-decoration: none;
+				color: #FFF;
+		}
+
+		.site-container {
+				min-height: 100%; /* Allows the container to grow with content */
+				width: 100vw;
+				background-color: var(--layer-1);
+				display: flex;
+				flex-direction: column;
+				justify-content: center; /* Centers tile-grid horizontally */
+				align-items: center; /* Centers tile-grid vertically */
+		}
+
+		.app-container {
+				display: flex;
+				flex-direction: column;
+				flex-grow: 1;
+				width: 100vw;
+				height: calc(100vh - 40px); /* Adjust height to account for the header */
+				border-top: 1px solid var(--layer-3);
+		}
+
+		.projects-header {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				gap: 8px;
+				fill: var(--text-tertiary);
+				margin-left: 24px;
+				margin-right: 24px;
+				margin-top: 24px;
+		}
+
+		.projects-header h1 {
+			font-weight: 500;
+			font-size: 24px;
+		}
+
+		.table-header {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			flex-wrap: wrap;
+			height: 41px;
+			border-bottom: 1px solid var(--layer-3);
+			margin-left: 24px;
+			margin-right: 24px;
+			color: var(--text-tertiary);
+			padding: 2px;
+			font-size: 16px;
+		}
+
+		.category-header  {
+				display: flex;
+				flex-direction: row;
+				align-items: baseline;
+				gap: 8px;
+				margin-left: 24px;
+				margin-right: 24px;
+		}
+
+		.category-header h2 {
+				font-weight: 500;
+				font-size: 20px;
+		}
+
+		.category-header p {
+				font-weight: 200;
+				font-size: 16px;
+				color: var(--text-tertiary);
+		}
+
+		.project {
+				display: flex;
+				flex-direction: row;
+				gap: 8px;
+				padding: 4px;
+				font-size: 16px;
+				border-radius: 12px;
+		}
+
+		.project:hover {
+			background-color: var(--layer-3);
+		}
+
+		.projects-container {
+				display: flex;
+				margin-left: 24px;
+				margin-right: 24px;
+				flex-direction: column;
+		}
+
+		.project-properties {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				flex-wrap: wrap;
+				flex-grow: 1;
+
+		}
+
+
+		.project-property {
+				width: calc(20% - 18.4px);
+		}
+
+		@media (max-width: 1300px) {
+			.wide {
+				display: none;
+			}
+
+			.project-property {
+					width: calc(30% - 18.4px);
+			}
+		}
+
+		@media (max-width: 1000px) {
+			.narrow {
+				display: none;
+			}
+
+			.project-property {
+					width: calc(40% - 18.4px);
+			}
+		}
+
+		@media (max-width: 700px) {
+			.narrow {
+				display: none;
+			}
+
+			.project-property {
+					width: calc(50% - 18.4px);
+			}
+		}
+</style>
