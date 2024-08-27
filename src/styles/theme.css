@@ -4,6 +4,8 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
 :root {
 	--layer-1: #1f1f21;
 
@@ -36,6 +38,8 @@ html {
 	background: var(--layer-2);
 	/* come back to this idea later */
 	background: linear-gradient(0deg, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
+
+	font-family: 'Outfit', sans-serif;
 }
 
 html, body {
