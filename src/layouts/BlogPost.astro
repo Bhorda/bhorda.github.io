@@ -153,7 +153,7 @@ import "../styles/posts.css";
 }
 
 .post-content-container {
-	padding: 24px;
+	padding: 12px 24px;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -318,7 +318,20 @@ import "../styles/posts.css";
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+	.substack-button {
+		display: none;
+	}
+
+	.post-content-nav a{
+		padding: 0px;
+		margin: 0px;
+	}
+
+	.date {
+		margin-right: 8px;
+	}
+
 	.post-content {
   	padding-left: 8px;
     padding-right: 8px;

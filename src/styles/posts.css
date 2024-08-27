@@ -17,6 +17,11 @@
     opacity: 0.85;
 }
 
+.post-content h1 {
+	font-size: 24px;
+	line-height: 26px;
+}
+
 img+em {
     display: flex;
     flex-direction: column;
