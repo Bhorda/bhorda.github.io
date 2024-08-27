@@ -35,16 +35,17 @@
 }
 
 html {
+	font-family: 'Outfit', sans-serif;
+
 	background: var(--layer-2);
 	/* come back to this idea later */
 	background: linear-gradient(0deg, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
-	background: -webkit-gradient(linear, left bottom, left top, 
-    color-stop(0%, var(--layer-2)),
-    color-stop(50%, var(--layer-2)),
-    color-stop(50%, var(--layer-1)),
-    color-stop(100%, var(--layer-1)));
-	background: -webkit-linear-gradient(bottom, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
-	font-family: 'Outfit', sans-serif;
+
+	background: -webkit-gradient(linear, left bottom, left top, color-stop(0%, ##3b3b3d),color-stop(50%, #3b3b3d),color-stop(50%, #1f1f21),color-stop(100%, #1f1f21));
+
+	background: -webkit-linear-gradient(bottom, #3b3b3d 0%, #3b3b3d 50%, #1f1f21 50%, #1f1f21 100%);
+
+
 	background: -moz-linear-gradient(bottom, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
 	background: -ms-linear-gradient(bottom, var(--layer-2) 0%, var(--layer-2) 50%, var(--layer-1) 50%, var(--layer-1) 100%);
 }
