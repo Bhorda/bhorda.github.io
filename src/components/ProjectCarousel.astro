@@ -2,7 +2,8 @@
 // Astro component script area, if needed
 import { Image } from 'astro:assets';
 import TabsIcon from '../assets/tabslogo.svg';
-
+import SocialInnovator from '../assets/thesocialinnovator.png';
+import NBSLogo from '../assets/nbslogo.svg';
 ---
 <div class="tile-small">
 <div class="carousel-container">
@@ -10,10 +11,17 @@ import TabsIcon from '../assets/tabslogo.svg';
       <!-- Project 1 -->
       <div class="carousel-slide">
         <div class="project-card" style="background-color: #6382F1">
-        	<Image src={TabsIcon} alt="Tabs Icon" width="30" height="30" />
-          <h2>Tabs</h2>
-          <p>A less overwhelming todo app. Designed for people with ADHD, perfected for everyone.</p>
-          <a href="#" class="download-link">Download</a>
+        	<div style="display: flex; flex-direction: column; width: 100%; justify-content: top; align-items: center; margin-top: 0px;">
+	        	<div style="display: flex; flex-direction: row; width: 100%; justify-content: leading; align-items: center; margin: 0px; gap: 8px;">
+		        	<Image src={TabsIcon} alt="Tabs Icon" width="50" height="50"/>
+		          <h2>Tabs</h2>
+          	</div>
+           	<p>A less overwhelming todo app. Designed for people with ADHD, perfected for everyone.</p>
+          </div>
+          <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+          	<Image src={NBSLogo} alt="No Blank Space" width="30" height="30" style="margin-top: 0px" />
+           	<a href="https://noblank.space/work/tabs" class="download-link">Learn more</a>
+          </div>
         </div>
       </div>
 
@@ -21,21 +29,31 @@ import TabsIcon from '../assets/tabslogo.svg';
       <div class="carousel-slide">
         <div class="project-card">
           <h2>User Therapy</h2>
-          <p>
+          <p style="font-size: 16px;">
           	Tech is having a culture/purpose identity-crisis. User Therapy is a lounge-style casual podcast on refinding that tech-career axis and realigning it with purpose and culture.
           </p>
-          <a href="#" class="download-link">Download</a>
+          <a href="" class="download-link" style="margin-bottom: 10px;">Coming soon</a>
         </div>
       </div>
 
       <!-- Project 3 -->
       <div class="carousel-slide">
-        <div class="project-card">
-          <h2>The Social Innovator</h2>
-          <p>
-          	What is the mark of a truly remarkable entrepreneur? How do we bring wonder and optimism into our future? What social innovations will help us get there?
-          </p>
-          <a href="#" class="download-link">Download</a>
+        <div class="project-card" style="padding: 0px; height: 295px;">
+        	<div style="width: 100%; height: 100%; background-image: url(/images/thesocialinnovator.png); background-size: cover;     background-color: rgba(0,0,0,0.6);
+         background-blend-mode: darken;">
+        		<div style="display: flex; flex-direction: column; flex-grow: 1; height: 100%; width: 100%; justify-content: top; margin-top: 0px;">
+         			<div>
+           			<h3 style="margin-bottom: 0px; margin-top: 20px;margin-left: 12px; text-align: left;">Newsletter</h3>
+              	<h2 style="margin-bottom: 20px; margin-top: 0px;margin-left: 12px; text-align: left;">The Social Innovator</h2>
+              </div>
+              <div style="text-align: left; width: 50%; margin-bottom: 10px;">
+		            <p style="font-size: 14px; margin-bottom: 0px; margin-top: 0px;">
+		           		What is the mark of a truly remarkable entrepreneur? How do we bring wonder and optimism into our future? What social innovations will help us get there?
+		            </p>
+		            <a href="https://vcseb.substack.com" class="download-link" style="margin-left: 12px; margin-top: 8px;">Read</a>
+							</div>
+          	</div>
+          </div>
         </div>
       </div>
     </div>
@@ -87,10 +105,10 @@ import TabsIcon from '../assets/tabslogo.svg';
 	  padding: 20px;
 	  display: flex;
 	  flex-direction: column;
-	  justify-content: center; /* Center vertically */
+	  justify-content: space-between; /* Center vertically */
 	  align-items: center; /* Center horizontally */
 	  text-align: center; /* Center text */
-	  height: 275px;
+	  height: 255px;
 	}
 
 	/* Heading styling */
@@ -101,15 +119,15 @@ import TabsIcon from '../assets/tabslogo.svg';
 
 	/* Paragraph styling */
 	.project-card p {
-	  margin: 10px 0;
+		font-size: 20px;
+		text-align: left;
+		width: 100%;
+		font-weight: 200;
+		margin-left: 12px;
+		margin-top: 8px;
 	}
 
 	/* Image styling */
-	.project-card img {
-	  width: 50px;
-	  height: 50px;
-	  margin-bottom: 10px; /* Space between image and text */
-	}
 
 	/* Download link styling */
 	.download-link {
@@ -118,7 +136,6 @@ import TabsIcon from '../assets/tabslogo.svg';
 	  color: white;
 	  text-decoration: none;
 	  font-weight: bold;
-	  margin-top: 10px;
 	}
 
 	/* Carousel navigation dots */
@@ -167,7 +184,7 @@ import TabsIcon from '../assets/tabslogo.svg';
   }
 
   // Automatically switch slides every 6 seconds
-  setInterval(nextSlide, 6000);
+  setInterval(nextSlide, 9999000);
 
   // Allow manual control with dots
   dots.forEach((dot, idx) => {
