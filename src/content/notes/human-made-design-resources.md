@@ -12,12 +12,12 @@ Thus, the purpose of this note is to collect a few resources that I have found t
 
 - https://public.work
 - https://archives.design
-- https://www.flickr.com/photos/britishlibrary/albums/
-- https://www.flickr.com/photos/internetarchivebookimages/
+- [British Library Archive](https://www.flickr.com/photos/britishlibrary/albums/)
+- [Internet Archive](https://www.flickr.com/photos/internetarchivebookimages/)
 
 And for a *very* deep dive, here's a living collection of archives (that I will be curating from):
 
-- https://docs.google.com/spreadsheets/d/1lyvVIqdGW78vftPu3rBUUqHfiFPltYntCLPUbkWxYew/edit?usp=sharing
+- [Casual Archivist](https://docs.google.com/spreadsheets/d/1lyvVIqdGW78vftPu3rBUUqHfiFPltYntCLPUbkWxYew/edit?usp=sharing)
 
 [Cosmos](https://www.cosmos.so/benjibo) calls itself the Pinterest for creatives - I use it like Zotero for design. Feel free to join me in curating more strictly Brain-Made work.
 
