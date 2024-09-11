@@ -1,14 +1,14 @@
  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap');
 
 :root {
-	--layer-1: #1f1f21;
+	--layer-1: #28282a;
 
-	--layer-2: #3b3b3d;
+	--layer-2: #38383a;
 	--layer-2-shadow: rgba(0, 0, 0, 0.0); /* this was 0.15 opacity before */
-	--layer-2-project: #2a2a2c;
+	--layer-2-project: #313133;
 
-	--layer-3: #5d5d5f;
-	--layer-3-trim: #767678;
+	--layer-3: #58585a;
+	--layer-3-trim: #666668;
 	--layer-3-shadow: rgba(0, 0, 0, 0.0); /* this was 0.25 opacity before */
 
 	--text-primary: #FFFFFF;
