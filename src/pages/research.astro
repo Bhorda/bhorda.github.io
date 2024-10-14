@@ -11,7 +11,7 @@ import "../styles/theme.css";
 		<head>
 				<meta charset="UTF-8">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<meta name="theme-color" content="#38383a"> <!-- This should match the top of the gradient -->
+				<meta name="theme-color" content="#2C2C2F"> <!-- This should match the top of the gradient -->
 				<title>Benjamin Lucas Searle</title>
 				<script src="https://unpkg.com/@phosphor-icons/web"></script>
 		</head>
@@ -76,7 +76,7 @@ import "../styles/theme.css";
 
 		.site-container {
 				min-height: 100%; /* Allows the container to grow with content */
-				width: 100%;
+				width: 100vw;
 				background-color: var(--layer-1);
 				display: flex;
 				flex-direction: column;
@@ -90,7 +90,7 @@ import "../styles/theme.css";
 				flex-grow: 1;
 				width: 100%;
 				height: calc(100vh - 40px); /* Adjust height to account for the header */
-				border-top: 1px solid var(--layer-3);
+				border-top: 1px solid var(--layer-2-trim);
 		}
 
 		.projects-header {
@@ -99,9 +99,9 @@ import "../styles/theme.css";
 				align-items: center;
 				gap: 8px;
 				fill: var(--text-tertiary);
-				padding-left: 24px;
-				padding-right: 24px;
-				padding-top: 24px;
+				margin-left: 24px;
+				margin-right: 24px;
+				margin-top: 24px;
 		}
 
 		.projects-header h1 {
@@ -115,21 +115,21 @@ import "../styles/theme.css";
 			align-items: center;
 			flex-wrap: wrap;
 			height: 41px;
-			border-bottom: 1px solid var(--layer-3);
+			border-bottom: 1px solid var(--layer-2-trim);
+			margin-left: 24px;
+			margin-right: 24px;
 			color: var(--text-tertiary);
 			padding: 2px;
 			font-size: 16px;
-			margin-left: 24px;
-			margin-right: 24px;
 		}
 
 		.category-header  {
 				display: flex;
 				flex-direction: row;
 				align-items: baseline;
-				padding-left: 24px;
-				padding-right: 24px;
 				gap: 8px;
+				margin-left: 24px;
+				margin-right: 24px;
 		}
 
 		.category-header h2 {
@@ -158,8 +158,8 @@ import "../styles/theme.css";
 
 		.projects-container {
 				display: flex;
-				padding-left: 24px;
-				padding-right: 24px;
+				margin-left: 24px;
+				margin-right: 24px;
 				flex-direction: column;
 		}
 

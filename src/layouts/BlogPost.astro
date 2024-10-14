@@ -23,7 +23,7 @@ import "../styles/posts.css";
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="theme-color" content="#38383a"> <!-- This should match the top of the gradient -->
+		<meta name="theme-color" content="#2C2C2F"> <!-- This should match the top of the gradient -->
 		<title>Benjamin Lucas Searle</title>
 		<script src="https://unpkg.com/@phosphor-icons/web"></script>
 	  </head>
@@ -57,7 +57,7 @@ import "../styles/posts.css";
 						<p>Notes</p>
 					</a>
 					</div>
-					<p class="date"><i>Last updated: {new Date(pubDate).toLocaleDateString()}</i></p>
+					<p class="date">Last updated: {new Date(pubDate).toLocaleDateString()}</p>
 					<div class="substack-button">
 						<a href="https://benjibo.substack.com">
 							<p>Read on Substack</p>
@@ -133,7 +133,7 @@ import "../styles/posts.css";
 		flex-grow: 1;
 		width: 100vw;
 		height: calc(100vh - 40px); /* Adjust height to account for the header */
-		border-top: 1px solid var(--layer-3-trim);
+		border-top: 1px solid var(--layer-2-trim);
 	}
 
     .sidebar {
@@ -141,7 +141,7 @@ import "../styles/posts.css";
         flex-direction: column;
         width: 300px;
 		flex-shrink: 0; /* Prevent the sidebar from shrinking */
-        border-right: 1px solid var(--layer-3-trim);
+        border-right: 1px solid var(--layer-2-trim);
 		overflow-y: auto;
 		max-height: 100%;
     }
@@ -166,7 +166,7 @@ import "../styles/posts.css";
 }
 
 .post-content-container {
-	padding: 12px 24px;
+	padding: 24px;
     display: flex;
     flex-direction: column;
     align-items: start;
