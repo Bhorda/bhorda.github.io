@@ -2,7 +2,6 @@
 // Astro component script area, if needed
 import { Image } from 'astro:assets';
 import TabsIcon from '../assets/tabslogo.svg';
-import SocialInnovator from '../assets/thesocialinnovator.png';
 import NBSLogo from '../assets/nbslogo.svg';
 ---
 <div class="tile-small">
@@ -164,18 +163,29 @@ import NBSLogo from '../assets/nbslogo.svg';
 </style>
 
 <script>
-  let currentIndex = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.dot');
+let currentIndex: number = 0;
 
-  function showSlide(index) {
-    const track = document.querySelector('.carousel-track');
-    const slideWidth = (slides[0] as HTMLElement).offsetWidth;
-    (track as HTMLElement).style.transform = `translateX(-${index * slideWidth}px)`;
+  const slides: NodeListOf<HTMLElement> = document.querySelectorAll('.carousel-slide');
+  const dots: NodeListOf<HTMLElement> = document.querySelectorAll('.dot');
 
-    // Update active dot
+  function showSlide(index: number) {
+    const track = document.querySelector('.carousel-track') as HTMLElement | null;
+
+    // Check if slides, dots, or track are undefined or empty
+    if (!track || slides.length === 0 || dots.length === 0) return;
+
+    const slide = slides[0]; // Get the first slide
+
+    if (slide) { // Ensure the first slide exists
+      const slideWidth = slide.offsetWidth;
+      track.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    // Update active dot, ensure the dot exists before modifying
     dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
+    if (dots[index]) {
+      dots[index].classList.add('active');
+    }
   }
 
   function nextSlide() {
@@ -194,3 +204,33 @@ import NBSLogo from '../assets/nbslogo.svg';
     });
   });
 </script>
+<!--
+  // let currentIndex = 0;
+  // const slides = document.querySelectorAll('.carousel-slide');
+  // const dots = document.querySelectorAll('.dot');
+
+  // function showSlide(index) {
+  //   const track = document.querySelector('.carousel-track');
+  //   const slideWidth = (slides[0] as HTMLElement).offsetWidth;
+  //   (track as HTMLElement).style.transform = `translateX(-${index * slideWidth}px)`;
+
+  //   // Update active dot
+  //   dots.forEach(dot => dot.classList.remove('active'));
+  //   dots[index].classList.add('active');
+  // }
+
+  // function nextSlide() {
+  //   currentIndex = (currentIndex + 1) % slides.length;
+  //   showSlide(currentIndex);
+  // }
+
+  // // Automatically switch slides every 6 seconds
+  // setInterval(nextSlide, 6000);
+
+  // // Allow manual control with dots
+  // dots.forEach((dot, idx) => {
+  //   dot.addEventListener('click', () => {
+  //     currentIndex = idx;
+  //     showSlide(currentIndex);
+  //   });
+  // }); -->

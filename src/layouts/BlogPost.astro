@@ -4,13 +4,12 @@ import { getCollection } from 'astro:content';
 
 type Props = CollectionEntry<'notes'>['data'];
 
-const { title, description, pubDate, updatedDate } = Astro.props;
+const { title, pubDate } = Astro.props;
 const allPosts = await getCollection('notes');
 const posts = allPosts
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
 
 import Header from '../components/Header.astro';
-import { Image } from 'astro:assets';
 const { slug } = Astro.params;
 
 import "../styles/theme.css";

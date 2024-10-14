@@ -1,32 +1,25 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "strictNullChecks": true
+    "strict": true,               // Enables all strict type-checking options
+    "noEmit": true,               // No output files will be emitted
+    "allowJs": true,              // Allows JavaScript files in the project
+    "checkJs": false,             // You can set this to true if you want to type-check JS files
+    "noImplicitAny": true,        // Errors on variables with implicit 'any' type
+    "strictNullChecks": true,     // Ensure null and undefined are handled explicitly
+    "strictFunctionTypes": true,  // Ensure function types are checked strictly
+    "strictBindCallApply": true,  // Ensures correct `this` context in methods
+    "strictPropertyInitialization": true, // Ensures properties in classes are initialized properly
+    "noImplicitThis": true,       // Ensures `this` is used explicitly
+    "useUnknownInCatchVariables": false, // Opt-out of unknown type in catch variables
+    "alwaysStrict": true,         // Always emit 'use strict' in every file
+    "noUnusedLocals": true,       // Errors on unused local variables
+    "noUnusedParameters": true,   // Errors on unused function parameters
+    "exactOptionalPropertyTypes": true,  // Helps in better type safety with optional properties
+    "noImplicitReturns": true,    // Ensure all code paths return a value in functions
+    "noFallthroughCasesInSwitch": true,  // Avoids accidental fallthrough in switch statements
+    "noUncheckedIndexedAccess": true,    // Check for undefined in indexed accesses
+    "noImplicitOverride": true,   // Requires methods that override a base class to use the `override` keyword
+    "noPropertyAccessFromIndexSignature": true // Ensure index signatures aren't accessed as properties
   }
 }
-
-// {
-//   "extends": "astro/tsconfigs/base",
-//   "compilerOptions": {
-//     "strict": false,
-//     "noEmit": true,
-//     "allowJs": true,
-//     "checkJs": false,
-//     "noImplicitAny": false,
-//     "strictNullChecks": false,
-//     "strictFunctionTypes": false,
-//     "strictBindCallApply": false,
-//     "strictPropertyInitialization": false,
-//     "noImplicitThis": false,
-//     "useUnknownInCatchVariables": false,
-//     "alwaysStrict": false,
-//     "noUnusedLocals": false,
-//     "noUnusedParameters": false,
-//     "exactOptionalPropertyTypes": false,
-//     "noImplicitReturns": false,
-//     "noFallthroughCasesInSwitch": false,
-//     "noUncheckedIndexedAccess": false,
-//     "noImplicitOverride": false,
-//     "noPropertyAccessFromIndexSignature": false
-//   }
-// }
