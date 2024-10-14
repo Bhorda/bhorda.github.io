@@ -4,13 +4,13 @@ import { getCollection } from 'astro:content';
 // Fetch the blog posts
 const allPosts = await getCollection('notes');
 const posts = allPosts
-  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
   .slice(0, 4);
 ---
 
 <div class="posts-container">
     {posts.map(post => (
-        <a href={`/${post.slug}`} class="post-item" key={post.slug}>
+        <a href={`/${post.slug}`} class="post-item">
             <div class="post-text-block">
                 <div class="post-title">{post.data.title}</div>
                 <div class="post-subtitle">{post.data.description}</div>

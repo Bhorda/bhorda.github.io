@@ -7,7 +7,7 @@ type Props = CollectionEntry<'notes'>['data'];
 const { title, description, pubDate, updatedDate } = Astro.props;
 const allPosts = await getCollection('notes');
 const posts = allPosts
-  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate))
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
 
 import Header from '../components/Header.astro';
 import { Image } from 'astro:assets';
@@ -40,7 +40,7 @@ import "../styles/posts.css";
 					</div>
 					</a>
 					{posts.map(post => (
-						<a href={`/${post.slug}`} class={`post-item ${post.slug === slug ? 'active' : ''}`}  key={post.slug}>
+						<a href={`/${post.slug}`} class={`post-item ${post.slug === slug ? 'active' : ''}`}>
 							<div class="post-text-block">
 								<div class="post-title">{post.data.title}</div>
 								<div class="post-subtitle">{post.data.description}</div>

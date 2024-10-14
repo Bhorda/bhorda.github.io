@@ -170,8 +170,8 @@ import NBSLogo from '../assets/nbslogo.svg';
 
   function showSlide(index) {
     const track = document.querySelector('.carousel-track');
-    const slideWidth = slides[0].offsetWidth;
-    track.style.transform = `translateX(-${index * slideWidth}px)`;
+    const slideWidth = (slides[0] as HTMLElement).offsetWidth;
+    (track as HTMLElement).style.transform = `translateX(-${index * slideWidth}px)`;
 
     // Update active dot
     dots.forEach(dot => dot.classList.remove('active'));

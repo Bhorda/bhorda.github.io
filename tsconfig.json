@@ -1,32 +1,32 @@
-// {
-//   "extends": "astro/tsconfigs/strict",
-//   "compilerOptions": {
-//     "strictNullChecks": true
-//   }
-// }
-
 {
-  "extends": "astro/tsconfigs/base",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "strict": false,
-    "noEmit": true,
-    "allowJs": true,
-    "checkJs": false,
-    "noImplicitAny": false,
-    "strictNullChecks": false,
-    "strictFunctionTypes": false,
-    "strictBindCallApply": false,
-    "strictPropertyInitialization": false,
-    "noImplicitThis": false,
-    "useUnknownInCatchVariables": false,
-    "alwaysStrict": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "exactOptionalPropertyTypes": false,
-    "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": false,
-    "noUncheckedIndexedAccess": false,
-    "noImplicitOverride": false,
-    "noPropertyAccessFromIndexSignature": false
+    "strictNullChecks": true
   }
 }
+
+// {
+//   "extends": "astro/tsconfigs/base",
+//   "compilerOptions": {
+//     "strict": false,
+//     "noEmit": true,
+//     "allowJs": true,
+//     "checkJs": false,
+//     "noImplicitAny": false,
+//     "strictNullChecks": false,
+//     "strictFunctionTypes": false,
+//     "strictBindCallApply": false,
+//     "strictPropertyInitialization": false,
+//     "noImplicitThis": false,
+//     "useUnknownInCatchVariables": false,
+//     "alwaysStrict": false,
+//     "noUnusedLocals": false,
+//     "noUnusedParameters": false,
+//     "exactOptionalPropertyTypes": false,
+//     "noImplicitReturns": false,
+//     "noFallthroughCasesInSwitch": false,
+//     "noUncheckedIndexedAccess": false,
+//     "noImplicitOverride": false,
+//     "noPropertyAccessFromIndexSignature": false
+//   }
+// }

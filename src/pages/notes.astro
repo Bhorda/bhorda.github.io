@@ -2,16 +2,12 @@
 import "../styles/theme.css";
 
 import Header from '../components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
-
-import { Image } from 'astro:assets';
-import SubstackLogo from '../assets/substacklogo.svg';
 
 // Fetch the blog posts
 const allPosts = await getCollection('notes');
 const posts = allPosts
-  .sort((a, b) => new Date(b.data.pubDate) - new Date(a.data.pubDate));
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
 <!DOCTYPE html>
@@ -36,7 +32,7 @@ const posts = allPosts
 					</div>
 					</a>
 					{posts.map(post => (
-						<a href={`/${post.slug}`} class="post-item" key={post.slug}>
+						<a href={`/${post.slug}`} class="post-item">
 							<div class="post-text-block">
 								<div class="post-title">{post.data.title}</div>
 								<div class="post-subtitle">{post.data.description}</div>
