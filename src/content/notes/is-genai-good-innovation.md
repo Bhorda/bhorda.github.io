@@ -4,8 +4,6 @@ description: "Lets talk about how to talk about innovation"
 pubDate:   "2024-10-16"
 ---
 
-# Is generative AI 'good' innovation?
-
 I feel like there's been so much backlash against generative AI (which I wholeheartedly support), that we really should be taking a step back and asking what the actual value of the technology is.
 
 When a huge portion of the people are threatened by an innovation and those more optimistic about it are positioning themselves to surf an incoming metaphorical wave, I can't help but wonder about the dissonance.
