@@ -1,23 +1,46 @@
  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&display=swap');
 
 :root {
-	/* --layer-1: #28282a; */
+	/* LIGHT MODE */
+	/* --layer-1: #FFFFFF;
+
+	--layer-2: #FAFAFD;
+	--layer-2-trim: #E3E3E7;
+	--layer-2-shadow: rgba(0, 0, 0, 0.0);
+	--layer-2-project: #F0F0F5;
+
+	--layer-3: #F0F0F5;
+	--layer-3-trim: #E1E1E6;
+	--layer-3-shadow: rgba(0, 0, 0, 0.0);
+
+	--text-primary: #000000CC;
+	--text-secondary: #000000CC;
+	--text-tertiary: #00000088;
+
+	--notes-accent: #FFB800;
+	--notes-accent-secondary: #FFB8008A;
+	--notes-accent-tertiary: #FFB800BB;
+
+	--publications-accent: #4BEF96;
+	--publications-accent-secondary: #4BEF967A;
+	--publications-accent-tertiary: #4BEF96BB;
+
+	--about-accent: #FF7878;
+	--about-accent-secondary: #FF78787A;
+	--about-accent-tertiary: #FF7878BB; */
+
+	/* DARK MODE */
+
 	--layer-1: #1a1a1c;
 
-	/* --layer-2: #38383a;
-	--layer-2-shadow: rgba(0, 0, 0, 0.0);
-	--layer-2-project: #313133; */
 	--layer-2: #2C2C2F;
 	--layer-2-trim: #353536;
-	--layer-2-shadow: rgba(0, 0, 0, 0.0); /* this was 0.15 opacity before */
+	--layer-2-shadow: rgba(0, 0, 0, 0.0);
 	--layer-2-project: #222225;
 
-	/* --layer-3: #58585a;
-	--layer-3-trim: #666668;
-	--layer-3-shadow: rgba(0, 0, 0, 0.0); */
 	--layer-3: #38383C;
 	--layer-3-trim: #414145;
-	--layer-3-shadow: rgba(0, 0, 0, 0.0); /* this was 0.25 opacity before */
+	--layer-3-shadow: rgba(0, 0, 0, 0.0);
 
 	--text-primary: #FFFFFF;
 	--text-secondary: #FFFFFFCC;

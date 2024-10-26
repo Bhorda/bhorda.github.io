@@ -25,7 +25,8 @@ import "../styles/theme.css";
 								<div class="narrow" style="width: 38px;"></div>
 								<div class="project-properties">
 									<p class="project-property-title" style="font-weight: 200; ">Title</p>
-									<p class="project-property-venue" style="font-weight: 200; ">Venue</p>
+									<p class="project-property-authors" style="font-weight: 200; ">Authors</p>
+									<p class="project-property-venue narrowest" style="font-weight: 200; ">Venue</p>
 									<p class="project-property-keywords narrow" style="font-weight: 200; ">Keywords</p>
 								</div>
 							</div>
@@ -39,8 +40,12 @@ import "../styles/theme.css";
 										<a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4907272#paper-references-widget" class="project" >
 															<div class="narrow"  style="width: 30px;"></div>
 														<div class="project-properties" style="width: 100%;">
-																<p class="project-property-title" style="margin: 0;">How People Use Personal Energy as a Proxy to Self-Manage Health and Wellbeing with Self-Tracking Technologies</p>
-																<p class="project-property-venue" style="margin: 0;">In review</p>
+																<p class="project-property-title" style="margin: 0;">How People Use Personal Energy as a Proxy to Self-Manage Health and Wellbeing with Self-Tracking Technologies
+																</p>
+																<p class="project-property-authors" style="margin: 0;">
+																	Searle BL, Potapov K, Ayobi A
+																</p>
+																<p class="project-property-venue narrowest" style="margin: 0;">In review</p>
 																<p class="project-property-keywords narrow" style="margin: 0;">Wellbeing, Self tracking, Self management, Personal energy</p>
 														</div>
 										</a>
@@ -55,6 +60,9 @@ import "../styles/theme.css";
 													<div class="narrow" style="width: 30px;"></div>
 												<div class="project-properties" style="width: 100%;">
 														<p class="project-property-title" style="font-weight: 200; margin: 0;">Anticipatory detection of compulsive body-focused repetitive behaviors with wearables</p>
+														<p class="project-property-authors" style="margin: 0;">
+															Searle BL, Spathis D, Constantinides M, Quercia D, Mascolo C
+														</p>
 														<p class="project-property-venue" style="font-weight: 200; margin: 0;">MobileHCI</p>
 														<p class="project-property-keywords narrow" style="font-weight: 200; margin: 0;">Wearables, Machine Learning, Anticipatory detection, BFRBs</p>
 												</div>
@@ -69,7 +77,7 @@ import "../styles/theme.css";
 		a {
 				font-weight: 500;
 				text-decoration: none;
-				color: #FFF;
+				color: var(--text-primary);
 		}
 
 		.site-container {
@@ -180,7 +188,10 @@ import "../styles/theme.css";
 				line-height: 24px;
 				padding-right: 40px;
 		}
-
+		.project-property-authors {
+				width: calc(20% - 18.4px);
+				color: var(--text-tertiary);
+		}
 		.project-property-keywords {
 				width: calc(20% - 18.4px);
 				color: var(--text-tertiary);
@@ -191,16 +202,20 @@ import "../styles/theme.css";
 		}
 
 		@media (max-width: 1300px) {
+			.narrow {
+				display: none;
+			}
 
 			.project-property-title {
-					width: calc(40% - 18.4px);
+					width: calc(60% - 18.4px);
 			}
 
-			.project-property-keywords {
-					width: calc(30% - 18.4px);
+			.project-property-authors {
+					width: calc(25% - 18.4px);
 			}
+
 			.project-property-venue {
-					width: calc(20% - 18.4px);
+					width: calc(10% - 18.4px);
 			}
 
 		}
@@ -211,11 +226,15 @@ import "../styles/theme.css";
 			}
 
 			.project-property-title {
-					width: calc(70% - 18.4px);
+					width: calc(60% - 18.4px);
+			}
+
+			.project-property-authors {
+					width: calc(25% - 18.4px);
 			}
 
 			.project-property-venue {
-					width: calc(20% - 18.4px);
+					width: calc(15% - 18.4px);
 			}
 		}
 
@@ -230,12 +249,18 @@ import "../styles/theme.css";
 				padding-right: 0px;
 			}
 
-			.project-property-keywords {
+			.project-property-authors {
 				display: block;
 				width: 100%;
 			}
 
+			.project-property-keywords {
+				display: none;
+				width: 100%;
+			}
+
 			.project-property-venue {
+				display: block;
 					width: 100%;
 			}
 
@@ -246,29 +271,29 @@ import "../styles/theme.css";
 			}
 
 			.table-header {
-				padding-left: 4px;
-				padding-right: 4px;
+				margin-left: 4px;
+				margin-right: 4px;
 			}
 
 			.category-header {
-				padding-left: 8px;
-				padding-right: 8px;
+				margin-left: 8px;
+				margin-right: 8px;
 
 			}
 
 			.projects-container {
-				padding-left: 4px;
-				padding-right: 4px;
+				margin-left: 4px;
+				margin-right: 4px;
 			}
 
 			.projects-header {
-				padding-left: 4px;
-				padding-right: 4px;
+				margin-left: 4px;
+				margin-right: 4px;
 			}
 
 			.project-header {
-				padding-left: 4px;
-				padding-right: 4px;
+				margin-left: 4px;
+				margin-right: 4px;
 			}
 		}
 </style>
