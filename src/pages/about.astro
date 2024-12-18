@@ -10,7 +10,7 @@ import "../styles/theme.css";
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="theme-color" content="#2C2C2F"> <!-- This should match the top of the gradient -->
+		<meta name="theme-color" content="#2C2C2F">
 		<title>Benjamin Lucas Searle</title>
 		<script src="https://unpkg.com/@phosphor-icons/web"></script>
 	  </head>
@@ -26,8 +26,11 @@ import "../styles/theme.css";
 							<div class="narrow-tab-box">
 								<div class="narrow-tab-content">
 						      <h1>Hi, I'm Ben</h1>
-									<p>I'm a PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
-									<p>I run <a  href="https://www.noblank.space">No Blank Space</a>, building <a  href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a  href="https://www.noblank.space/work/tabs">Tabs</a>, an overwhelm-friendly task manager. I’m also a founder of <a  href="">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.</p>
+									<p>I'm a PhD researcher at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies - with a special interest in expression and communication. My main areas of work are in personal informatics (wearables, journalling, and social apps) and human-AI interaction. </p>
+
+									<p>I run <a  href="https://www.noblank.space">No Blank Space</a>, building <a  href="https://www.noblank.space/apps/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a  href="https://www.noblank.space/apps/tabs">Tabs</a>, an overwhelm-friendly task manager. I’m also a founder of <a  href="">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.</p>
+
+									<p>🇭🇺🇬🇧</p>
 								</div>
 								<div class="narrow-tab-spacer" />
 							</div>
@@ -125,56 +128,12 @@ import "../styles/theme.css";
 									<p>There's a podcast I'm working on with my friend Jenn called <a href="">User Therapy</a>. Its about the identity and culture crisis of the tech industry and its employees, but in a chill lounge-esque vibe. We're both academics, but work closely with industry.</p>
 									<p>I am a contributor on the newsletter <a href="https://vcseb.substack.com">The Social Innovator</a>, where I write about tech and culture.</p>
 									<p>I'm writing a sci-fi novel actually, which you can read an intro of on a <i>secret page</i>.</p>
-
 								</div>
 								<div class="narrow-tab-spacer" />
 							</div>
 				    </div>
 				  </div>
 				</div>
-				<!-- <div class="tabs">
-
-					<div class="tab">
-						<input type="radio" id="tab-1" name="tab-group-1" checked>
-						<label for="tab-1">About me</label>
-
-						<div class="content">
-							<h1>
-								Hi, I'm Ben
-							</h1>
-							<p>I'm a PhD student at <a href="https://www.ucl.ac.uk/uclic">UCL Interaction Centre</a>. My research focuses on well-being technologies and emotional ergonomics supported by intelligent systems. I prototype experimental interfaces that emphasise the human over the user.</p>
-							<p>I run <a  href="https://www.noblank.space">No Blank Space</a>, building <a  href="https://www.noblank.space/work/amulet">Amulet</a>, an app for social journalling with metaphors of energy to nurture support networks; and <a  href="https://www.noblank.space/work/tabs">Tabs</a>, an overwhelm-friendly task manager. I’m also a founder of <a  href="">Mesm</a>, a platform for immersive mixed reality city-wide storytelling.</p>
-						</div>
-					</div>
-
-					<div class="tab">
-						<input type="radio" id="tab-2" name="tab-group-1">
-						<label for="tab-2">Experience</label>
-
-						<div class="content">
-							<h1>
-								Experience
-							</h1>
-
-						</div>
-					</div>
-
-					<div class="tab">
-						<input type="radio" id="tab-3" name="tab-group-1">
-						<label for="tab-3">Fun stuff</label>
-
-						<div class="content">
-							<h1>
-								Fun stuff
-							</h1>
-							<p>
-							    In case you're finding my website a bit cold, here's some things to prove I'm human:
-
-							    I'm currently writing a sci-fi novel actually, which you can read on a <i>secret page</i> here.
-							</p>
-						</div>
-					</div> -->
-
 		</div>
 	</div>
   </body>
@@ -191,13 +150,13 @@ import "../styles/theme.css";
 	}
 
 	.site-container {
-		min-height: 100%; /* Allows the container to grow with content */
+		min-height: 100%;
 		width: 100vw;
 		background-color: var(--layer-1);
 		display: flex;
 		flex-direction: column;
-		justify-content: center; /* Centers tile-grid horizontally */
-		align-items: center; /* Centers tile-grid vertically */
+		justify-content: center;
+		align-items: center;
 	}
 
 	.app-container {
@@ -205,7 +164,7 @@ import "../styles/theme.css";
 		flex-direction: row;
 		flex-grow: 1;
 		width: 100vw;
-		height: calc(100vh - 40px); /* Adjust height to account for the header */
+		height: calc(100vh - 40px);
 		border-top: 1px solid var(--layer-2-trim);
 	}
 
@@ -261,7 +220,7 @@ import "../styles/theme.css";
 
 .tab-container {
   position: relative;
-  min-height: 300px; /* Adjust as needed */
+  min-height: 300px;
 }
 
 .tab-container input[type="radio"] {
@@ -282,7 +241,7 @@ import "../styles/theme.css";
 .tab-content {
   display: none;
   position: absolute;
-  top: 40px; /* Adjust based on your label height */
+  top: 40px;
   left: 0;
   right: 0;
   padding: 4px;
@@ -310,12 +269,10 @@ import "../styles/theme.css";
 	flex-grow: 1;
 }
 
-/* Show the selected tab content */
 .tab-container input[type="radio"]:checked + label + .tab-content {
   display: block;
 }
 
-/* Style for the active tab label */
 .tab-container input[type="radio"]:checked + label {
   border-bottom: 1px solid var(--text-secondary);
   z-index: 3;
