@@ -14,6 +14,8 @@ Thus, the purpose of this note is to collect a few resources that I have found t
 - https://archives.design
 - [British Library Archive](https://www.flickr.com/photos/britishlibrary/albums/)
 - [Internet Archive](https://www.flickr.com/photos/internetarchivebookimages/)
+- [Nokia Design Archive](https://nokiadesignarchive.aalto.fi)
+- [Artvee](https://artvee.com)
 
 And for a *very* deep dive, here's a living collection of archives (that I will be curating from):
 
