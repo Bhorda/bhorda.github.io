@@ -1,5 +1,5 @@
 ---
-title:  "Whats in your rucksack"
+title:  "Whats in your rucksack?"
 description: "Metaphorically speaking..."
 pubDate:   "2025-02-16"
 ---
