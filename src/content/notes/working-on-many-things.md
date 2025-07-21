@@ -1,5 +1,5 @@
 ---
-title:  "Working on too many things"
+title:  "Working on too many things?"
 description: "Learnings about split attention"
 pubDate:   "2024-11-28"
 ---
