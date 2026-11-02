@@ -26,8 +26,8 @@ body{font-family:var(--display);margin:0}
 .boil{filter:url(#boilT)}
 .reel{position:relative;min-width:0}
 .line{position:absolute;left:0;right:0;top:28%;text-align:center;font-weight:900;font-size:var(--size);
-  line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;will-change:transform,opacity}
-.line .w{display:inline-block;will-change:transform,opacity}
+  line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
+.line .w{display:inline-block}
 .line.big{font-size:clamp(5rem, 24vw, 15rem);letter-spacing:-0.05em;top:-8%}
 .line.quote{font-style:italic;font-weight:800}
 .line.voice{color:var(--red)}
@@ -45,7 +45,7 @@ body{font-family:var(--display);margin:0}
 .hint,.end{position:fixed;left:0;right:0;text-align:center;font-weight:500;font-size:.8rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--faint);bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:6}
 .end{opacity:0}
-@media (prefers-reduced-motion: reduce){ .boil{filter:none} }
+@media (prefers-reduced-motion: reduce){ .boil, .sketch g[filter]{filter:none} }
 </style>
 </head>
 <body>
