@@ -26,8 +26,8 @@ body{font-family:var(--display);margin:0}
 .boil{filter:url(#boilT)}
 .reel{position:relative;min-width:0}
 .line{position:absolute;left:0;right:0;top:28%;text-align:center;font-weight:900;font-size:var(--size);
-  line-height:1.1;letter-spacing:-0.02em;text-wrap:balance}
-.line .w{display:inline-block}
+  line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;will-change:transform,opacity}
+.line .w{display:inline-block;will-change:transform,opacity}
 .line.big{font-size:clamp(5rem, 24vw, 15rem);letter-spacing:-0.05em;top:-8%}
 .line.quote{font-style:italic;font-weight:800}
 .line.voice{color:var(--red)}
