@@ -549,9 +549,18 @@ body{font-family:var(--display);margin:0}
     return o;
   }
 
+  let lastIH = 0, unit = 1;
   function frame(now) {
     const time = now / 1000;
-    const unit = innerHeight * 0.62;
+    // The track is sized in svh (URL bar visible) but innerHeight grows when iOS
+    // collapses the bar, so dividing by it made the end unreachable: a 5% growth
+    // already cost the last verse. Derive the step from the real scroll range so
+    // the full timeline is always traversable. innerHeight is cheap to read; the
+    // layout read only happens when it actually changes.
+    if (innerHeight !== lastIH) {
+      lastIH = innerHeight;
+      unit = Math.max(1, (document.documentElement.scrollHeight - innerHeight) / 147);
+    }
     const s = warp(scrollY / unit);
     const night = isNight(s);
     root.classList.toggle('night', night);
