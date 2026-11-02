@@ -1,0 +1,744 @@
+<title>The Coin</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,800;0,900;1,800&display=swap">
+<style>
+/* Layout: one sticky stage. Upper part is a hand-drawn sketch, lower part is a text reel that scrolls lines up like a teleprompter. Scroll position drives everything. Paper/ink swap between white and black as the poem moves inward and out. */
+:root{
+  --paper:#ffffff; --ink:#0b0b0b; --faint:#9a9a9a; --red:#d8261b;
+  --display:"Archivo", "Helvetica Neue", Arial, sans-serif;
+  --size: clamp(1.5rem, 5.6vw, 4rem);
+  color-scheme: light;
+}
+:root.night{ --paper:#0b0b0b; --ink:#f3f3f3; --faint:#6f6f6f; color-scheme: dark; }
+html,body{background:var(--paper);color:var(--ink)}
+body{font-family:var(--display);margin:0}
+.track{height:calc(100svh + 147 * 62svh)}
+.stage{position:sticky;top:0;height:100svh;display:grid;grid-template-rows:56% 44%;overflow:hidden;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+.sketch{display:flex;align-items:flex-end;justify-content:center;min-height:0;color:var(--ink)}
+.sketch svg{height:100%;max-width:100%;transform-origin:50% 78%;overflow:visible}
+.occ{fill:var(--paper)}
+.boil{filter:url(#boilT)}
+.reel{position:relative;min-width:0}
+.line{position:absolute;left:0;right:0;top:28%;text-align:center;font-weight:900;font-size:var(--size);
+  line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;will-change:transform,opacity}
+.line .w{display:inline-block;will-change:transform,opacity}
+.line.big{font-size:clamp(5rem, 24vw, 15rem);letter-spacing:-0.05em;top:-8%}
+.line.quote{font-style:italic;font-weight:800}
+.line.voice{color:var(--red)}
+.line.small{font-size:calc(var(--size) * .62);color:var(--faint);font-weight:800}
+.line.heavy{font-size:calc(var(--size) * 1.6);letter-spacing:-0.04em}
+#receipt{position:absolute;left:50%;top:0;width:min(340px, 80vw);background:var(--paper);color:var(--ink);
+  border:3px solid var(--ink);padding:14px 20px 26px;font-weight:800;font-size:clamp(1.1rem, 4.6vw, 1.6rem);
+  line-height:1.15;opacity:0;z-index:2;box-sizing:border-box}
+#receipt .row{padding:10px 0;border-bottom:2px dashed var(--ink)}
+#receipt .row:last-child{border-bottom:0}
+#gs{position:fixed;left:0;right:0;top:50%;text-align:center;font-weight:900;font-size:clamp(2.2rem, 9vw, 6rem);
+  letter-spacing:-0.03em;line-height:1;color:#0b0b0b;opacity:0;transform-origin:50% 100%;z-index:5;
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+#wipe{position:fixed;inset:0;background:#0b0b0b;transform:translateY(100%);z-index:4}
+.hint,.end{position:fixed;left:0;right:0;text-align:center;font-weight:500;font-size:.8rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--faint);bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:6}
+.end{opacity:0}
+@media (prefers-reduced-motion: reduce){ .boil{filter:none} }
+</style>
+
+<div class="track">
+  <div class="stage">
+    <div class="sketch">
+      <svg id="art" viewBox="0 0 400 400" aria-hidden="true">
+        <defs>
+          <filter id="boil" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence class="turb" type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="1"/>
+            <feDisplacementMap in="SourceGraphic" scale="3.2"/>
+          </filter>
+          <filter id="boilT" x="-5%" y="-5%" width="110%" height="110%">
+            <feTurbulence class="turb" type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="1"/>
+            <feDisplacementMap in="SourceGraphic" scale="2.6"/>
+          </filter>
+          <clipPath id="frame"><rect x="0" y="0" width="400" height="400"/></clipPath>
+        </defs>
+        <g filter="url(#boil)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+
+          <!-- head and shoulders: "We go way back" -->
+          <g data-show="10.5,11.3,16.6,17.2">
+            <path data-draw="10.5,11.6" pathLength="1" stroke-width="5" d="M200 90 C236 90 256 120 256 152 C256 188 232 208 200 208 C168 208 144 188 144 152 C144 120 164 90 200 90 Z"/>
+            <path data-draw="10.8,11.8" pathLength="1" d="M184 207 L182 226 Q120 232 96 292 M216 207 L218 226 Q280 232 304 292"/>
+          </g>
+
+          <!-- the walk: a path with trees sliding past -->
+          <g id="walk" data-show="70.2,70.8,90.4,91.2" clip-path="url(#frame)">
+            <path d="M0 388 H400" stroke-width="3"/>
+            <g id="trees"></g>
+            <g id="walker" stroke-width="4">
+              <circle cx="0" cy="290" r="11"/>
+              <path d="M0 302 V340"/>
+              <path data-walk="a" d="M0 312 L-3 336 M0 312 L3 336 M0 340 L-4 386 M0 340 L4 386"/>
+              <path data-walk="b" d="M0 312 L-12 332 M0 312 L12 330 M0 340 L-16 384 M0 340 L16 384"/>
+            </g>
+          </g>
+          <g id="speaker" data-show="75.8,76.4,93.4,94.0">
+            <circle cx="300" cy="300" r="11"/>
+            <path d="M300 312 V350 M300 350 L291 386 M300 350 L309 386 M300 320 L288 344 M300 320 L312 344"/>
+          </g>
+          <!-- colour streaks -->
+          <g stroke-width="26" style="mix-blend-mode:multiply" data-show="73.4,73.5,90.4,91.2">
+            <path data-draw="73.5,74.1" pathLength="1" stroke="#6d9fd6" opacity=".55" data-show="73.4,73.5,74.4,74.9" id="wcol" d="M70 262 Q130 226 210 256"/>
+            <path data-draw="74.4,75.0" pathLength="1" stroke="#f4c3d2" opacity=".75" d="M74 254 Q140 232 214 262"/>
+            <path data-draw="83.0,83.5" pathLength="1" stroke="#c71f3a" opacity=".7" d="M246 246 Q300 214 356 252"/>
+            <path data-draw="83.4,83.9" pathLength="1" stroke="#f0e2bf" opacity=".9" d="M240 286 Q300 262 362 296"/>
+            <path data-draw="83.9,84.3" pathLength="1" stroke="#2f62ad" opacity=".6" d="M250 330 Q296 300 350 336"/>
+            <path data-draw="84.1,84.5" pathLength="1" stroke="#86b5e3" opacity=".6" d="M236 360 Q300 342 366 368"/>
+            <path data-draw="84.3,84.7" pathLength="1" stroke="#1d3b78" opacity=".55" d="M258 226 Q310 270 352 222"/>
+          </g>
+
+          <!-- spotlight -->
+          <g id="spot">
+            <path d="M176 -40 H224 L300 392 H100 Z" fill="currentColor" stroke="none" opacity=".13"/>
+            <ellipse cx="200" cy="388" rx="100" ry="12" fill="currentColor" stroke="none" opacity=".16"/>
+            <g id="crowdDark"></g>
+            <path id="mirrorLine" d="M200 220 V392" stroke-width="2" stroke-dasharray="6 7" opacity="0"/>
+            <g id="me">
+              <circle cx="200" cy="300" r="11"/>
+              <path d="M200 312 V350 M200 350 L191 386 M200 350 L209 386 M200 320 L188 344 M200 320 L212 344"/>
+            </g>
+            <g id="reflection" opacity="0">
+              <circle cx="200" cy="300" r="11"/>
+              <path d="M200 312 V350 M200 350 L191 386 M200 350 L209 386 M200 320 L188 344 M200 320 L212 344"/>
+            </g>
+            <g id="cage"></g>
+          </g>
+
+          <!-- a pile of coins -->
+          <g id="pile"></g>
+
+          <!-- the coin: one object that travels through the whole poem -->
+          <g id="coin" transform="translate(200 296)">
+            <circle id="heatGlow" r="96" fill="#d8261b" stroke="none" opacity="0"/>
+            <g id="coinFlip">
+              <circle id="coinBody" r="72" class="occ" stroke-width="6" vector-effect="non-scaling-stroke"/>
+              <circle r="60" stroke-width="2" stroke-dasharray="3 7" vector-effect="non-scaling-stroke"/>
+              <g stroke-width="4.5">
+                <g data-face="blank"></g>
+                <g data-face="eat"><circle r="22" vector-effect="non-scaling-stroke"/><circle r="13" stroke-width="2.5" vector-effect="non-scaling-stroke"/><path d="M-38 -26 V-12 Q-38 -5 -33 -5 Q-28 -5 -28 -12 V-26 M-33 -26 V-12 M-33 -5 V26 M33 26 V-26 Q44 -16 39 4 H33" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="sleep"><path d="M-40 24 V-16 M-40 10 H40 V24 M-40 -2 h16 a6 6 0 0 1 0 12 M-18 4 H38 M14 -34 h12 l-12 12 h12" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="speak"><path d="M-34 -26 H34 V12 H-6 L-20 28 V12 H-34 Z" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="walk"><path d="M0 -38 a8 8 0 1 0 0.1 0 M0 -22 L-2 6 M0 -14 L-14 -2 M0 -14 L14 -8 M-2 6 L-16 30 M-2 6 L12 28" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="stop"><path d="M0 -38 a8 8 0 1 0 0.1 0 M0 -22 V6 M0 -14 L-10 4 M0 -14 L10 4 M0 6 L-6 30 M0 6 L6 30 M-30 32 H30" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="step"><path d="M-8 -42 a7 7 0 1 0 0.1 0 M-8 -28 L-8 -4 M-8 -18 L-20 -8 M-8 -18 L4 -10 M-8 -4 L-18 30 M-8 -4 L8 4 L10 14 M-40 30 H0 V14 H40" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="think"><path d="M-26 10 Q-42 6 -36 -8 Q-42 -24 -22 -26 Q-14 -40 4 -32 Q20 -42 32 -26 Q46 -18 36 -4 Q42 12 24 12 Q12 22 -4 14 Q-16 20 -26 10 Z" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="mask"><path d="M-44 -30 Q-26 -46 -8 -32 M8 -32 Q26 -46 44 -30" vector-effect="non-scaling-stroke"/><path fill="currentColor" d="M-38 -14 Q-24 -32 -8 -16 Q-22 -6 -38 -14 Z M8 -16 Q24 -32 38 -14 Q22 -6 8 -16 Z M-30 10 Q0 22 30 10 Q18 40 0 40 Q-18 40 -30 10 Z" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="mute"><path d="M-34 -26 H34 V12 H-6 L-20 28 V12 H-34 Z M-44 -40 L44 36" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="ear"><path d="M-8 -38 C18 -42 30 -18 22 0 C16 12 6 14 4 26 C2 38 -14 40 -18 30 M-6 -24 C8 -26 14 -14 8 -6 C2 0 -6 -2 -4 8" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="peace"><path d="M-32 32 Q0 0 30 -34 M-14 12 q-16 -2 -20 -16 q16 0 20 16 M-2 0 q-4 -16 6 -24 q4 16 -6 24 M4 -8 q16 2 20 16 q-16 0 -20 -16 M14 -20 q-2 -16 12 -20 q2 14 -12 20" vector-effect="non-scaling-stroke"/></g>
+                <g data-face="harm"><path d="M8 -42 L-18 4 H4 L-8 42 L22 -8 H2 Z" vector-effect="non-scaling-stroke"/></g>
+              </g>
+            </g>
+          </g>
+          <g id="shards"></g>
+
+          <!-- hand holding the coin up (follows the coin) -->
+          <g id="hand" opacity="0">
+            <path d="M-26 52 Q-44 70 -38 96 L-34 150 M26 54 Q44 72 36 98 L32 150 M-38 96 Q0 108 36 98 M-26 52 Q-14 46 -8 58 M26 54 Q14 46 8 60"/>
+          </g>
+
+          <!-- the pocket (fill hides the coin inside) -->
+          <g data-show="-1,-0.99,10.6,11.2">
+            <path d="M115 236 L285 236 L276 344 L200 382 L124 344 Z" class="occ" stroke-width="5" pathLength="1" data-draw="0.1,0.9"/>
+            <path data-show="0.4,0.9,99,100" d="M127 250 L273 250 L265 336 L200 368 L135 336 Z" stroke-width="2" stroke-dasharray="6 8"/>
+            <path d="M125 236 Q200 262 275 236" stroke-width="3" pathLength="1" data-draw="0.1,0.9"/>
+          </g>
+
+          <!-- the coin's people: small figures under it -->
+          <g id="crowd"></g>
+
+          <!-- church: white lines on black -->
+          <g id="church" data-show="36,36.1,50.2,51">
+            <path data-draw="36.1,37.6" pathLength="1" stroke-width="4" d="M62 392 V184 Q62 74 200 38 Q338 74 338 184 V392"/>
+            <path data-draw="36.5,37.6" pathLength="1" stroke-width="3" d="M100 210 V158 Q100 128 118 118 Q136 128 136 158 V210 Z M264 210 V158 Q264 128 282 118 Q300 128 300 158 V210 Z M118 118 V210 M100 166 H136 M282 118 V210 M264 166 H300"/>
+            <path data-draw="36.8,37.8" pathLength="1" stroke-width="3" d="M168 236 H232 M176 236 V258 M224 236 V258"/>
+            <path data-draw="37,38" pathLength="1" stroke-width="4" d="M78 300 H174 M82 336 H174 M86 372 H174 M226 300 H322 M226 336 H318 M226 372 H314 M174 300 V384 M226 300 V384"/>
+            <g id="pews"></g>
+            <g id="lone" opacity="0">
+              <circle id="loneHead" cx="200" cy="306" r="11"/>
+              <path d="M200 318 V352 M200 352 L191 386 M200 352 L209 386"/>
+              <path data-pose="stand" d="M200 326 L188 350 M200 326 L212 350"/>
+              <path data-pose="sing" d="M200 326 L184 340 M200 326 L216 340 M218 296 q8 -6 8 -16 M226 302 q12 -8 12 -24 M182 296 q-8 -6 -8 -16 M174 302 q-12 -8 -12 -24"/>
+              <path data-pose="pray" d="M200 326 L190 342 L200 334 M200 326 L210 342 L200 334"/>
+            </g>
+          </g>
+
+          <!-- x-ray: hand in the pocket -->
+          <g id="xray" data-show="50.4,51.2,59.0,60.0">
+            <path stroke-width="2.5" stroke-dasharray="7 7" d="M115 236 L285 236 L276 344 L200 382 L124 344 Z"/>
+            <path stroke-width="3" stroke-dasharray="5 6" d="M150 40 L176 250 M240 40 L226 250"/>
+            <path stroke-width="2.5" d="M164 60 L184 240 M226 60 L212 240 M184 240 L200 252 L212 240"/>
+            <g id="fingersOpen"><path stroke-width="3" d="M182 256 L176 300 M194 260 L192 306 M206 260 L208 306 M218 256 L224 300 M176 300 v4 M192 306 v4 M208 306 v4 M224 300 v4"/></g>
+            <g id="fingersCurl" opacity="0"><path stroke-width="3" d="M180 256 Q154 300 182 334 M194 260 Q176 314 198 340 M206 260 Q226 312 204 340 M220 256 Q248 298 220 334"/></g>
+          </g>
+        </g>
+      </svg>
+    </div>
+    <div class="reel boil" id="reel"></div>
+    <div id="receipt" class="boil"></div>
+  </div>
+</div>
+<div id="wipe"></div>
+<div id="gs" class="boil">Do you get it?</div>
+<div class="hint" id="hint">Scroll slowly</div>
+<div class="end" id="end">End</div>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+  const ease = t => { t = clamp(t); return t * t * (3 - 2 * t); };
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const show = (s, a, b, c, d) => ease((s - a) / Math.max(1e-3, b - a)) * (1 - ease((s - c) / Math.max(1e-3, d - c)));
+  let rnd = 7; const rand = () => (rnd = (rnd * 16807) % 2147483647) / 2147483647;
+
+  // ---- The score: every line, the step(s) it lands on, and how it moves ----
+  // st = stanza (a new stanza clears the last); chunks land one by one; from = slide in sideways
+  const G = 30.4; // "Do you get it?"
+  const LINES = [
+    { st:1, c:["There’s a coin in my pocket"], at:[0] },
+    { st:1, c:["Been relying on it"], at:[2] },
+    { st:1, c:["To eat"], at:[3] },
+    { st:1, c:["to sleep"], at:[4] },
+    { st:1, c:["To speak"], at:[5] },
+    { st:1, c:["to walk"], at:[6] },
+    { st:1, c:["To stop"], at:[7] },
+    { st:1, c:["to step"], at:[8] },
+    { st:1, c:["Back."], at:[9.2], big:true },
+
+    { st:2, c:["We go way back"], at:[10.6] },
+    { st:2, c:["This coin and me"], at:[11.6] },
+    { st:2, c:["Since I can remember"], at:[12.6] },
+    { st:2, c:["Masking", "at ease"], at:[13.6,14.1] },
+    { st:2, c:["Its me,"], at:[14.8] },
+    { st:2, c:["I toss the coin"], at:[15.6] },
+    { st:2, c:["I ask it to choose"], at:[16.6] },
+    { st:2, c:["We never argued"], at:[17.6] },
+
+    { st:3, c:["It works"], at:[18.8] },
+    { st:3, c:["… In a way"], at:[19.6] },
+    { st:3, c:["It protects me"], at:[20.5] },
+    { st:3, c:["From thinking"], at:[21.5] },
+    { st:3, c:["I’m evil, astray"], at:[22.4] },
+
+    { st:4, c:["I’ve always felt"], at:[23.8] },
+    { st:4, c:["My resilience my feat"], at:[24.6] },
+    { st:4, c:["I will get back up"], at:[25.8] },
+    { st:4, c:["I will make the change"], at:[26.6] },
+    { st:4, c:["There will be another"], at:[27.4] },
+    { st:4, c:["Decision to make"], at:[28.2], from:-1 },
+    { st:4, c:["A risk to take"], at:[28.8], from:1 },
+    { st:4, c:["Conscience to fake"], at:[29.4], from:-1 },
+    { st:4, c:[""], at:[G], wipe:true },
+
+    { st:6, c:["Let me take you"], at:[35.4] },
+    { st:6, c:["Somewhere I’ve been"], at:[36.2] },
+    { st:6, c:["In church"], at:[37.0] },
+    { st:6, c:["I’ll set the scene"], at:[37.8] },
+    { st:6, c:["I’m no believer"], at:[38.8] },
+    { st:6, c:["I like the space"], at:[44.0] },
+    { st:6, c:["They welcome me"], at:[44.8] },
+    { st:6, c:["Know me"], at:[45.6] },
+    { st:6, c:["Let me be"], at:[46.2] },
+    { st:6, c:["Free to see"], at:[46.8] },
+
+    { st:7, c:["I sing."], at:[47.4] },
+    { st:7, c:["Sometimes."], at:[48.0] },
+    { st:7, c:["I pray."], at:[48.8] },
+    { st:7, c:["Other times."], at:[49.4] },
+    { st:7, c:["How", "I", "decide?"], at:[50.4,50.8,51.2] },
+    { st:7, c:["My finger furls around"], at:[54.2] },
+    { st:7, c:["That round ticket"], at:[55.0] },
+    { st:7, c:["Do I agree?"], at:[55.8] },
+    { st:7, c:["At least"], at:[56.6] },
+    { st:7, c:["Enough", "to speak?"], at:[57.2,57.7] },
+
+    { st:10, c:["Up it goes"], at:[58.6] },
+    { st:10, c:["Flips", "and twirls"], at:[59.3,59.7] },
+    { st:10, c:["Perhaps as it stands"], at:[60.4] },
+    { st:10, c:["I’ll feel", "I’ll know"], at:[61.1,61.6] },
+    { st:10, c:["Where I’d want it to land"], at:[62.2] },
+
+    { st:11, c:["Down", "it", "comes"], at:[63.4,63.7,64.0] },
+
+    { st:12, c:["“Don’t speak this line”"], at:[65.0], cls:"quote" },
+    { st:12, c:["It tells me,", "I sigh"], at:[65.8,66.3] },
+    { st:12, c:["Perhaps next time"], at:[67.0] },
+
+    // light again: someone else on a path
+    { st:13, c:["Then comes another"], at:[70.4] },
+    { st:13, c:["A chance to engage"], at:[71.2] },
+    { st:13, c:["I see someone’s mind"], at:[72.0] },
+    { st:13, c:["Wandering alone"], at:[72.8] },
+    { st:13, c:["Watercolour,", "no"], at:[73.6,74.0] },
+    { st:13, c:["More pastel a tone"], at:[74.4] },
+    { st:13, c:["They’ve much to say"], at:[75.2] },
+    { st:13, c:["I’m there,"], at:[76.0] },
+    { st:13, c:["“Hey”"], at:[76.8], cls:"heavy" },
+    { st:14, c:["I’ve already tossed"], at:[77.6] },
+    { st:14, c:["The disc of fate:"], at:[78.4] },
+    { st:14, c:["“It’s time you listen,"], at:[79.2], cls:"quote" },
+    { st:14, c:["You - and I -", "can wait”"], at:[80.0,80.5], cls:"quote" },
+    { st:15, c:["There I am"], at:[81.0] },
+    { st:15, c:["Eyes open,", "ears too"], at:[81.6,82.0] },
+    { st:15, c:["As they paint my soul"], at:[82.4] },
+    { st:15, c:["Crimson,", "cream,"], at:[83.1,83.5] },
+    { st:15, c:["So many shades of blue"], at:[84.0] },
+    { st:16, c:["Don’t get me wrong"], at:[84.8] },
+    { st:16, c:["I do care"], at:[85.6] },
+    { st:16, c:["I love to be there"], at:[86.4] },
+    { st:16, c:["Find out with them"], at:[87.2] },
+    { st:16, c:["The burdens they bear"], at:[88.0] },
+    { st:16, c:["And if in kind"], at:[88.8] },
+    { st:16, c:["I can share …"], at:[89.6] },
+
+    { st:17, c:["But the decision’s not mine"], at:[90.8] },
+    { st:17, c:["I just get in line"], at:[91.6] },
+    { st:17, c:["Our agreement holds"], at:[92.4] },
+    { st:17, c:["And I feel fine"], at:[93.2] },
+
+    // dark: the spotlight
+    { st:18, c:["Though there is one more"], at:[94.8] },
+    { st:18, c:["There’s one that I fear"], at:[95.6] },
+    { st:18, c:["You see,"], at:[96.4] },
+    { st:18, c:["People"], at:[97.8] },
+    { st:18, c:["Love me"], at:[99.0] },
+    { st:18, c:["And I them"], at:[99.6] },
+    { st:18, c:["They show it,"], at:[100.4] },
+    { st:18, c:["I struggle"], at:[101.2] },
+    { st:18, c:["How will they know if"], at:[102.0] },
+    { st:18, c:["I don’t act or acknowledge?"], at:[102.8] },
+
+    { st:19, c:["I must do, must express"], at:[104.0] },
+    { st:19, c:["Part of me, then I can rest"], at:[104.8] },
+    { st:19, c:["Did I mention I mask?"], at:[105.6] },
+    { st:19, c:["More precise -", "I mirror."], at:[106.2,106.6] },
+    { st:19, c:["Be me?", "How would I do that?"], at:[107.2,107.7] },
+    { st:19, c:["Reflect them, that’s better"], at:[108.2] },
+    { st:19, c:["I figure"], at:[108.9] },
+
+    { st:20, c:["Knowing well I skip the deal"], at:[110.0] },
+    { st:20, c:["The coin heats up"], at:[110.8] },
+    { st:20, c:["Red hot appeal"], at:[111.6] },
+
+    { st:21, c:["“You were to ask me”"], at:[112.6], cls:"voice" },
+    { st:21, c:["“How you should feel”"], at:[113.3], cls:"voice" },
+    { st:21, c:["“You backed out”"], at:[114.0], cls:"voice" },
+    { st:21, c:["“Denied yourself”"], at:[114.7], cls:"voice" },
+    { st:21, c:["“To me”"], at:[115.3], cls:"voice" },
+    { st:21, c:["“To them”"], at:[115.8], cls:"voice" },
+    { st:22, c:["“I am the fate”"], at:[116.6], cls:"voice" },
+    { st:22, c:["“You cannot avoid”"], at:[117.3], cls:"voice" },
+    { st:22, c:["“This debt will be paid”"], at:[118.0], cls:"voice" },
+    { st:22, c:["“You will toss this coin”"], at:[119.6], cls:"voice" },
+
+    { st:23, c:["Surely,", "you get it?"], at:[121.0,121.4] },
+    { st:23, c:["By now you must …"], at:[122.0] },
+    { st:23, c:["These seconds", "between seconds"], at:[122.6,123.0] },
+    { st:23, c:["A story is formed"], at:[124.6] },
+
+    { st:24, c:["I fear this coin"], at:[125.6] },
+    { st:24, c:["There’s always a chance,"], at:[126.3] },
+    { st:24, c:["One face brings peace"], at:[127.0] },
+    { st:24, c:["The other brings harm"], at:[127.8] },
+    { st:24, c:["I don’t want to hurt you"], at:[128.6] },
+    { st:24, c:["Don’t make me do it"], at:[130.2] },
+    { st:24, c:["Risk it"], at:[131.0] },
+    { st:24, c:["For our sake"], at:[131.6] },
+    { st:25, c:["Let me act on stage"], at:[132.4] },
+    { st:25, c:["Its fine"], at:[133.2] },
+    { st:25, c:["I chose", "my own cage …"], at:[133.8,134.2] },
+
+    // light again: the tab, printed on a bill
+    { st:26, c:["Though at this age"], at:[136.2], bill:true },
+    { st:26, c:["Inevitable it seems"], at:[136.9], bill:true },
+    { st:26, c:["The tab has caught up"], at:[137.6], bill:true },
+    { st:26, c:["I check my balance"], at:[138.4], bill:true },
+    { st:26, c:["Oh my…"], at:[139.2], bill:true },
+    { st:26, c:["Scales long broken"], at:[140.0], bill:true },
+    { st:26, c:["My honour"], at:[140.8], bill:true },
+    { st:26, c:["Outweighed"], at:[141.4], bill:true },
+    { st:26, c:["It sure is"], at:[142.2], bill:true },
+    { st:26, c:["Time that I paid"], at:[142.9], bill:true },
+
+    { st:27, c:["Slowly but surely"], at:[145.2] },
+    { st:27, c:["These reparations be made"], at:[146.0] },
+    { st:27, c:["Some day"], at:[146.8] },
+    { st:27, c:["I hope"], at:[147.4] },
+    { st:27, c:["For one final toke"], at:[148.0] },
+    { st:27, c:["Of these alter egos"], at:[148.8] },
+    { st:27, c:["No one but me knows"], at:[149.6] },
+
+    { st:28, c:["When this happens"], at:[150.8] },
+    { st:28, c:["A wish will be made"], at:[151.6] },
+    { st:28, c:["To be one with my shade"], at:[152.4] },
+    { st:28, c:["Heads or tails?"], at:[153.4], cls:"heavy" },
+    { st:28, c:["Will not matter"], at:[154.4] },
+    { st:28, c:["Once all these mosaics", "shatter"], at:[155.2,155.8] },
+  ];
+  const END = 158.4;
+  // background flips: [step it completes, night?]; a panel of the new colour wipes up first
+  const WIPES = [[70.0, false], [94.4, true], [135.7, false]];
+  const isNight = s => (s >= G + 1.6 && s < 70.0) || (s >= 94.4 && s < 135.7);
+
+  const reel = document.getElementById('reel');
+  const receipt = document.getElementById('receipt');
+  const lineEls = LINES.map(L => {
+    const d = document.createElement('div');
+    d.className = L.bill ? 'row' : 'line' + (L.big ? ' big' : '') + (L.cls ? ' ' + L.cls : '');
+    d.innerHTML = L.c.map(c => `<span class="w">${c}</span>`).join(' ');
+    (L.bill ? receipt : reel).appendChild(d);
+    return d;
+  });
+  const isReel = L => !L.big && !L.wipe && !L.bill;
+
+  // ---- The coin's path: [step, x, y, scale] ----
+  const KF = [
+    [0,200,296,1],[1.0,200,296,1],[1.9,200,140,1],[9.0,200,140,1],[9.8,200,296,1],
+    [10.6,200,296,1],[11.5,92,236,.62],[12.6,92,236,.62],[13.3,104,214,.66],
+    [13.7,104,214,.66],[14.5,200,150,.94],[15.5,200,150,.94],[16.1,200,-160,.9],
+    [16.6,200,-160,1.35],[17.4,200,118,1.35],[20.3,200,118,1.35],[21.1,200,206,.82],
+    [23.6,200,206,.82],[24.4,200,206,0],
+    [50.6,200,300,0],[51.2,200,300,.5],[58.4,200,300,.5],[59.3,200,70,.85],
+    [62.8,200,70,.85],[63.4,200,70,.85],[64.2,200,176,1.15],[68.9,200,176,1.15],[69.5,200,176,0],
+    [77.2,300,300,0],[77.8,300,150,.6],[90.6,300,150,.6],[91.4,200,140,.85],[93.2,200,140,.85],[93.8,200,140,0],
+    [110.5,200,140,0],[111.1,200,130,.8],[120.2,200,130,.8],[120.9,200,130,0],
+    [125.1,200,-160,0],[125.15,200,-160,.9],[125.9,200,120,.9],[132.2,200,120,.9],[133.0,200,640,.9],[133.05,200,640,0],
+    [150.2,200,640,0],[150.25,200,600,1],[151.3,200,150,1],
+  ];
+  function coinAt(s) {
+    if (s <= KF[0][0]) return KF[0].slice(1);
+    for (let i = 0; i < KF.length - 1; i++) {
+      const a = KF[i], b = KF[i + 1];
+      if (s < b[0]) { const t = ease((s - a[0]) / (b[0] - a[0])); return [lerp(a[1], b[1], t), lerp(a[2], b[2], t), lerp(a[3], b[3], t)]; }
+    }
+    return KF[KF.length - 1].slice(1);
+  }
+  // ---- Flips: [step the flip completes, face it shows, flip length] ----
+  const FLIPS = [
+    [3,'eat'],[4,'sleep'],[5,'speak'],[6,'walk'],[7,'stop'],[8,'step'],
+    [10.9,'blank'],[14.3,'mask'],
+    [15.8,'blank',.25],[16.05,'blank',.25],[16.3,'blank',.25],
+    [17.2,'think'],[18.0,'walk'],[19.0,'speak'],[20.0,'sleep'],[21.0,'eat'],[22.0,'blank'],
+    [50.55,'speak',.05],[59.0,'mute',.28],[59.15,'speak',.14],[59.3,'mute',.28],[59.6,'speak',.28],[59.9,'mute',.28],[60.2,'speak',.28],
+    [60.6,'mute',.35],[61.2,'speak',.35],[61.8,'mute',.35],[62.5,'speak',.4],
+    [63.7,'mute',.3],[64.0,'speak',.3],[64.3,'mute',.3],
+    [77.9,'blank',.3],[78.2,'speak',.3],[78.5,'blank',.3],[78.9,'ear',.4],
+    [111.0,'blank',.2],[112.4,'speak',.4],
+    [125.5,'blank',.25],[125.8,'blank',.25],[126.1,'blank',.25],
+    [127.0,'peace'],[127.8,'harm'],[128.6,'peace',.4],[129.0,'harm',.3],
+    [131.0,'peace',.22],[131.25,'harm',.22],[131.5,'peace',.22],[131.75,'harm',.22],[132.0,'peace',.22],
+    [150.3,'blank',.05],[153.9,'blank',.9],
+  ];
+
+  const svgNS = 'http://www.w3.org/2000/svg';
+  const mk = (tag, attrs, parent) => { const e = document.createElementNS(svgNS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+
+  // the coin's figures
+  const crowd = document.getElementById('crowd');
+  const figs = [110, 200, 290].map(x => {
+    const g = mk('g', { transform: `translate(${x} 0)`, opacity: 0 }, crowd);
+    const head = mk('circle', { cx: 0, cy: 318, r: 10 }, g);
+    mk('path', { d: 'M0 330 V356 M0 356 L-9 388 M0 356 L9 388 M0 336 L-10 360 M0 336 L10 360' }, g);
+    return { g, head };
+  });
+  // congregation in the pews
+  const pews = document.getElementById('pews');
+  const people = [[104,288],[146,288],[122,324],[256,288],[296,288],[278,324],[150,360],[250,360]].map(([x, y], i) => {
+    const g = mk('g', { opacity: 0 }, pews);
+    mk('circle', { cx: 0, cy: -8, r: 7, 'stroke-width': 3 }, g);
+    mk('path', { d: 'M-12 10 Q0 -2 12 10', 'stroke-width': 3 }, g);
+    return { g, x, y, i };
+  });
+  // people in the dark around the spotlight
+  const crowdDark = document.getElementById('crowdDark');
+  const darkPeople = [[44,330],[352,340],[84,370],[316,374],[20,262],[380,270],[120,250],[282,246],[18,390],[384,392]].map(([x, y], i) => {
+    const g = mk('g', { transform: `translate(${x} ${y})`, opacity: 0 }, crowdDark);
+    mk('circle', { cx: 0, cy: -8, r: 8, 'stroke-width': 3 }, g);
+    mk('path', { d: 'M-14 14 Q0 0 14 14', 'stroke-width': 3 }, g);
+    return { g, many: i >= 4 };
+  });
+  // trees beside the path
+  const trees = [0, 1, 2, 3, 4].map(i => {
+    const g = mk('g', {}, document.getElementById('trees'));
+    const sc = 0.8 + (i % 3) * 0.15;
+    mk('path', { d: `M0 388 V${388 - 62 * sc}`, 'stroke-width': 3 }, g);
+    mk('circle', { cx: 0, cy: 388 - 86 * sc, r: 26 * sc, 'stroke-width': 3, class: 'occ' }, g);
+    return { g, bx: i * 130 };
+  });
+  // the cage: bars inside the spotlight
+  const cage = document.getElementById('cage');
+  const bars = [];
+  for (let i = 0; i < 9; i++) {
+    const x = 140 + i * 15;
+    const p = mk('path', { d: `M${x} 40 V386`, 'stroke-width': 4, pathLength: 1 }, cage);
+    p.style.strokeDasharray = '1 2';
+    bars.push({ p, i, dx: (rand() - .5) * 160, rot: (rand() - .5) * 90 });
+  }
+  const cageTop = mk('path', { d: 'M136 40 H264 M136 386 H264', 'stroke-width': 4, pathLength: 1 }, cage);
+  cageTop.style.strokeDasharray = '1 2';
+  // the pile of coins
+  const pile = document.getElementById('pile');
+  const pileCoins = [];
+  for (let i = 0; i < 17; i++) {
+    const y = 380 - i * 13, x = 200 + (rand() - .5) * 10;
+    const g = mk('g', { opacity: 0 }, pile);
+    mk('path', { d: `M${x - 48} ${y} V${y + 8} A48 11 0 0 0 ${x + 48} ${y + 8} V${y}`, class: 'occ', 'stroke-width': 4 }, g);
+    mk('ellipse', { cx: x, cy: y, rx: 48, ry: 11, class: 'occ', 'stroke-width': 4 }, g);
+    pileCoins.push(g);
+  }
+  // shards of the last coin
+  const shardsG = document.getElementById('shards');
+  const shards = [];
+  { const n = 9; const pts = [];
+    for (let i = 0; i < n; i++) pts.push((i / n) * Math.PI * 2 + (rand() - .5) * 0.3);
+    const inner = [(rand() - .5) * 16, (rand() - .5) * 16];
+    for (let i = 0; i < n; i++) {
+      const a0 = pts[i], a1 = pts[(i + 1) % n] + (i === n - 1 ? Math.PI * 2 : 0);
+      let d = `M${inner[0]} ${inner[1]}`;
+      for (let k = 0; k <= 3; k++) { const a = lerp(a0, a1, k / 3); d += ` L${(72 * Math.cos(a)).toFixed(1)} ${(72 * Math.sin(a)).toFixed(1)}`; }
+      const g = mk('g', { opacity: 0 }, shardsG);
+      mk('path', { d: d + ' Z', class: 'occ', 'stroke-width': 4 }, g);
+      const mid = (a0 + a1) / 2;
+      shards.push({ g, dx: Math.cos(mid), dy: Math.sin(mid), dist: 150 + rand() * 160, rot: (rand() - .5) * 260 });
+    }
+  }
+
+  const coin = document.getElementById('coin'), flip = document.getElementById('coinFlip');
+  const coinBody = document.getElementById('coinBody'), heatGlow = document.getElementById('heatGlow');
+  const faces = {}; document.querySelectorAll('[data-face]').forEach(f => faces[f.dataset.face] = f);
+  const hand = document.getElementById('hand');
+  const draws = [...document.querySelectorAll('[data-draw]')].map(p => { p.style.strokeDasharray = '1 2'; return [p, p.dataset.draw.split(',').map(Number)]; });
+  const shows = [...document.querySelectorAll('[data-show]')].map(g => [g, g.dataset.show.split(',').map(Number)]);
+  const lone = document.getElementById('lone'), loneHead = document.getElementById('loneHead');
+  const poses = {}; document.querySelectorAll('[data-pose]').forEach(p => poses[p.dataset.pose] = p);
+  const fOpen = document.getElementById('fingersOpen'), fCurl = document.getElementById('fingersCurl');
+  const walker = document.getElementById('walker');
+  const walkA = walker.querySelector('[data-walk="a"]'), walkB = walker.querySelector('[data-walk="b"]');
+  const spot = document.getElementById('spot'), me = document.getElementById('me');
+  const reflection = document.getElementById('reflection'), mirrorLine = document.getElementById('mirrorLine');
+  const art = document.getElementById('art');
+  const gs = document.getElementById('gs'), wipe = document.getElementById('wipe');
+  const hint = document.getElementById('hint'), end = document.getElementById('end');
+  const root = document.documentElement;
+  const billIdx = []; LINES.forEach((L, k) => { if (L.bill) billIdx.push(k); });
+
+  // stretches of the timeline whose lines were cut; scrolling passes them quickly
+  const CUTS = [[32.2,35.0],[39.2,43.6],[51.7,53.8],[67.4,68.6],[96.7,97.4],[98.2,98.7],[118.5,119.1],[123.4,124.0],[129.3,129.9]];
+  function warp(raw) {
+    let o = raw; const eps = 0.15;
+    for (const [a, b] of CUTS) {
+      if (o < a) break;
+      if (o < a + eps) return a + (o - a) / eps * (b - a);
+      o += (b - a) - eps;
+    }
+    return o;
+  }
+
+  function frame(now) {
+    const time = now / 1000;
+    const unit = innerHeight * 0.62;
+    const s = warp(scrollY / unit);
+    const night = isNight(s);
+    root.classList.toggle('night', night);
+
+    // arrival of every line (0..1)
+    const arr = LINES.map(L => ease((s - L.at[0] + 0.45) / 0.45));
+    const reelIdx = []; LINES.forEach((L, k) => { if (isReel(L)) reelIdx.push(k); });
+    let lf = 0; reelIdx.forEach((k, i) => { if (i > 0) lf += arr[k]; });
+    const gap = parseFloat(getComputedStyle(lineEls[0]).fontSize) * 0.15;
+    const cum = [0]; reelIdx.forEach((k, i) => cum.push(cum[i] + lineEls[k].offsetHeight + gap));
+    const fl = Math.min(Math.floor(lf), reelIdx.length - 1), at = cum[fl] + (lf - fl) * ((cum[fl + 1] ?? cum[fl]) - cum[fl]);
+
+    // takeovers ("Back.", the wipe, the bill) clear the reel until the next reel line arrives
+    let T = 0;
+    LINES.forEach((L, k) => {
+      if (isReel(L)) return;
+      const next = LINES.findIndex((M, j) => j > k && isReel(M));
+      T = Math.max(T, ease((s - L.at[0] + 0.5) / 0.4) * (1 - (next > 0 ? arr[next] : 0)));
+    });
+
+    // the coin first, so words can come out of it
+    const [cx, cy, sc] = coinAt(s);
+    const shattered = s > 155.9;
+    let flips = 0; FLIPS.forEach(([t, , w = .45]) => flips += ease((s - (t - w)) / w));
+    const ang = flips * Math.PI, idx = Math.round(flips);
+    const sy = Math.max(0.03, Math.abs(Math.cos(ang)));           // flips end over end, like a real coin
+    const hop = Math.sin(ang % Math.PI) * 30 * sc;
+    coin.style.display = sc < 0.02 || shattered ? 'none' : '';
+    coin.style.opacity = s < 10.5 ? show(s, 0.6, 0.9, 9.6, 9.85) : ease((s - 10.5) / 0.4);
+    coin.setAttribute('transform', `translate(${cx} ${cy - hop}) scale(${sc})`);
+    flip.setAttribute('transform', `scale(1 ${sy})`);
+    const face = idx === 0 ? 'blank' : FLIPS[Math.min(idx, FLIPS.length) - 1][1];
+    for (const k in faces) faces[k].style.display = k === face ? '' : 'none';
+    const heat = show(s, 110.8, 111.6, 120.2, 120.9);
+    coinBody.style.fill = heat > 0.01 ? `rgba(216,38,27,${heat})` : '';
+    heatGlow.setAttribute('opacity', heat * (0.22 + 0.06 * Math.sin(time * 3)));
+
+    // where the coin is on screen, for the voice lines
+    const reelBox = reel.getBoundingClientRect();
+    const coinBox = coin.style.display === 'none' ? null : coin.getBoundingClientRect();
+    const restY = reelBox.top + reelBox.height * 0.28;
+
+    reelIdx.forEach((k, i) => {
+      const L = LINES[k], el = lineEls[k];
+      const d = i - lf;
+      let op = d > 0 ? 1 - d : 1 + d * 0.68;
+      // fade factor: lines of an old stanza leave before the new stanza's first line lands,
+      // and anything before a takeover ("Back.", the wipe, the bill) is gone for good once it starts
+      let keep = 1;
+      for (let j = k + 1; j < LINES.length; j++) {
+        const M = LINES[j];
+        if (!isReel(M)) { keep *= 1 - ease((s - M.at[0] + 0.6) / 0.3); break; }
+        if (M.st !== L.st) { keep *= 1 - ease((s - M.at[0] + 0.45) / 0.25); break; }
+      }
+      op = clamp(op);
+      let x = L.from && d > 0 ? L.from * d * 55 : 0, y = cum[i] - at, scale = 1;
+      if (L.cls === 'voice' && d > 0 && coinBox) {
+        // the coin speaks: the line grows out of it
+        const coinY = coinBox.top + coinBox.height / 2 - restY - el.offsetHeight / 2;
+        y = lerp(0, coinY, Math.min(1, d)); scale = lerp(1, 0.15, Math.min(1, d)); op = d >= 1 ? 0 : 1 - d * 0.6;
+      }
+      op *= keep;
+      el.style.opacity = op;
+      el.style.transform = `translate(${x}vw, ${y}px) scale(${scale})`;
+      [...el.children].forEach((w, j) => {
+        const t = ease((s - L.at[j] + 0.45) / 0.45);
+        w.style.opacity = j === 0 ? 1 : t;
+        w.style.transform = j === 0 ? '' : `translateY(${lerp(0.5, 0, t)}em)`;
+      });
+    });
+
+    // "Back."
+    { const k = LINES.findIndex(L => L.big), el = lineEls[k], L = LINES[k];
+      const t = ease((s - L.at[0] + 0.3) / 0.4), recede = ease((s - L.at[0] - 0.2) / 1.2);
+      el.style.opacity = t * (1 - arr[k + 1]);
+      el.style.transform = `translateY(${lerp(40, 0, t)}px) scale(${lerp(1.15, 1, t) * lerp(1, 0.78, recede)})`;
+      el.style.letterSpacing = `${lerp(-0.05, 0.02, recede)}em`; }
+
+    // "For goodness sake": rises, stretches upward, then black wipes up
+    let wipeSet = false;
+    if (s > G - 0.6 && s < G + 1.6) {
+      const inn = ease((s - G + 0.5) / 0.5);
+      const stretch = ease((s - G - 0.1) / 1.0);
+      const h = gs.offsetHeight;
+      const maxS = (innerHeight * 0.5 + h) / h;
+      gs.style.opacity = inn;
+      gs.style.transform = `translateY(${lerp(30, 0, inn) - h}px) scaleY(${lerp(1, maxS, stretch * stretch)})`;
+      wipe.style.background = '#0b0b0b';
+      wipe.style.transform = `translateY(${lerp(100, 0, ease((s - G - 0.7) / 0.9))}%)`;
+      wipeSet = true;
+    } else gs.style.opacity = 0;
+    for (const [w, toNight] of WIPES) {
+      if (s > w - 0.9 && s < w) {
+        wipe.style.background = toNight ? '#0b0b0b' : '#ffffff';
+        wipe.style.transform = `translateY(${lerp(100, 0, ease((s - w + 0.9) / 0.9))}%)`;
+        wipeSet = true;
+      }
+    }
+    if (!wipeSet) wipe.style.transform = 'translateY(100%)';
+
+    // the bill: lines print onto it, then it floats away
+    { let bf = 0; billIdx.forEach((k, i) => { lineEls[k].style.opacity = arr[k]; if (i > 0) bf += arr[k]; });
+      const H = reelBox.bottom;
+      const rows = billIdx.map(k => lineEls[k]);
+      const fi = Math.min(Math.floor(bf), rows.length - 1);
+      const c0 = rows[fi].offsetTop + rows[fi].offsetHeight / 2;
+      const c1 = rows[Math.min(fi + 1, rows.length - 1)]; const c1y = c1.offsetTop + c1.offsetHeight / 2;
+      const cY = lerp(c0, c1y, bf - fi);
+      const away = ease((s - 143.5) / 1.1);
+      receipt.style.opacity = show(s, 135.8, 136.2, 99999, 100000);
+      receipt.style.transform = `translate(-50%, ${H * 0.42 - cY - away * H * 1.4}px) rotate(${-7 * away}deg)`; }
+
+    // drawn-in lines and scene visibility
+    draws.forEach(([p, [a, b]]) => p.style.strokeDashoffset = 1 - ease((s - a) / (b - a)));
+    shows.forEach(([g, r]) => g.style.opacity = show(s, ...r));
+
+    // hands that hold the coin up
+    hand.setAttribute('opacity', Math.max(show(s, 11.0, 11.6, 15.5, 15.8), show(s, 150.6, 151.4, 155.8, 156.3)));
+    hand.setAttribute('transform', `translate(${cx} ${cy}) scale(${sc})`);
+
+    // the coin's figures: appear, bow, then only one is left under it
+    const bow = ease((s - 17.2) / 0.5);
+    figs.forEach((f, i) => {
+      const side = i !== 1;
+      f.g.setAttribute('opacity', show(s, 16.8, 17.5, side ? 20.2 : 23.6, side ? 21.0 : 24.4));
+      f.head.setAttribute('transform', `translate(0 ${bow * 8})`);
+    });
+
+    // church: lone figure, congregation sway gently
+    lone.setAttribute('opacity', ease((s - 37.4) / 0.6));
+    const sing = show(s, 47.1, 47.5, 48.4, 48.7), pray = show(s, 48.6, 49.0, 50.1, 50.5);
+    poses.sing.style.opacity = sing; poses.pray.style.opacity = pray; poses.stand.style.opacity = 1 - Math.max(sing, pray);
+    loneHead.setAttribute('transform', `translate(0 ${-4 * sing + 6 * pray})`);
+    const welcome = ease((s - 44.5) / 0.9);
+    people.forEach(p => {
+      const sway = reduce ? 0 : Math.sin(time * 0.7 + p.i * 1.3) * 1.6;
+      p.g.setAttribute('opacity', welcome);
+      p.g.setAttribute('transform', `translate(${p.x + sway} ${p.y + Math.cos(time * 0.5 + p.i) * 0.8})`);
+    });
+
+    // x-ray fingers furl round the coin, then let go as it rises
+    const curl = show(s, 53.9, 54.6, 58.2, 58.6);
+    fCurl.setAttribute('opacity', curl); fOpen.setAttribute('opacity', 1 - curl);
+
+    // the walk: scrolling is walking; trees slide past until "Hey"
+    const walkS = clamp(s, 70.4, 76.6);
+    const walking = s > 70.4 && s < 76.6;
+    const step = Math.floor(walkS * 5) % 2;
+    walkA.style.opacity = walking && step ? 0 : 1; walkB.style.opacity = walking && step ? 1 : 0;
+    walker.setAttribute('transform', `translate(${lerp(110, 210, ease((s - 70.4) / 6.2))} 0)`);
+    const off = (walkS - 70.4) * 95;
+    trees.forEach(t => { const x = ((t.bx - off) % 650 + 650) % 650 - 80; t.g.setAttribute('transform', `translate(${x} 0)`); });
+
+    // the spotlight: on, dims while the coin decides, back on, then a cage that breaks apart
+    spot.style.opacity = show(s, 94.6, 95.4, 134.9, 135.5) * (1 - 0.65 * show(s, 125.2, 125.8, 132.2, 132.8));
+    darkPeople.forEach(p => p.g.setAttribute('opacity', 0.5 * show(s, p.many ? 98.0 : 97.7, p.many ? 98.6 : 98.2, 109.6, 110.4)));
+    const mir = show(s, 106.4, 107.0, 109.4, 110.0);
+    me.setAttribute('transform', `translate(${-38 * mir} 0)`);
+    reflection.setAttribute('opacity', 0.55 * mir);
+    reflection.setAttribute('transform', `translate(${38 * mir} 0)`);
+    mirrorLine.setAttribute('opacity', mir);
+    const breakT = ease((s - 134.6) / 0.8);
+    bars.forEach(b => {
+      b.p.style.strokeDashoffset = 1 - ease((s - 133.8 - b.i * 0.05) / 0.5);
+      b.p.setAttribute('transform', `translate(${b.dx * breakT} ${breakT * breakT * 420}) rotate(${b.rot * breakT} ${140 + b.i * 15} 200)`);
+    });
+    cageTop.style.strokeDashoffset = 1 - ease((s - 134.0) / 0.4);
+    cageTop.setAttribute('opacity', 1 - breakT);
+
+    // a pile of coins, one at a time
+    const nCoins = Math.floor(clamp((s - 145.0) * 3.4, 0, pileCoins.length));
+    const pileOp = 1 - ease((s - 150.2) / 0.6);
+    pileCoins.forEach((g, i) => g.setAttribute('opacity', i < nCoins ? pileOp : 0));
+
+    // the last coin shatters
+    const sh = ease((s - 155.9) / 1.4);
+    shards.forEach(p => {
+      p.g.setAttribute('opacity', shattered ? 1 - ease((s - 156.8) / 0.6) : 0);
+      p.g.setAttribute('transform', `translate(${cx + p.dx * p.dist * sh} ${cy + p.dy * p.dist * sh + sh * sh * 120}) rotate(${p.rot * sh}) scale(${sc})`);
+    });
+
+    // the sketch steps back on "Back.", and leans in on "Surely, you get it?"
+    const back = show(s, 9.2, 10.4, 10.5, 11.2), zoom = show(s, 120.8, 121.8, 124.8, 125.5);
+    art.style.transform = `scale(${lerp(1, 0.86, back) * (1 + 0.75 * zoom)})`;
+
+    hint.style.opacity = 1 - ease(s / 0.3);
+    end.style.opacity = ease((s - END) / 0.4);
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+
+  // line "boil": sketches and words wobble like hand-drawn animation
+  if (!reduce) {
+    const turbs = document.querySelectorAll('.turb');
+    let seed = 1;
+    setInterval(() => { seed = (seed % 4) + 1; turbs.forEach(t => t.setAttribute('seed', seed)); }, 160);
+  }
+})();
+</script>
