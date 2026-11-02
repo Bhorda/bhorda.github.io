@@ -23,7 +23,9 @@ body{font-family:var(--display);margin:0}
 .sketch{display:flex;align-items:flex-end;justify-content:center;min-height:0;color:var(--ink)}
 .sketch svg{height:100%;max-width:100%;transform-origin:50% 78%;overflow:visible}
 .occ{fill:var(--paper)}
-.boil{filter:url(#boilT)}
+/* text wobble disabled: a live feTurbulence filter over content that moves every
+   frame costs WebKit ~9fps on iPhone. Re-enable with filter:url(#boilT) */
+.boil{filter:none}
 .reel{position:relative;min-width:0}
 .line{position:absolute;left:0;right:0;top:28%;text-align:center;font-weight:900;font-size:var(--size);
   line-height:1.1;letter-spacing:-0.02em;text-wrap:balance;will-change:transform,opacity}
@@ -45,7 +47,7 @@ body{font-family:var(--display);margin:0}
 .hint,.end{position:fixed;left:0;right:0;text-align:center;font-weight:500;font-size:.8rem;letter-spacing:.14em;
   text-transform:uppercase;color:var(--faint);bottom:calc(22px + env(safe-area-inset-bottom,0px));z-index:6}
 .end{opacity:0}
-@media (prefers-reduced-motion: reduce){ .boil, .sketch g[filter]{filter:none} }
+/* reduced motion: handled in the baking code below, which stops the shift */
 </style>
 </head>
 <body>
@@ -65,7 +67,7 @@ body{font-family:var(--display);margin:0}
           </filter>
           <clipPath id="frame"><rect x="0" y="0" width="400" height="400"/></clipPath>
         </defs>
-        <g filter="url(#boil)" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+        <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
 
           <!-- head and shoulders: "We go way back" -->
           <g data-show="10.5,11.3,16.6,17.2">
@@ -741,12 +743,111 @@ body{font-family:var(--display);margin:0}
   }
   requestAnimationFrame(frame);
 
-  // line "boil": sketches and words wobble like hand-drawn animation
-  if (!reduce) {
-    const turbs = document.querySelectorAll('.turb');
-    let seed = 1;
-    setInterval(() => { seed = (seed % 4) + 1; turbs.forEach(t => t.setAttribute('seed', seed)); }, 160);
+})();
+</script>
+
+<script>
+/* Hand-drawn wobble, baked into the path geometry.
+   WebKit cannot afford a live feTurbulence filter over a subtree whose contents
+   move every frame: iPhone Safari measured 9fps where Chromium held 116. So the
+   roughening is precomputed instead -- each stroke is sampled along its real
+   length and displaced by smooth 1D value noise, then three variants are swapped
+   twice a second. Costs nothing per frame; only the swap recurs. */
+(() => {
+  const REDUCE = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const AMP = 0.6, WAVE = 6, STEP = 3, RATE = 2;   // wobble, smoothness, detail, shifts/sec
+
+  const rngFrom = s => () => { s |= 0; s = s + 0x6D2B79F5 | 0;
+    let t = Math.imul(s ^ s >>> 15, 1 | s);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+
+  // Independent per-point offsets read as a sharp zigzag; interpolating between
+  // control values every WAVE units makes the line drift like a pen instead.
+  function series(rnd, n, W) {
+    W = Math.max(2, W);
+    const ctrl = [];
+    for (let i = 0; i <= Math.ceil(n / W) + 2; i++) ctrl.push(rnd() * 2 - 1);
+    const o = [];
+    for (let i = 0; i <= n; i++) {
+      const t = i / W, i0 = Math.floor(t), f = t - i0, sm = f * f * (3 - 2 * f);
+      o.push(ctrl[i0] * (1 - sm) + ctrl[i0 + 1] * sm);
+    }
+    return o;
   }
+
+  function roughen(el, rnd) {
+    let L = 0;
+    try { L = el.getTotalLength(); } catch (e) { return null; }
+    if (!isFinite(L) || L < 26) return null;          // short ticks turn to mush
+    const n = Math.max(3, Math.ceil(L / STEP));
+
+    // Most of these paths hold several subpaths, and getPointAtLength walks
+    // straight across the gaps. A jump far larger than the step is a boundary.
+    const subs = []; let cur = [], prev = null;
+    for (let i = 0; i <= n; i++) {
+      const pt = el.getPointAtLength(L * i / n);
+      if (prev && Math.hypot(pt.x - prev.x, pt.y - prev.y) > STEP * 2.5) {
+        if (cur.length) subs.push(cur);
+        cur = [];
+      }
+      cur.push({ x: pt.x, y: pt.y });
+      prev = pt;
+    }
+    if (cur.length) subs.push(cur);
+
+    const parts = [];
+    for (const sub of subs) {
+      const m = sub.length;
+      if (m < 2) continue;
+      if (m < 4) { parts.push('M ' + sub.map(q => q.x.toFixed(2) + ' ' + q.y.toFixed(2)).join(' L ')); continue; }
+      const W = Math.max(2, WAVE / STEP);
+      const nx = series(rnd, m, W), ny = series(rnd, m, W);
+      const a0 = Math.min(AMP, (STEP * (m - 1)) / 45);
+      const o = sub.map((q, j) => {
+        // taper at each subpath's own ends so strokes still meet what they join
+        const edge = Math.min(j, m - 1 - j) / Math.max(1, (m - 1) * 0.18);
+        const a = a0 * Math.min(1, edge);
+        return (q.x + nx[j] * a).toFixed(2) + ' ' + (q.y + ny[j] * a).toFixed(2);
+      });
+      parts.push('M ' + o[0] + ' L ' + o.slice(1).join(' L '));
+    }
+    return parts.length ? parts.join(' ') : null;
+  }
+
+  const paths = [...document.querySelectorAll('#art path')];
+  if (!paths.length) return;
+  const ORIG = paths.map(p => p.getAttribute('d'));
+  const bake = i => { const r = rngFrom(1337 + i * 7717);
+                      return paths.map((p, k) => roughen(p, r) || ORIG[k]); };
+  const put = v => paths.forEach((p, k) => p.setAttribute('d', v[k]));
+
+  // Baking all of this at once blocked first paint for ~2s at this detail level,
+  // so it runs in small chunks across frames instead. The sketch shows its clean
+  // geometry for the first moment, then the wobble arrives.
+  const CHUNK = 12;
+  const variants = [];
+
+  function bakeChunked(i, done) {
+    const r = rngFrom(1337 + i * 7717);
+    const acc = new Array(paths.length);
+    let k = 0;
+    (function piece() {
+      const end = Math.min(k + CHUNK, paths.length);
+      for (; k < end; k++) acc[k] = roughen(paths[k], r) || ORIG[k];
+      if (k < paths.length) requestAnimationFrame(piece);
+      else { variants[i] = acc; done && done(); }
+    })();
+  }
+
+  bakeChunked(0, () => {
+    put(variants[0]);
+    if (REDUCE || RATE <= 0) return;                 // reduced motion: hold still
+    bakeChunked(1, () => bakeChunked(2, () => {
+      let i = 0;
+      setInterval(() => { i = (i + 1) % variants.length; put(variants[i]); }, 1000 / RATE);
+    }));
+  });
 })();
 </script>
 
